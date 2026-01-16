@@ -13,6 +13,9 @@ const Home = () => {
   const sectionRef = useRef(null);
   const [activeService, setActiveService] = useState(null);
   const [animatedCardsVisible, setAnimatedCardsVisible] = useState(false);
+  const [heroLoaded, setHeroLoaded] = useState(false);
+  const [textRevealed, setTextRevealed] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(false);
 
   // AnimatedCounter Component
   const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }) => {
@@ -46,6 +49,24 @@ const Home = () => {
       </span>
     );
   };
+
+  // Hero section animations
+  useEffect(() => {
+    // Trigger hero animations on page load
+    setTimeout(() => {
+      setHeroLoaded(true);
+      
+      // Text reveal animation
+      setTimeout(() => {
+        setTextRevealed(true);
+      }, 800);
+      
+      // Stats animation
+      setTimeout(() => {
+        setStatsVisible(true);
+      }, 1200);
+    }, 300);
+  }, []);
 
   // Intersection Observer for Results Section
   useEffect(() => {
@@ -194,26 +215,37 @@ const Home = () => {
         }}></div>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Section with Enhanced Animations */}
       <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-grey-900 to-slate-800 overflow-hidden">
-          <div className="absolute inset-0 bg-black/60 z-10"></div>
+        {/* Background with animation */}
+        <div className={`absolute inset-0 bg-gradient-to-br from-slate-900 via-grey-900 to-slate-800 overflow-hidden transition-all duration-1500 ${
+          heroLoaded ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <div className="absolute inset-0 bg-black/60 z-10 transition-opacity duration-1000 delay-300"></div>
           
-          {/* Desktop: 4-Image Grid */}
+          {/* Desktop: 4-Image Grid with staggered reveal */}
           <div className="hidden lg:grid lg:grid-cols-2 lg:grid-rows-2 absolute inset-0">
             {[
-              { img: leadDiscoveryImg, label: "Lead Discovery" },
-              { img: realtimeImg, label: "Real-time Analytics" },
-              { img: emailImg, label: "Email Campaigns" },
-              { img: managedServiceImg, label: "Managed Service" }
+              { img: leadDiscoveryImg, label: "Lead Discovery", delay: 100 },
+              { img: realtimeImg, label: "Real-time Analytics", delay: 200 },
+              { img: emailImg, label: "Email Campaigns", delay: 300 },
+              { img: managedServiceImg, label: "Managed Service", delay: 400 }
             ].map((item, index) => (
-              <div key={index} className="relative overflow-hidden group">
+              <div 
+                key={index} 
+                className="relative overflow-hidden group"
+                style={{
+                  transform: heroLoaded ? 'translateY(0)' : 'translateY(100%)',
+                  opacity: heroLoaded ? 1 : 0,
+                  transition: `transform 1s cubic-bezier(0.4, 0, 0.2, 1) ${item.delay}ms, opacity 0.8s ease ${item.delay}ms`
+                }}
+              >
                 <img 
                   src={item.img}
                   alt={item.label}
                   className="w-full h-full object-cover transform transition-all duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-500 group-hover:opacity-80"></div>
               </div>
             ))}
           </div>
@@ -223,7 +255,14 @@ const Home = () => {
             <div className="absolute inset-0 flex transition-transform duration-700 ease-out" 
                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
               {[leadDiscoveryImg, realtimeImg, emailImg, managedServiceImg].map((img, index) => (
-                <div key={index} className="relative min-w-full h-full">
+                <div 
+                  key={index} 
+                  className="relative min-w-full h-full"
+                  style={{
+                    opacity: heroLoaded ? 1 : 0,
+                    transition: `opacity 1s ease ${index * 200}ms`
+                  }}
+                >
                   <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 z-10"></div>
                   <img 
                     src={img}
@@ -234,40 +273,74 @@ const Home = () => {
               ))}
             </div>
           </div>
+          
+          {/* Animated Background Glow */}
+          <div className={`absolute inset-0 z-0 transition-all duration-2000 ${
+            heroLoaded ? 'opacity-100' : 'opacity-0'
+          }`}>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" 
+                 style={{ animationDelay: '1s' }}></div>
+          </div>
         </div>
 
-        {/* Main Content */}
+        {/* Main Content with Text Animations */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full z-30">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
-              <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-8">
+              {/* Animated Badge */}
+              <div className={`inline-flex items-center gap-3 px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-8 transform transition-all duration-1000 ${
+                heroLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'
+              }`}>
                 <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
                 <span className="text-sm font-semibold tracking-wide">B2B LEAD GENERATION PLATFORM</span>
               </div>
               
+              {/* Animated Main Heading - Simplified */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                <span className="block mb-3">Transform Your</span>
-                <span className="block text-blue-400">Sales Pipeline</span>
+                {/* First Line */}
+                <div className={`block overflow-hidden`}>
+                  <span className={`block transform transition-all duration-800 delay-300 ${
+                    textRevealed ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+                  }`}>
+                    Transform Your
+                  </span>
+                </div>
+                
+                {/* Second Line with Special Effect */}
+                <div className={`block mt-3 overflow-hidden`}>
+                  <span className={`block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent transform transition-all duration-800 delay-700 ${
+                    textRevealed ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-4 opacity-0 scale-95'
+                  }`}>
+                    Sales Pipeline
+                  </span>
+                </div>
               </h1>
               
-              <p className="text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
-                DartsUnity delivers precision-targeted lead generation with verified contact data, 
-                automated outreach, and real-time analytics to accelerate your business growth.
-              </p>
+                {/* Animated Description Text - Smoother */}
+                <p className={`text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl transform transition-all duration-700 delay-1000 ${
+                  textRevealed ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}>
+                  DartsUnity delivers precision-targeted lead generation with verified contact data, 
+                  automated outreach, and real-time analytics to accelerate your business growth.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center">
+              {/* Animated Buttons */}
+              <div className={`flex flex-col sm:flex-row gap-4 mb-12 transform transition-all duration-1000 ${
+                textRevealed ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              }`} style={{ transitionDelay: '1200ms' }}>
+                <button className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center transform hover:scale-105 shadow-lg hover:shadow-blue-500/30">
                   Start Free Trial
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
-                <button className="group px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-lg font-semibold text-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3">
-                  
-                  <span>Explore</span>
+                <button className="group px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-lg font-semibold text-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3 transform hover:scale-105">
+                  <PlayCircle className="h-5 w-5" />
+                  <span>Watch Demo</span>
                 </button>
               </div>
 
-              {/* Key Metrics */}
+              {/* Key Metrics with Staggered Animation */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { icon: TrendingUp, value: "3x", label: "Faster Conversion" },
@@ -275,8 +348,15 @@ const Home = () => {
                   { icon: Users, value: "500+", label: "Active Clients" },
                   { icon: Zap, value: "24/7", label: "Support" }
                 ].map((stat, index) => (
-                  <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center">
-                    <stat.icon className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                  <div 
+                    key={index} 
+                    className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center transform transition-all duration-700 ${
+                      statsVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    }`}
+                    style={{ transitionDelay: `${1400 + (index * 200)}ms` }}
+                  >
+                    <stat.icon className="w-6 h-6 text-blue-400 mx-auto mb-2 animate-bounce" 
+                               style={{ animationDelay: `${index * 200}ms` }} />
                     <div className="text-2xl font-bold mb-1">{stat.value}</div>
                     <div className="text-xs text-gray-400">{stat.label}</div>
                   </div>
@@ -284,36 +364,55 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Side - Stats Dashboard */}
-            <div className="hidden lg:block">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8">
+            {/* Right Side - Stats Dashboard with Animation */}
+            <div className={`hidden lg:block transform transition-all duration-1000 ${
+              heroLoaded ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+            }`} style={{ transitionDelay: '800ms' }}>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl">
                 <div className="flex items-center justify-between mb-8">
-                  <div>
+                  <div className="transform transition-all duration-1000" 
+                       style={{ 
+                         transform: statsVisible ? 'translateY(0)' : 'translateY(-20px)',
+                         opacity: statsVisible ? 1 : 0,
+                         transitionDelay: '1000ms'
+                       }}>
                     <div className="text-sm text-gray-400 mb-1">Performance Metrics</div>
                     <div className="text-4xl font-bold text-white">Live Dashboard</div>
                   </div>
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className={`w-3 h-3 bg-green-400 rounded-full ${
+                    statsVisible ? 'animate-pulse' : 'opacity-0'
+                  }`} style={{ transitionDelay: '1200ms' }}></div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-white/10 rounded-xl p-5">
+                  <div className={`bg-white/10 rounded-xl p-5 transform transition-all duration-700 ${
+                    statsVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+                  }`} style={{ transitionDelay: '1200ms' }}>
                     <div className="text-sm text-gray-400 mb-2">Lead Quality</div>
                     <div className="text-3xl font-bold text-white mb-3">98%</div>
                     <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-blue-500 rounded-full w-[98%]"></div>
+                      <div className={`h-full bg-blue-500 rounded-full transition-all duration-2000 ${
+                        statsVisible ? 'w-[98%]' : 'w-0'
+                      }`} style={{ transitionDelay: '1400ms' }}></div>
                     </div>
                   </div>
 
-                  <div className="bg-white/10 rounded-xl p-5">
+                  <div className={`bg-white/10 rounded-xl p-5 transform transition-all duration-700 ${
+                    statsVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+                  }`} style={{ transitionDelay: '1400ms' }}>
                     <div className="text-sm text-gray-400 mb-2">Response Time</div>
                     <div className="text-3xl font-bold text-white mb-3">15min</div>
                     <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-green-500 rounded-full w-[90%]"></div>
+                      <div className={`h-full bg-green-500 rounded-full transition-all duration-2000 ${
+                        statsVisible ? 'w-[90%]' : 'w-0'
+                      }`} style={{ transitionDelay: '1600ms' }}></div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-600/20 to-transparent rounded-xl p-5 border border-blue-500/30">
+                <div className={`bg-gradient-to-r from-blue-600/20 to-transparent rounded-xl p-5 border border-blue-500/30 transform transition-all duration-1000 ${
+                  statsVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+                }`} style={{ transitionDelay: '1600ms' }}>
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-3xl font-bold text-white mb-1">99.9%</div>
@@ -330,25 +429,51 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-          <div className="flex flex-col items-center gap-2 animate-bounce">
-            <div className="text-white/60 text-sm">Explore More</div>
-            <ChevronDown className="w-6 h-6 text-white/60" />
+        {/* Animated Scroll Indicator */}
+        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 transition-all duration-1000 ${
+          heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '2000ms' }}>
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-white/60 text-sm animate-pulse">Explore More</div>
+            <ChevronDown className="w-6 h-6 text-white/60 animate-bounce" />
           </div>
         </div>
 
         {/* Mobile Carousel Indicators */}
-        <div className="lg:hidden absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+        <div className={`lg:hidden absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-30 transition-all duration-1000 ${
+          heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`} style={{ transitionDelay: '1800ms' }}>
           {[0, 1, 2, 3].map((index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${currentSlide === index ? 'bg-white w-8' : 'bg-white/40'}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentSlide === index ? 'bg-white w-8' : 'bg-white/40'
+              }`}
+            />
+          ))}
+        </div>
+        
+        {/* Floating Particles Animation */}
+        <div className={`absolute inset-0 pointer-events-none z-20 transition-opacity duration-1000 ${
+          heroLoaded ? 'opacity-100' : 'opacity-0'
+        }`}>
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-white/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float ${3 + Math.random() * 4}s infinite ease-in-out`,
+                animationDelay: `${Math.random() * 2}s`,
+                opacity: 0.3 + Math.random() * 0.4
+              }}
             />
           ))}
         </div>
       </section>
+
       {/* Enhanced Results Section */}
       <section ref={sectionRef} className="relative py-24 bg-white overflow-hidden">
         {/* Animated Background Elements */}
@@ -693,7 +818,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
+
  {/* About Section */}
 <section className="relative py-28 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
   
@@ -1809,6 +1934,44 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+          {/* Add CSS animations in global styles or style tag */}
+          <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0) translateX(0); }
+          25% { transform: translateY(-10px) translateX(5px); }
+          50% { transform: translateY(-20px) translateX(-5px); }
+          75% { transform: translateY(-10px) translateX(5px); }
+        }
+        
+        .text-gradient-animate {
+          background: linear-gradient(45deg, #60a5fa, #22d3ee, #60a5fa);
+          background-size: 200% 200%;
+          animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        .letter-reveal {
+          animation: letterReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes letterReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(30px) rotateX(-90deg);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+          }
+        }
+      `}</style>
+
+
     </div>
   );
 };

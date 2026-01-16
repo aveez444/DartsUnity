@@ -7,6 +7,7 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -26,6 +27,15 @@ const Navbar = () => {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   const solutions = [
@@ -84,14 +94,21 @@ const Navbar = () => {
 
   // Handle dropdown hover with timeout for smoother transition
   const handleDropdownEnter = (dropdown) => {
-    clearTimeout(window.dropdownTimeout);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     setActiveDropdown(dropdown);
   };
 
   const handleDropdownLeave = () => {
-    window.dropdownTimeout = setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 150); // Small delay to allow movement to dropdown
+    }, 200); // Increased delay for better UX
+  };
+
+  // Mobile menu item click handler
+  const handleMobileItemClick = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -108,7 +125,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <div className="flex items-center space-x-2">
-            <img src={logo} alt="DartsUnity" className="h-10 w-auto" />
+              <img src={logo} alt="DartsUnity" className="h-10 w-auto" />
               <span className="text-xl font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
                 DartsUnity
               </span>
@@ -204,7 +221,7 @@ const Navbar = () => {
                         <span className="text-xl mr-3">{item.icon}</span>
                         <div className="flex-1">
                           <div className="font-medium text-gray-900 group-hover:text-[#1110C4] transition-colors">
-                            {item.item}
+                            {item.name} {/* FIXED: Changed from item.item */}
                           </div>
                           <div className="text-sm text-gray-600">
                             {item.description}
@@ -219,7 +236,7 @@ const Navbar = () => {
 
             {/* Simple Links */}
             <a 
-              href="/about" 
+              href="#about" 
               className="px-5 py-3 text-gray-800 hover:text-[#1110C4] transition-all duration-200 font-medium relative group"
             >
               <span className="relative">
@@ -253,6 +270,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 transition-all duration-200"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -263,6 +281,24 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#1110C4]/10 animate-slideDown">
           <div className="px-4 py-6 space-y-6">
+            {/* Simple Links Mobile - Moved to TOP */}
+            <div className="space-y-3 pb-4 border-b border-[#1110C4]/10">
+              <a 
+                href="#about" 
+                className="block py-3 text-gray-900 font-medium hover:text-[#1110C4] transition-colors text-lg"
+                onClick={handleMobileItemClick}
+              >
+                About
+              </a>
+              <a 
+                href="#contact" 
+                className="block py-3 text-gray-900 font-medium hover:text-[#1110C4] transition-colors text-lg"
+                onClick={handleMobileItemClick}
+              >
+                Contact
+              </a>
+            </div>
+
             {/* Solutions Mobile */}
             <div className="space-y-3">
               <div className="font-semibold text-lg text-[#1110C4] mb-2">Solutions</div>
@@ -271,7 +307,7 @@ const Navbar = () => {
                   key={idx}
                   href={item.href}
                   className="flex items-center p-4 rounded-xl bg-gradient-to-r from-white to-gray-50 hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleMobileItemClick}
                 >
                   <span className="text-2xl mr-3">{item.icon}</span>
                   <div className="flex-1">
@@ -291,7 +327,7 @@ const Navbar = () => {
                   key={idx}
                   href={item.href}
                   className="flex items-center p-4 rounded-xl bg-gradient-to-r from-white to-gray-50 hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleMobileItemClick}
                 >
                   <span className="text-xl mr-3">{item.icon}</span>
                   <div className="flex-1">
@@ -302,35 +338,17 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Simple Links Mobile */}
-            <div className="space-y-3 pt-2">
-              <a 
-                href="#about" 
-                className="block py-3 text-gray-900 font-medium hover:text-[#1110C4] transition-colors text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </a>
-              <a 
-                href="#contact" 
-                className="block py-3 text-gray-900 font-medium hover:text-[#1110C4] transition-colors text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </a>
-            </div>
-
             {/* Mobile CTA Buttons */}
-            <div className="pt-6 space-y-3">
+            <div className="pt-6 space-y-3 border-t border-[#1110C4]/10">
               <button 
                 className="w-full px-6 py-3.5 text-[#1110C4] border-2 border-[#1110C4] rounded-full font-medium hover:bg-[#1110C4] hover:text-white transition-all duration-200"
-                onClick={() => setIsOpen(false)}
+                onClick={handleMobileItemClick}
               >
                 Sign In
               </button>
               <button 
                 className="w-full px-6 py-3.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] text-white rounded-full font-medium hover:shadow-xl hover:shadow-[#1110C4]/30 transition-all duration-200"
-                onClick={() => setIsOpen(false)}
+                onClick={handleMobileItemClick}
               >
                 Get Started Free
               </button>
