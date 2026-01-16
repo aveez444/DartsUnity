@@ -935,12 +935,7 @@ const Home = () => {
         </div>
 
         <div className="absolute -top-8 -right-8 bg-blue-600 text-white rounded-2xl shadow-xl px-8 py-6">
-          <div className="text-sm font-medium opacity-80 mb-1">
-            Trusted by
-          </div>
-          <div className="text-3xl font-extrabold">
-            500+ Companies
-          </div>
+        
         </div>
       </div>
 
