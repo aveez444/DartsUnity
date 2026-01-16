@@ -819,128 +819,204 @@ const Home = () => {
         </div>
       </section>
 
- {/* About Section */}
-<section className="relative py-28 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
-  
-  {/* Background Pattern */}
+      <section className="relative py-32 md:py-44 overflow-hidden bg-gradient-to-br from-slate-50 via-indigo-50/40 to-blue-50/30">
+  {/* Background atmosphere – richer & deeper */}
   <div className="absolute inset-0 pointer-events-none">
-    <div
-      className="absolute inset-0 opacity-[0.18]"
+    {/* Subtle angled texture */}
+    <div className="absolute inset-0 opacity-[0.045]"
       style={{
-        backgroundImage: `
-          radial-gradient(circle, rgba(37,99,235,0.35) 1px, transparent 1px)
-        `,
-        backgroundSize: '28px 28px',
+        backgroundImage: `linear-gradient(135deg, #1e40af 1px, transparent 1px)`,
+        backgroundSize: '100px 100px',
       }}
     />
-    <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-3xl" />
+
+    {/* Deep, large gradient orbs */}
+    <div className="absolute -left-80 -top-64 w-[1000px] h-[1000px] bg-indigo-600/8 rounded-full blur-3xl" />
+    <div className="absolute -right-96 bottom-0 w-[1200px] h-[1200px] bg-blue-700/9 rounded-full blur-3xl" />
+    
+    {/* Soft overlay gradient */}
+    <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-indigo-50/20" />
   </div>
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid lg:grid-cols-2 gap-20 items-center">
-      
-      {/* Left Content */}
-      <div>
-        <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-blue-100 text-blue-700 text-sm font-bold tracking-wide rounded-full mb-8">
-          ABOUT DARTSUNITY
-        </div>
-
-        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-8">
-          A Smarter Way to
-          <span className="block text-blue-600 mt-2">
-            Build Revenue Pipelines
-          </span>
-        </h2>
-
-        <p className="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed mb-6 max-w-2xl">
-          DartsUnity helps modern businesses scale predictable revenue using
-          verified B2B data, intelligent outreach, and performance-driven execution.
-        </p>
-
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-2xl">
-          Since 2018, we’ve partnered with fast-growing teams and enterprises to
-          eliminate guesswork from lead generation and replace it with systems
-          that consistently convert.
-        </p>
-
-        {/* Value Pillars */}
-        <div className="grid sm:grid-cols-2 gap-6 mb-12">
-          {[
-            {
-              title: "Precision Data",
-              desc: "Verified contacts enriched with firmographic and intent signals."
-            },
-            {
-              title: "Revenue-Focused Strategy",
-              desc: "Every campaign is designed to drive pipeline, not vanity metrics."
-            },
-            {
-              title: "Execution at Scale",
-              desc: "Automated systems that grow with your sales team."
-            },
-            {
-              title: "Hands-On Expertise",
-              desc: "Dedicated specialists optimizing performance continuously."
-            }
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="flex gap-4 p-5 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all"
-            >
-              <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-              <div>
-                <div className="text-lg font-bold text-gray-900 mb-1">
-                  {item.title}
-                </div>
-                <div className="text-gray-600 leading-relaxed">
-                  {item.desc}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button className="group px-9 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-all flex items-center justify-center">
-            Learn More About Us
-            <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-
-          <button className="px-9 py-4 border-2 border-gray-300 hover:border-blue-600 text-gray-900 hover:text-blue-600 rounded-xl font-semibold text-lg transition-all">
-            Talk to Our Team
-          </button>
-        </div>
+  <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    {/* Headline – stronger contrast */}
+    <div className="text-center mb-24 md:mb-36">
+      <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/80 backdrop-blur-lg border border-indigo-200/70 rounded-full mb-8 shadow-md">
+        <span className="relative flex h-4 w-4">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-50"></span>
+          <span className="relative inline-flex rounded-full h-4 w-4 bg-blue-700"></span>
+        </span>
+        <span className="text-blue-800 font-semibold tracking-widest text-sm uppercase">Journey since 2018</span>
       </div>
 
-      {/* Right Visual */}
-      <div className="relative">
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-          <img
-            src={officeBg}
-            alt="DartsUnity Office"
-            className="w-full h-full object-cover"
+      <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-none tracking-tight">
+        From ambitious vision
+        <span className="block mt-4 md:mt-8 bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 bg-clip-text text-transparent">
+          to revenue infrastructure
+        </span>
+      </h2>
+
+      <p className="mt-12 text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-light leading-relaxed">
+        We chose not to follow the industry playbook.<br className="hidden sm:block" />
+        We built a <span className="font-semibold text-gray-900">fundamentally superior system</span> for predictable B2B growth.
+      </p>
+    </div>
+
+    {/* ──────────────────────────────── */}
+    {/*     Diagonal Journey Wave – enhanced */}
+    {/* ──────────────────────────────── */}
+    <div className="relative max-w-6xl mx-auto pt-12 md:pt-24 pb-28 md:pb-44">
+      {/* Richer, more elegant diagonal path */}
+      <div className="absolute inset-0 hidden md:block pointer-events-none">
+        <svg className="w-full h-full" viewBox="0 0 1200 900" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="journeyPath" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#1e40af" stopOpacity="0.25" />
+              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#1e40af" stopOpacity="0.25" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M120,120 Q 380,280 520,450 T 880,720 T 1080,820"
+            fill="none"
+            stroke="url(#journeyPath)"
+            strokeWidth="8"
+            strokeLinecap="round"
+            className="animate-dash-slow"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-        </div>
-
-        {/* Floating Stats */}
-        <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl px-8 py-6 border border-gray-200">
-          <div className="text-sm font-semibold text-gray-500 mb-1">
-            Founded
-          </div>
-          <div className="text-4xl font-extrabold text-blue-600">
-            2018
-          </div>
-        </div>
-
-        <div className="absolute -top-8 -right-8 bg-blue-600 text-white rounded-2xl shadow-xl px-8 py-6">
-        
-        </div>
+        </svg>
       </div>
 
+      {/* Milestones – better spacing & depth */}
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-24 lg:gap-x-32 gap-y-24 md:gap-y-40">
+        {[
+          {
+            year: "2018",
+            title: "The Spark",
+            text: "One uncompromising mission: eliminate guesswork from B2B lead generation forever.",
+            position: "top-left",
+            color: "indigo"
+          },
+          {
+            year: "2020",
+            title: "Proof of Scale",
+            text: "100+ enterprise clients acquired. First version of proprietary real-time data intelligence engine deployed.",
+            position: "bottom-right",
+            color: "blue"
+          },
+          {
+            year: "2022–23",
+            title: "Platform Fusion",
+            text: "Combined elite managed services excellence with powerful in-house automation technology.",
+            position: "top-right",
+            color: "indigo"
+          },
+          {
+            year: "Today",
+            title: "Revenue Infrastructure",
+            text: "500+ active clients • 10M+ verified decision-makers • 4.2× average ROI • Powering next-generation growth companies.",
+            position: "bottom-left",
+            isCurrent: true,
+            color: "blue"
+          }
+        ].map((milestone, i) => (
+          <div
+            key={milestone.year}
+            className={`
+              relative group flex flex-col gap-6 md:gap-8
+              ${milestone.position.includes('left') ? 'md:justify-self-start' : 'md:justify-self-end'}
+              ${milestone.position.includes('top') ? 'md:mt-0' : 'md:mt-32 lg:mt-48'}
+            `}
+          >
+            {/* Year + Title row */}
+            <div className={`
+              flex items-center gap-5 md:gap-6
+              ${milestone.position.includes('left') ? '' : 'flex-row-reverse'}
+            `}>
+              <div className={`
+                relative w-20 h-20 md:w-32 md:h-32 rounded-2xl flex items-center justify-center
+                shadow-2xl transition-all duration-600
+                ${milestone.isCurrent
+                  ? `bg-gradient-to-br from-blue-700 to-indigo-700 shadow-2xl shadow-blue-600/40 scale-110 ring-8 ring-blue-200/40`
+                  : `bg-white border-4 border-gray-200/80 group-hover:border-blue-500 group-hover:shadow-xl group-hover:shadow-blue-300/30`
+                }
+              `}>
+                <span className={`
+                  text-2xl md:text-4xl font-black tracking-tighter
+                  bg-gradient-to-br bg-clip-text text-transparent
+                  ${milestone.isCurrent
+                    ? 'from-white to-blue-100'
+                    : 'from-gray-600 to-gray-800 group-hover:from-blue-700 group-hover:to-indigo-700'
+                  }
+                `}>
+                  {milestone.year}
+                </span>
+              </div>
+
+              <h3 className={`
+                text-3xl md:text-4xl lg:text-5xl font-extrabold
+                bg-gradient-to-r bg-clip-text text-transparent
+                ${milestone.isCurrent
+                  ? 'from-blue-800 to-indigo-700'
+                  : 'from-gray-900 to-gray-700 group-hover:from-blue-800 group-hover:to-indigo-700'
+                }
+              `}>
+                {milestone.title}
+              </h3>
+            </div>
+
+            {/* Description card – deeper glassmorphism */}
+            <div className={`
+              rounded-3xl p-8 md:p-10 lg:p-12
+              bg-white/85 backdrop-blur-md border border-gray-200/70
+              shadow-xl transition-all duration-500
+              group-hover:shadow-2xl group-hover:shadow-blue-300/40
+              group-hover:-translate-y-2
+              ${milestone.isCurrent
+                ? 'border-blue-400/40 bg-gradient-to-br from-blue-50/80 to-indigo-50/60 shadow-blue-400/30'
+                : ''
+              }
+            `}>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                {milestone.text}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Final CTA – stronger contrast */}
+    <div className="text-center mt-16 md:mt-24">
+      <p className="text-2xl md:text-3xl font-medium text-gray-800 mb-10">
+        This journey is far from over.<br />
+        <span className="font-bold text-gray-950">The next chapter begins with you.</span>
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-6 justify-center">
+        <button className="px-12 py-7 bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-800 hover:to-indigo-800 text-white font-semibold text-xl rounded-2xl transition-all shadow-xl shadow-blue-500/30 hover:shadow-2xl hover:shadow-indigo-600/40 transform hover:-translate-y-1">
+          Become part of the next chapter →
+        </button>
+        <button className="px-12 py-7 bg-white/90 backdrop-blur-lg border border-blue-400/50 hover:border-blue-500 text-gray-900 hover:text-blue-800 font-semibold text-xl rounded-2xl transition-all hover:shadow-xl">
+          Discover how we can accelerate your growth
+        </button>
+      </div>
     </div>
   </div>
+
+  {/* Animation */}
+  <style jsx global>{`
+    @keyframes dash-slow {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    .animate-dash-slow {
+      stroke-dasharray: 25 15;
+      stroke-dashoffset: 40;
+      animation: dash-slow 6s linear infinite;
+    }
+  `}</style>
 </section>
 
 {/* Zig-Zag Alternating Services Section */}
@@ -1502,6 +1578,7 @@ const Home = () => {
     </div>
   </div>
 )}
+
 {/* Enhanced Industries Section */}
 <section className="relative py-24 bg-white overflow-hidden">
   {/* Background Pattern - Enhanced */}
@@ -1849,86 +1926,440 @@ const Home = () => {
   </div>
 </section>
 
-      {/* Standards Section */}
-      <section className="relative py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-full mb-4">
-              QUALITY & COMPLIANCE
+
+{/* Enterprise Standards & Compliance Section */}
+<section className="relative py-32 bg-white">
+  {/* Background Architecture Pattern */}
+  <div className="absolute inset-0 pointer-events-none">
+    {/* Grid System Background */}
+    <div className="absolute inset-0 opacity-[0.02]" 
+      style={{
+        backgroundImage: `
+          linear-gradient(90deg, #d1d5db 1px, transparent 1px),
+          linear-gradient(0deg, #d1d5db 1px, transparent 1px)
+        `,
+        backgroundSize: '80px 80px',
+        backgroundPosition: 'center center'
+      }}>
+    </div>
+    
+    {/* Structural Lines - Blue Accents */}
+    <div className="absolute inset-0">
+      <div className="max-w-7xl mx-auto h-full relative">
+        {/* Vertical Rule Lines with Blue Hints */}
+        <div className="absolute left-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-100/30 to-transparent hidden lg:block"></div>
+        <div className="absolute left-2/4 w-px h-full bg-gradient-to-b from-transparent via-blue-100/30 to-transparent hidden lg:block"></div>
+        <div className="absolute left-3/4 w-px h-full bg-gradient-to-b from-transparent via-blue-100/30 to-transparent hidden lg:block"></div>
+        
+        {/* Horizontal Rule Lines */}
+        <div className="absolute top-1/3 w-full h-px bg-gray-100"></div>
+        <div className="absolute top-2/3 w-full h-px bg-gray-100"></div>
+      </div>
+    </div>
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Section Header - Minimal with Blue Accent */}
+    <div className="text-center mb-20">
+      <div className="inline-flex items-center mb-6 gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full">
+        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+        <span className="text-sm font-semibold tracking-widest text-blue-700 uppercase">
+          ENTERPRISE STANDARDS
+        </span>
+      </div>
+      
+      <h2 className="text-4xl md:text-5xl font-light text-black mb-6 leading-tight">
+        Built on a Foundation of
+        <span className="block font-bold mt-2 text-blue-800">Uncompromising Integrity</span>
+      </h2>
+      
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">
+        Every system, process, and protocol is engineered to exceed the most stringent enterprise requirements.
+      </p>
+    </div>
+
+    {/* Main Metrics Grid - Architectural Layout with Blue Accents */}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+      {/* Left Column - Compliance Metrics */}
+      <div className="space-y-8">
+        <div className="bg-white border border-gray-200 rounded-xl p-8 hover:border-blue-200 transition-all duration-300 group">
+          <div className="mb-6">
+            <div className="text-5xl font-bold text-bLACK mb-2">100%</div>
+            <div className="text-sm text-gray-600 uppercase tracking-wider">Regulatory Compliance</div>
+          </div>
+          
+          <div className="space-y-4">
+            {[
+              { name: "GDPR", status: "Fully Compliant", verified: true },
+              { name: "CCPA", status: "Certified", verified: true },
+              { name: "SOC 2 Type II", status: "Audited", verified: true },
+              { name: "ISO 27001", status: "Certified", verified: true }
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0 group-hover:border-blue-50">
+                <div>
+                  <div className="font-medium text-gray-900">{item.name}</div>
+                  <div className="text-sm text-gray-600">{item.status}</div>
+                </div>
+                {item.verified && (
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* Blue Accent Bar */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-xl p-8 group hover:border-blue-200 transition-all duration-300">
+          <div className="flex items-start justify-between mb-6">
+            <div>
+              <div className="text-2xl font-bold text-black mb-1">45+</div>
+              <div className="text-sm text-black">Countries Supported</div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Enterprise-Grade Standards
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Your data security and privacy are our top priorities
-            </p>
+            <div className="text-sm text-blue-500">Legal Jurisdictions</div>
+          </div>
+          
+          <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
+            <div className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full w-3/4"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Center Column - Security Performance */}
+      <div className="lg:col-span-2">
+        <div className="bg-white border border-gray-200 rounded-xl p-8 h-full hover:border-blue-200 transition-all duration-300">
+          <div className="grid grid-cols-2 gap-8 mb-10">
+            <div className="relative">
+              <div className="text-4xl font-bold text-black mb-2">99.99%</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wider mb-4">System Uptime</div>
+              <div className="text-xs text-blue-600">Last 365 days average</div>
+              {/* Blue Indicator */}
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-500 rounded-full"></div>
+            </div>
+            
+            <div className="relative">
+              <div className="text-4xl font-bold text-black mb-2">&lt; 15min</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wider mb-4">Response SLA</div>
+              <div className="text-xs text-blue-600">Guaranteed support response</div>
+              {/* Blue Indicator */}
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-500 rounded-full"></div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-8">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold text-gray-900">Data Quality</h3>
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                  <Target className="h-6 w-6 text-blue-600" />
-                </div>
+          {/* Security Performance Grid with Blue Borders */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[
+              { metric: "99.97%", label: "Data Accuracy", color: "blue" },
+              { metric: "256-bit", label: "Encryption", color: "blue" },
+              { metric: "Zero Trust", label: "Architecture", color: "blue" },
+              { metric: "Real-time", label: "Monitoring", color: "blue" }
+            ].map((item, idx) => (
+              <div key={idx} className="text-center p-4 border border-blue-100 rounded-lg hover:border-blue-300 transition-colors">
+                <div className="text-2xl font-bold text-blue-700 mb-1">{item.metric}</div>
+                <div className="text-xs text-blue-600">{item.label}</div>
               </div>
+            ))}
+          </div>
 
-              <div className="space-y-6">
-                {[
-                  { label: "Data Accuracy", value: "99.7%" },
-                  { label: "Verification Rate", value: "98.5%" },
-                  { label: "Update Frequency", value: "Daily" }
-                ].map((metric, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-semibold text-gray-900">{metric.label}</span>
-                      <span className="font-bold text-blue-600">{metric.value}</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <div className="h-full bg-blue-600 rounded-full" style={{ width: metric.value }}></div>
+          {/* Timeline */}
+          <div className="pt-6 border-t border-blue-50">
+            <div className="text-sm font-medium text-blue-900 mb-4">Recent Security Audits</div>
+            <div className="space-y-3">
+              {[
+                { date: "Q4 2024", audit: "Independent Security Assessment", status: "Passed" },
+                { date: "Oct 2024", audit: "GDPR Compliance Review", status: "Certified" },
+                { date: "Sep 2024", audit: "Infrastructure Security", status: "Passed" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center justify-between py-2 hover:bg-blue-50 rounded-lg px-2 transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div>
+                      <div className="text-sm text-gray-900">{item.audit}</div>
+                      <div className="text-xs text-blue-600">{item.date}</div>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div className="text-sm font-medium text-blue-700">{item.status}</div>
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <div className="bg-white border-2 border-gray-100 rounded-2xl p-8">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold text-gray-900">Security & Compliance</h3>
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                  <Shield className="h-6 w-6 text-blue-600" />
+    {/* Enterprise Verification Process - Blue Theme */}
+    <div className="mb-24">
+      <div className="text-center mb-12">
+        <h3 className="text-3xl font-light text-gray-900 mb-4">
+          Enterprise Verification Framework
+        </h3>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Multi-layered validation process ensuring complete compliance and security.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-0 relative">
+        {/* Process Steps */}
+        {[
+          { step: "01", title: "Initial Assessment", desc: "Comprehensive security review and gap analysis", color: "blue" },
+          { step: "02", title: "Technical Validation", desc: "Infrastructure and data protection evaluation", color: "blue" },
+          { step: "03", title: "Compliance Audit", desc: "Regulatory and industry standard verification", color: "blue" },
+          { step: "04", title: "Continuous Monitoring", desc: "Ongoing security and compliance oversight", color: "blue" }
+        ].map((step, idx) => (
+          <div key={idx} className="relative">
+            {/* Connecting Line */}
+            {idx < 3 && (
+              <div className="hidden md:block absolute top-12 left-3/4 w-full h-px bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 z-0"></div>
+            )}
+            
+            <div className="relative z-10 bg-white border border-gray-200 rounded-lg p-8 m-4 hover:border-blue-300 transition-all duration-300 group">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-lg font-bold">{step.step}</span>
                 </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {["GDPR", "CCPA", "SOC 2", "ISO 27001"].map((standard, i) => (
-                  <div key={i} className="text-center p-4 bg-gray-50 rounded-xl">
-                    <div className="font-bold text-gray-900 mb-1">{standard}</div>
-                    <div className="text-xs text-gray-600">Certified</div>
-                  </div>
-                ))}
+                <div>
+                  <h4 className="text-xl font-medium text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">{step.title}</h4>
+                  <p className="text-gray-600 text-sm">{step.desc}</p>
+                </div>
               </div>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
 
-          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-8 md:p-12 text-white">
-            <div className="text-center max-w-3xl mx-auto">
-              <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Lead Generation?</h3>
-              <p className="text-gray-300 mb-8">
-                Join hundreds of successful companies using DartsUnity to grow their business
+    {/* Enterprise Request Form - Professional Layout with Blue */}
+    <div className="mb-24">
+      <div className="grid lg:grid-cols-5 gap-8">
+        {/* Form Sidebar - Blue Tint */}
+        <div className="lg:col-span-2">
+          <div className="sticky top-8">
+            <div className="mb-8">
+              <h3 className="text-3xl font-light text-gray-900 mb-4">
+                <span className="text-blue-700">Enterprise Security</span> Briefing
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Request a detailed security and compliance overview tailored to your organization's requirements.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 bg-white text-blue-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                  Start Free Trial
-                </button>
-                <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors">
-                  Schedule Demo
-                </button>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <span className="text-sm text-gray-900">Confidential review process</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <span className="text-sm text-gray-900">Custom compliance mapping</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <span className="text-sm text-gray-900">Security architecture overview</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Security Rating - Blue Theme */}
+            <div className="bg-gradient-to-b from-blue-50 to-white border border-blue-100 rounded-lg p-6">
+              <div className="text-sm font-medium text-blue-900 mb-2">Current Security Rating</div>
+              <div className="text-4xl font-bold text-black mb-2">9.8/10</div>
+              <div className="text-xs text-blue-600 mb-4">Industry benchmark: 8.2/10</div>
+              
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-xs text-black mb-1">
+                    <span>Data Protection</span>
+                    <span>9.9</span>
+                  </div>
+                  <div className="h-1.5 bg-blue-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full w-[99%]"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="flex justify-between text-xs text-black mb-1">
+                    <span>System Security</span>
+                    <span>9.7</span>
+                  </div>
+                  <div className="h-1.5 bg-blue-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full w-[97%]"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Main Form */}
+        <div className="lg:col-span-3">
+          <div className="bg-white border border-gray-200 rounded-xl p-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div>
+                <label className="block text-sm font-medium text-blue-900 mb-2">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                  placeholder="John"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-blue-900 mb-2">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                  placeholder="Smith"
+                />
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <label className="block text-sm font-medium text-blue-900 mb-2">
+                Company Email
+              </label>
+              <input
+                type="email"
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                placeholder="john.smith@company.com"
+              />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div>
+                <label className="block text-sm font-medium text-blue-900 mb-2">
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                  placeholder="Acme Corporation"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-blue-900 mb-2">
+                  Company Size
+                </label>
+                <select className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all">
+                  <option>Select</option>
+                  <option>1-50 employees</option>
+                  <option>51-200 employees</option>
+                  <option>201-1,000 employees</option>
+                  <option>1,001-5,000 employees</option>
+                  <option>5,000+ employees</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <label className="block text-sm font-medium text-blue-900 mb-4">
+                Security Requirements
+              </label>
+              <div className="space-y-3">
+                {[
+                  "GDPR Compliance",
+                  "CCPA Compliance", 
+                  "SOC 2 Type II Certification",
+                  "ISO 27001 Certification",
+                  "Industry-specific Regulations",
+                  "Data Sovereignty Requirements"
+                ].map((req, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-5 h-5 border border-blue-300 rounded-sm flex items-center justify-center hover:border-blue-600 transition-colors">
+                      <div className="w-3 h-3 bg-blue-600 hidden"></div>
+                    </div>
+                    <span className="text-gray-900">{req}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <label className="block text-sm font-medium text-blue-900 mb-2">
+                Additional Requirements
+              </label>
+              <textarea
+                rows={4}
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                placeholder="Describe any specific security or compliance needs..."
+              ></textarea>
+            </div>
+
+            <button className="w-full py-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-medium rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all duration-300 group">
+              <div className="flex items-center justify-center gap-3">
+                <span>Request Security Briefing</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+              <div className="text-sm text-blue-200 mt-2 font-normal">
+                Response within 2 business hours
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Trust Indicators - Blue Accents */}
+    <div className="border-t border-blue-50 pt-16">
+      <div className="text-center mb-12">
+        <h4 className="text-2xl font-light text-black mb-4">
+          Trusted by <span className="text-blue-700">Security-Conscious</span> Organizations
+        </h4>
+        <p className="text-black max-w-2xl mx-auto">
+          Enterprises rely on our platform for their most critical data and compliance requirements.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {[
+          { name: "Global Financial Institution", sector: "Banking & Finance", years: "3+ years", color: "blue" },
+          { name: "Healthcare Provider Network", sector: "Healthcare", years: "2+ years", color: "blue" },
+          { name: "Technology Corporation", sector: "Enterprise Software", years: "4+ years", color: "blue" },
+          { name: "Government Agency", sector: "Public Sector", years: "3+ years", color: "blue" }
+        ].map((org, idx) => (
+          <div key={idx} className="text-center group">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center group-hover:border-blue-300 transition-all duration-300">
+              <div className="text-2xl font-bold text-blue-700">{org.name.charAt(0)}</div>
+            </div>
+            <div className="font-medium text-black mb-1">{org.name}</div>
+            <div className="text-sm text-blue-600 mb-2">{org.sector}</div>
+            <div className="text-xs text-blue-500">Partnership: {org.years}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Final CTA - Blue Gradient */}
+    <div className="mt-20 pt-12 border-t border-blue-50">
+      <div className="bg-gradient-to-r from-blue-50 to-white border border-blue-100 rounded-2xl p-12 text-center">
+        <h3 className="text-3xl font-bold text-black mb-6">
+          Ready to Implement Enterprise-Grade Security?
+        </h3>
+        <p className="text-lg text-blue-700 mb-8 max-w-2xl mx-auto">
+          Schedule a comprehensive security assessment and receive a detailed compliance roadmap.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button className="px-10 py-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold rounded-xl hover:from-blue-800 hover:to-blue-700 transition-all duration-300">
+            Schedule Security Assessment
+          </button>
+          <button className="px-10 py-4 bg-white border-2 border-blue-300 text-blue-700 font-semibold rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all duration-300">
+            Download Compliance Whitepaper
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
           {/* Add CSS animations in global styles or style tag */}
           <style jsx>{`
