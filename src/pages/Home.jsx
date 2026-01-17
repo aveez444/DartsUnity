@@ -112,19 +112,6 @@ const Home = () => {
                   />
                 </div>
 
-                {/* Floating Card */}
-                <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-2xl max-w-xs transform hover:scale-105 transition-transform">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-xl flex items-center justify-center">
-                      <TrendingUp className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-gray-900">+347%</div>
-                      <div className="text-sm text-gray-600">Pipeline Growth</div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Glowing accent */}
                 <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-[#1AD603] to-[#2BEC06] rounded-full opacity-20 blur-3xl"></div>
               </div>
@@ -198,7 +185,7 @@ const Home = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Built for Predictable,{' '}
-              <span className="bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] bg-clip-text text-transparent">
                 Scalable Growth
               </span>
             </h2>
@@ -243,7 +230,7 @@ const Home = () => {
               </div>
 
               {/* Accent elements */}
-              <div className="hidden lg:block absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl opacity-20"></div>
+              <div className="hidden lg:block absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-2xl opacity-20"></div>
               <div className="hidden lg:block absolute top-1/2 -right-8 w-16 h-40 bg-gradient-to-b from-[#1AD603] to-transparent opacity-10 rounded-full blur-xl"></div>
 
             </div>
@@ -266,7 +253,7 @@ const Home = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 {/* Card 1 */}
                 <div className="group bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-[#1110C4]/30 hover:shadow-xl transition-all duration-300">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Database className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Data Validation</h3>
@@ -277,7 +264,7 @@ const Home = () => {
 
                 {/* Card 2 */}
                 <div className="group bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-[#1110C4]/30 hover:shadow-xl transition-all duration-300">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Target className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Defined ICPs</h3>
@@ -288,7 +275,7 @@ const Home = () => {
 
                 {/* Card 3 */}
                 <div className="group bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-[#1110C4]/30 hover:shadow-xl transition-all duration-300">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <CheckCircle2 className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Process-Driven</h3>
@@ -299,7 +286,7 @@ const Home = () => {
 
                 {/* Card 4 */}
                 <div className="group bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-[#1110C4]/30 hover:shadow-xl transition-all duration-300">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <TrendingUp className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Long-Term Value</h3>
@@ -311,7 +298,7 @@ const Home = () => {
 
               {/* CTA Button */}
               <div className="flex gap-4 pt-4">
-                <button className="group px-8 py-4 bg-gradient-to-r from-[#1110C4] to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1110C4]/30 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                <button className="group px-8 py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1110C4]/30 hover:scale-105 transition-all duration-300 flex items-center gap-2">
                   Learn More About Us
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -324,7 +311,7 @@ const Home = () => {
           </div>
 
           {/* Bottom Stats Banner */}
-          <div className="bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-3xl p-8 shadow-2xl">
+          <div className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-3xl p-8 shadow-2xl">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-white text-center">
               <div>
                 <div className="text-4xl font-bold mb-2">10+</div>
@@ -394,7 +381,7 @@ const Home = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Solutions That Drive{' '}
-              <span className="bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
                 Real Results
               </span>
             </h2>
@@ -410,7 +397,7 @@ const Home = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 rounded-full">
-                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] bg-clip-text text-transparent">
                     01
                   </span>
                 </div>
@@ -470,7 +457,7 @@ const Home = () => {
 
               <div className="space-y-6 lg:order-2 order-1">
                 <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 rounded-full">
-                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] bg-clip-text text-transparent">
                     02
                   </span>
                 </div>
@@ -498,7 +485,7 @@ const Home = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 rounded-full">
-                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] bg-clip-text text-transparent">
                     03
                   </span>
                 </div>
@@ -558,7 +545,7 @@ const Home = () => {
 
               <div className="space-y-6 lg:order-2 order-1">
                 <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 rounded-full">
-                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] bg-clip-text text-transparent">
                     04
                   </span>
                 </div>
@@ -591,7 +578,7 @@ const Home = () => {
               </p>
               <a 
                 href="/services" 
-                className="group inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-[#1110C4] to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1110C4]/30 hover:scale-105 transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-10 py-4  bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1110C4]/30 hover:scale-105 transition-all duration-300"
               >
                 View All Services
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -696,7 +683,7 @@ const Home = () => {
 
     <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
       Powering Growth Across{" "}
-      <span className="bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
         Key Industries
       </span>
     </h2>
@@ -752,7 +739,7 @@ const Home = () => {
     <div className="absolute inset-[-20px] rounded-full border border-dashed border-[#1110C4]/80 animate-[slow-rotate_18s_linear_infinite]"></div>
 
     {/* Core circle */}
-    <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-[#1110C4] to-[#1AD603] flex items-center justify-center shadow-2xl">
+    <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] flex items-center justify-center shadow-2xl">
       <div className="text-center text-white">
         <div className="text-3xl font-bold">5+</div>
         <div className="text-sm font-medium">Industries</div>
@@ -918,7 +905,7 @@ const Home = () => {
 
       <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
         Let’s Discuss Your{" "}
-        <span className="bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
           Growth Goals
         </span>
       </h2>
@@ -1057,7 +1044,7 @@ const Home = () => {
             <div className="sm:col-span-2 pt-4">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#1110C4] to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Send Inquiry
               </button>
