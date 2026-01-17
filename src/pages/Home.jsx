@@ -214,7 +214,7 @@ const Home = () => {
             <div className="lg:col-span-5 relative">
               {/* Main office image */}
               <div className="relative z-10">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <div className="aspect-[4/5] max-w-sm mx-auto lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img 
                     src={aboutImage}
                     alt="DartsUnity Office"
@@ -229,7 +229,7 @@ const Home = () => {
               </div>
 
               {/* Overlapping data visualization card */}
-              <div className="absolute -bottom-12 -right-12 w-80 h-64 bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white z-20">
+              <div className="hidden lg:block absolute -bottom-12 -right-12 w-80 h-64 bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white z-20">
                 <img 
                   src={dataVisualization}
                   alt="Data Analytics"
@@ -243,8 +243,9 @@ const Home = () => {
               </div>
 
               {/* Accent elements */}
-              <div className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl opacity-20"></div>
-              <div className="absolute top-1/2 -right-8 w-16 h-40 bg-gradient-to-b from-[#1AD603] to-transparent opacity-10 rounded-full blur-xl"></div>
+              <div className="hidden lg:block absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-[#1110C4] to-[#1AD603] rounded-2xl opacity-20"></div>
+              <div className="hidden lg:block absolute top-1/2 -right-8 w-16 h-40 bg-gradient-to-b from-[#1AD603] to-transparent opacity-10 rounded-full blur-xl"></div>
+
             </div>
 
             {/* Right Side - Content with Cards */}
