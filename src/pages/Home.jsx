@@ -25,7 +25,7 @@ const Home = () => {
           {/* Dark gradient overlay - Adjust opacity here (95 = 95%, 90 = 90%, etc.) */}
           {/* For lighter overlay, reduce the numbers: /70 or /60 */}
           {/* For grey overlay, use: from-gray-900/70 via-gray-800/65 to-gray-900/70 */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-800/75 to-gray-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/80"></div>
         </div>
 
         {/* Subtle animated pattern overlay */}
@@ -141,7 +141,7 @@ const Home = () => {
       </section>
 
       {/* About Us Section - Enhanced Layout */}
-      <section className="relative bg-white py-24 overflow-hidden">
+      <section className="relative bg-white py-24 overflow-hidden -mt-[1px]">
         {/* Subtle Background Elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 right-20 w-96 h-96 bg-[#1110C4] rounded-full blur-3xl"></div>
@@ -874,54 +874,55 @@ const Home = () => {
   </div>
 </div>
 </section>
-
-{/* ================= Contact / Send Inquiry ================= */}
-<section className="relative bg-[#0F1225] py-28 overflow-hidden">
+{/* ================= Contact / Send Inquiry (Light Theme) ================= */}
+<section className="relative bg-[#F9FAFB] py-28 overflow-hidden">
 
   {/* ===== Background Patterns ===== */}
   <div className="absolute inset-0 pointer-events-none">
-    
-    {/* Soft diagonal gradient wash */}
-    <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 via-transparent to-[#1AD603]/10"></div>
+
+    {/* Soft gradient wash */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/5 via-transparent to-[#1AD603]/5"></div>
 
     {/* Subtle diagonal grid */}
     <div
-      className="absolute inset-0 opacity-[0.06]"
+      className="absolute inset-0 opacity-[0.05]"
       style={{
         backgroundImage: `
           repeating-linear-gradient(
             135deg,
-            rgba(255,255,255,0.6) 0px,
-            rgba(255,255,255,0.6) 1px,
+            rgba(17,16,196,0.25) 0px,
+            rgba(17,16,196,0.25) 1px,
             transparent 1px,
-            transparent 40px
+            transparent 48px
           )
         `,
       }}
     />
 
     {/* Soft glow accents */}
-    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#1110C4]/20 rounded-full blur-[120px]"></div>
-    <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#1AD603]/20 rounded-full blur-[120px]"></div>
+    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#1110C4]/10 rounded-full blur-[120px]"></div>
+    <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#1AD603]/10 rounded-full blur-[120px]"></div>
   </div>
 
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* ===== Section Header ===== */}
     <div className="text-center max-w-3xl mx-auto mb-20">
-      <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 border border-white/20">
+      <div className="inline-flex items-center gap-2 bg-[#1110C4]/5 px-4 py-2 rounded-full mb-6 border border-[#1110C4]/10">
         <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
-        <span className="text-sm font-semibold text-white">Get in Touch</span>
+        <span className="text-sm font-semibold text-[#1110C4]">
+          Get in Touch
+        </span>
       </div>
 
-      <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-        Let’s Discuss Your{' '}
-        <span className="bg-gradient-to-r from-[#1AD603] to-[#2BEC06] bg-clip-text text-transparent">
+      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Let’s Discuss Your{" "}
+        <span className="bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
           Growth Goals
         </span>
       </h2>
 
-      <p className="text-lg text-white/70">
+      <p className="text-lg text-gray-600">
         Tell us about your requirements and our team will get back with a
         tailored strategy aligned to your business objectives.
       </p>
@@ -934,29 +935,29 @@ const Home = () => {
       <div className="lg:col-span-5 space-y-10">
 
         {/* Info Card */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8">
-          <h3 className="text-xl font-bold text-white mb-6">
+        <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+          <h3 className="text-xl font-bold text-gray-900 mb-6">
             Contact Information
           </h3>
 
-          <div className="space-y-6 text-white/80">
-            <div className="flex justify-between border-b border-white/10 pb-4">
+          <div className="space-y-6 text-gray-700">
+            <div className="flex justify-between border-b border-gray-200 pb-4">
               <span className="text-sm">Email</span>
-              <span className="font-medium text-white">
+              <span className="font-medium text-gray-900">
                 contact@dartsunity.com
               </span>
             </div>
 
-            <div className="flex justify-between border-b border-white/10 pb-4">
+            <div className="flex justify-between border-b border-gray-200 pb-4">
               <span className="text-sm">Phone</span>
-              <span className="font-medium text-white">
+              <span className="font-medium text-gray-900">
                 +91 XXX XXX XXXX
               </span>
             </div>
 
             <div className="flex justify-between">
               <span className="text-sm">Working Hours</span>
-              <span className="font-medium text-white">
+              <span className="font-medium text-gray-900">
                 Mon – Fri, 9AM – 6PM IST
               </span>
             </div>
@@ -973,7 +974,7 @@ const Home = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-white/80"
+              className="bg-white border border-gray-200 rounded-2xl p-4 text-sm text-gray-700"
             >
               {item}
             </div>
@@ -983,7 +984,7 @@ const Home = () => {
 
       {/* ===== Right: Inquiry Form ===== */}
       <div className="lg:col-span-7">
-        <div className="bg-white rounded-3xl p-10 shadow-2xl">
+        <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-200">
 
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
             Send an Inquiry
@@ -999,7 +1000,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="John Doe"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
               />
             </div>
 
@@ -1011,7 +1012,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Company Inc."
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
               />
             </div>
 
@@ -1023,7 +1024,7 @@ const Home = () => {
               <input
                 type="email"
                 placeholder="you@company.com"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
               />
             </div>
 
@@ -1035,7 +1036,7 @@ const Home = () => {
               <input
                 type="tel"
                 placeholder="+91"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
               />
             </div>
 
@@ -1047,7 +1048,7 @@ const Home = () => {
               <textarea
                 rows="5"
                 placeholder="Tell us about your goals, target market, or challenges..."
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1110C4]/30 focus:outline-none"
               ></textarea>
             </div>
 
@@ -1068,11 +1069,20 @@ const Home = () => {
 
   {/* ===== Top Curve Divider ===== */}
   <div className="absolute top-0 left-0 right-0">
-    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full">
-      <path d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z" fill="#ffffff"/>
+    <svg
+      viewBox="0 0 1440 120"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      className="w-full"
+    >
+      <path
+        d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z"
+        fill="#ffffff"
+      />
     </svg>
   </div>
 </section>
+
 
     </div>
   );
