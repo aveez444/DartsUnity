@@ -1,392 +1,138 @@
-import { useState, useRef, useEffect } from 'react';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef(null);
-  const timeoutRef = useRef(null);
 
-  // Handle scroll effect
+  // Scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setActiveDropdown(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  // Clear timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
-  const solutions = [
-    { 
-      name: 'Lead Discovery', 
-      href: '#lead-discovery',
-      description: 'Find qualified leads with AI-powered search',
-      icon: '🔍'
-    },
-    { 
-      name: 'Email Outreach', 
-      href: '#email-outreach',
-      description: 'Automated personalized email campaigns',
-      icon: '✉️'
-    },
-    { 
-      name: 'Analytics & Insights', 
-      href: '#analytics',
-      description: 'Real-time performance tracking',
-      icon: '📊'
-    },
-    { 
-      name: 'Managed Services', 
-      href: '#managed-services',
-      description: 'Full-service campaign management',
-      icon: '🎯'
-    }
-  ];
-
-  const resources = [
-    { 
-      name: 'Blog', 
-      href: '#blog',
-      description: 'Latest trends and insights',
-      icon: '📝'
-    },
-    { 
-      name: 'Case Studies', 
-      href: '#case-studies',
-      description: 'Success stories from clients',
-      icon: '🏆'
-    },
-    { 
-      name: 'Whitepapers', 
-      href: '#whitepapers',
-      description: 'In-depth research reports',
-      icon: '📚'
-    },
-    { 
-      name: 'Webinars', 
-      href: '#webinars',
-      description: 'Live sessions with experts',
-      icon: '🎥'
-    }
-  ];
-
-  // Handle dropdown hover with timeout for smoother transition
-  const handleDropdownEnter = (dropdown) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setActiveDropdown(dropdown);
-  };
-
-  const handleDropdownLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 200); // Increased delay for better UX
-  };
-
-  // Mobile menu item click handler
-  const handleMobileItemClick = () => {
-    setIsOpen(false);
-  };
+  // Close mobile menu on route click
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav 
-      ref={dropdownRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-[#1110C4]/5' 
-          : 'bg-white/90 backdrop-blur-lg'
-      } border-b border-[#1110C4]/10`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        ${scrolled
+          ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-[#1110C4]/5'
+          : 'bg-white/90 backdrop-blur-lg'}
+        border-b border-[#1110C4]/10`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex items-center justify-between h-20">
+          
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <div className="flex items-center space-x-2">
-              <img src={logo} alt="DartsUnity" className="h-10 w-auto" />
-              <span className="text-xl font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
-                DartsUnity
-              </span>
-            </div>
+          <a href="/" className="flex items-center gap-2">
+            <img src={logo} alt="DartsUnity" className="h-10 w-auto" />
+            <span className="text-xl font-bold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+              DartsUnity
+            </span>
+          </a>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-8">
+            <a href="/solutions" className="nav-link">Solutions</a>
+            <a href="/about" className="nav-link">About</a>
+            <a href="/contact" className="nav-link">Contact</a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {/* Solutions Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => handleDropdownEnter('solutions')}
-              onMouseLeave={handleDropdownLeave}
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href="/login"
+              className="px-5 py-2.5 font-medium text-[#1110C4] hover:bg-[#1110C4]/5 rounded-full transition"
             >
-              <button className="flex items-center px-5 py-3 text-gray-800 hover:text-[#1110C4] transition-all duration-200 group">
-                <span className="font-medium relative">
-                  Solutions
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] group-hover:w-full transition-all duration-300"></span>
-                </span>
-                <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-200 ${
-                  activeDropdown === 'solutions' ? 'rotate-180' : ''
-                }`} />
-              </button>
-              
-              {/* Enhanced Dropdown */}
-              {activeDropdown === 'solutions' && (
-                <div 
-                  className="absolute top-full left-0 mt-1 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-[#1110C4]/10 overflow-hidden animate-fadeIn"
-                  onMouseEnter={() => handleDropdownEnter('solutions')}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <div className="p-4">
-                    <div className="mb-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Our Solutions</h3>
-                      <p className="text-sm text-gray-600 mt-1">Everything you need for growth</p>
-                    </div>
-                    {solutions.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={item.href}
-                        className="flex items-start p-4 rounded-xl hover:bg-gradient-to-r hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 group transition-all duration-200 mb-1 last:mb-0"
-                      >
-                        <span className="text-2xl mr-3">{item.icon}</span>
-                        <div>
-                          <div className="font-medium text-gray-900 group-hover:text-[#1110C4] transition-colors">
-                            {item.name}
-                          </div>
-                          <div className="text-sm text-gray-600 mt-1">
-                            {item.description}
-                          </div>
-                        </div>
-                        <ArrowRight className="ml-auto h-4 w-4 text-gray-400 group-hover:text-[#1110C4] group-hover:translate-x-1 transition-all" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Resources Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => handleDropdownEnter('resources')}
-              onMouseLeave={handleDropdownLeave}
-            >
-              <button className="flex items-center px-5 py-3 text-gray-800 hover:text-[#1110C4] transition-all duration-200 group">
-                <span className="font-medium relative">
-                  Resources
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] group-hover:w-full transition-all duration-300"></span>
-                </span>
-                <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-200 ${
-                  activeDropdown === 'resources' ? 'rotate-180' : ''
-                }`} />
-              </button>
-              
-              {activeDropdown === 'resources' && (
-                <div 
-                  className="absolute top-full left-0 mt-1 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-[#1110C4]/10 overflow-hidden animate-fadeIn"
-                  onMouseEnter={() => handleDropdownEnter('resources')}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <div className="p-4">
-                    <div className="mb-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Resources</h3>
-                      <p className="text-sm text-gray-600 mt-1">Learn and grow with us</p>
-                    </div>
-                    {resources.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={item.href}
-                        className="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 group transition-all duration-200 mb-1 last:mb-0"
-                      >
-                        <span className="text-xl mr-3">{item.icon}</span>
-                        <div className="flex-1">
-                          <div className="font-medium text-gray-900 group-hover:text-[#1110C4] transition-colors">
-                            {item.name} {/* FIXED: Changed from item.item */}
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            {item.description}
-                          </div>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Simple Links */}
-            <a 
-              href="#about" 
-              className="px-5 py-3 text-gray-800 hover:text-[#1110C4] transition-all duration-200 font-medium relative group"
-            >
-              <span className="relative">
-                About
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] group-hover:w-full transition-all duration-300"></span>
-              </span>
-            </a>
-            <a 
-              href="#contact" 
-              className="px-5 py-3 text-gray-800 hover:text-[#1110C4] transition-all duration-200 font-medium relative group"
-            >
-              <span className="relative">
-                Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] group-hover:w-full transition-all duration-300"></span>
-              </span>
-            </a>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <button className="px-6 py-2.5 text-[#1110C4] hover:text-[#2A29DF] transition-all duration-200 font-medium rounded-full hover:bg-[#1110C4]/5">
               Sign In
-            </button>
-            <button className="px-6 py-2.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] text-white rounded-full hover:shadow-xl hover:shadow-[#1110C4]/30 hover:scale-[1.02] transition-all duration-300 font-medium group relative overflow-hidden">
-              <span className="relative z-10">Get Started Free</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2A29DF] to-[#2BEC06] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            </a>
+            <a
+              href="/get-started"
+              className="px-6 py-2.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603]
+              text-white rounded-full font-medium hover:shadow-xl hover:shadow-[#1110C4]/30
+              transition"
+            >
+              Get Started
+            </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 transition-all duration-200"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="lg:hidden p-3 rounded-xl hover:bg-[#1110C4]/5 transition"
+            aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
-      {/* Enhanced Mobile menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#1110C4]/10 animate-slideDown">
-          <div className="px-4 py-6 space-y-6">
-            {/* Simple Links Mobile - Moved to TOP */}
-            <div className="space-y-3 pb-4 border-b border-[#1110C4]/10">
-              <a 
-                href="#about" 
-                className="block py-3 text-gray-900 font-medium hover:text-[#1110C4] transition-colors text-lg"
-                onClick={handleMobileItemClick}
-              >
-                About
-              </a>
-              <a 
-                href="#contact" 
-                className="block py-3 text-gray-900 font-medium hover:text-[#1110C4] transition-colors text-lg"
-                onClick={handleMobileItemClick}
-              >
-                Contact
-              </a>
-            </div>
+        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#1110C4]/10">
+          <div className="max-h-[calc(100vh-80px)] overflow-y-auto px-6 py-8 space-y-6">
 
-            {/* Solutions Mobile */}
-            <div className="space-y-3">
-              <div className="font-semibold text-lg text-[#1110C4] mb-2">Solutions</div>
-              {solutions.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.href}
-                  className="flex items-center p-4 rounded-xl bg-gradient-to-r from-white to-gray-50 hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 transition-all duration-200"
-                  onClick={handleMobileItemClick}
-                >
-                  <span className="text-2xl mr-3">{item.icon}</span>
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">{item.name}</div>
-                    <div className="text-sm text-gray-600 mt-1">{item.description}</div>
-                  </div>
-                  <ArrowRight className="h-4 w-4 text-gray-400" />
-                </a>
-              ))}
-            </div>
+            <a href="/solutions" onClick={closeMenu} className="mobile-link">
+              Solutions
+            </a>
 
-            {/* Resources Mobile */}
-            <div className="space-y-3">
-              <div className="font-semibold text-lg text-[#1110C4] mb-2">Resources</div>
-              {resources.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.href}
-                  className="flex items-center p-4 rounded-xl bg-gradient-to-r from-white to-gray-50 hover:from-[#1110C4]/5 hover:to-[#1AD603]/5 transition-all duration-200"
-                  onClick={handleMobileItemClick}
-                >
-                  <span className="text-xl mr-3">{item.icon}</span>
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">{item.name}</div>
-                    <div className="text-sm text-gray-600">{item.description}</div>
-                  </div>
-                </a>
-              ))}
-            </div>
+            <a href="/about" onClick={closeMenu} className="mobile-link">
+              About
+            </a>
 
-            {/* Mobile CTA Buttons */}
-            <div className="pt-6 space-y-3 border-t border-[#1110C4]/10">
-              <button 
-                className="w-full px-6 py-3.5 text-[#1110C4] border-2 border-[#1110C4] rounded-full font-medium hover:bg-[#1110C4] hover:text-white transition-all duration-200"
-                onClick={handleMobileItemClick}
+            <a href="/contact" onClick={closeMenu} className="mobile-link">
+              Contact
+            </a>
+
+            <div className="pt-6 space-y-4 border-t border-[#1110C4]/10">
+              <a
+                href="/login"
+                onClick={closeMenu}
+                className="block text-center py-3 rounded-full border-2 border-[#1110C4]
+                text-[#1110C4] font-medium hover:bg-[#1110C4] hover:text-white transition"
               >
                 Sign In
-              </button>
-              <button 
-                className="w-full px-6 py-3.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603] text-white rounded-full font-medium hover:shadow-xl hover:shadow-[#1110C4]/30 transition-all duration-200"
-                onClick={handleMobileItemClick}
+              </a>
+
+              <a
+                href="/get-started"
+                onClick={closeMenu}
+                className="block text-center py-3 rounded-full bg-gradient-to-r
+                from-[#1110C4] to-[#1AD603] text-white font-medium transition"
               >
-                Get Started Free
-              </button>
+                Get Started
+              </a>
             </div>
           </div>
         </div>
       )}
 
-      {/* Add custom animations to global CSS or tailwind config */}
+      {/* Styles */}
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .nav-link {
+          font-weight: 500;
+          color: #1f2937;
+          position: relative;
+          transition: color 0.2s;
         }
-        
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .nav-link:hover {
+          color: #1110C4;
         }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out;
+
+        .mobile-link {
+          display: block;
+          font-size: 1.125rem;
+          font-weight: 500;
+          color: #111827;
+          padding: 0.75rem 0;
+          transition: color 0.2s;
         }
-        
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
+        .mobile-link:hover {
+          color: #1110C4;
         }
       `}</style>
     </nav>

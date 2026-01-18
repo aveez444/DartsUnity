@@ -1,856 +1,766 @@
-import { useEffect, useRef, useState } from 'react';
-import { 
-  Users, Target, Globe, Zap, Heart, Award, Rocket, 
-  Sparkles, TrendingUp, Shield, Lightbulb, GitBranch,
-  ArrowRight, ChevronRight, Star, Clock, CheckCircle,
-  Building, Users as UsersIcon, Target as TargetIcon,
-  Globe as GlobeIcon, Zap as ZapIcon,
-  MapPin, BarChart, Cpu, Cloud, Code, Palette,
-  MessageCircle, ThumbsUp, TrendingDown, Circle,
-  Calendar, Eye, Brain, Target as Bullseye,
-  RefreshCw, Layers, Puzzle
-} from 'lucide-react';
-import teamImage from '../assets/team-collaboration.jpg';
-import officeSpace from '../assets/modern-office.jpg';
-import missionImage from '../assets/vision-board.jpg';
+import { ArrowRight, Target, Database, Users, TrendingUp, CheckCircle2, Award, Globe, BarChart3, Shield, Sparkles, Clock, Zap, Eye, Lightbulb } from 'lucide-react';
+
+// Import images
+import officeTeamImage from '../assets/office-team.jpg'; // Modern office with team collaborating
+import dataAnalyticsImage from '../assets/data-analytics-illustration.jpg'; // AI-generated illustration of data/analytics
+import cultureImage from '../assets/company-culture.jpg'; // Office interior showing company culture
+import processIllustration from '../assets/process-illustration.jpg'; // AI-generated workflow/process illustration
 
 const About = () => {
-  const [activeSection, setActiveSection] = useState('story');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [animatedNumbers, setAnimatedNumbers] = useState({
-    clients: 0,
-    countries: 0,
-    satisfaction: 0,
-    projects: 0
-  });
-
-  const containerRef = useRef(null);
-  const timelineRef = useRef(null);
-  
-  // Enhanced scroll progress with parallax
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.offsetHeight - window.innerHeight;
-      const progress = Math.min(scrollTop / docHeight, 1);
-      setScrollProgress(progress);
-      
-      // Section tracking
-      const sections = ['story', 'mission', 'values', 'journey', 'team'];
-      const sectionElements = sections.map(id => document.getElementById(id));
-      sectionElements.forEach((el, index) => {
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.3) {
-            setActiveSection(sections[index]);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Animated counters
-  useEffect(() => {
-    const animateValue = (start, end, duration, callback) => {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        callback(value);
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    };
-
-    animateValue(0, 650, 2000, (val) => setAnimatedNumbers(prev => ({...prev, clients: val})));
-    animateValue(0, 45, 2000, (val) => setAnimatedNumbers(prev => ({...prev, countries: val})));
-    animateValue(0, 98, 2000, (val) => setAnimatedNumbers(prev => ({...prev, satisfaction: val})));
-    animateValue(0, 1200, 2000, (val) => setAnimatedNumbers(prev => ({...prev, projects: val})));
-  }, []);
-
-  // Enhanced stats with more metrics
-  const enhancedStats = [
-    { 
-      icon: Users, 
-      value: `${animatedNumbers.clients}+`, 
-      label: "Happy Clients",
-      description: "Global enterprises to startups",
-      gradient: "from-blue-500 to-cyan-400"
-    },
-    { 
-      icon: Globe, 
-      value: `${animatedNumbers.countries}+`, 
-      label: "Countries",
-      description: "Active operations worldwide",
-      gradient: "from-green-500 to-emerald-400"
-    },
-    { 
-      icon: Zap, 
-      value: `${animatedNumbers.satisfaction}%`, 
-      label: "Satisfaction Rate",
-      description: "Client retention metric",
-      gradient: "from-amber-500 to-orange-400"
-    },
-    { 
-      icon: Rocket, 
-      value: `${animatedNumbers.projects}+`, 
-      label: "Projects",
-      description: "Successfully delivered",
-      gradient: "from-violet-500 to-purple-400"
-    }
-  ];
-
-  // Expanded core values
-  const corePrinciples = [
-    {
-      icon: Heart,
-      title: "Client Empathy",
-      description: "We don't just serve clients - we become their strategic partners, deeply understanding their challenges to deliver solutions that drive real business value.",
-      pillars: ["Deep Listening", "Proactive Support", "Continuous Feedback"],
-      color: "bg-gradient-to-br from-rose-500 to-pink-500"
-    },
-    {
-      icon: Brain,
-      title: "Intelligent Innovation",
-      description: "Leveraging cutting-edge AI and machine learning to create predictive models that anticipate market trends before they happen.",
-      pillars: ["AI-First Approach", "Data-Driven Decisions", "Future-Proof Solutions"],
-      color: "bg-gradient-to-br from-blue-500 to-cyan-400"
-    },
-    {
-      icon: Shield,
-      title: "Uncompromising Integrity",
-      description: "Transparency isn't just a policy - it's our foundation. We build trust through ethical practices and honest communication.",
-      pillars: ["Radical Transparency", "Ethical AI", "Secure Operations"],
-      color: "bg-gradient-to-br from-emerald-500 to-teal-400"
-    },
-    {
-      icon: Puzzle,
-      title: "Collaborative Excellence",
-      description: "We believe the best solutions emerge from diverse perspectives working in harmony towards a shared vision.",
-      pillars: ["Cross-Functional Teams", "Open Communication", "Shared Success"],
-      color: "bg-gradient-to-br from-indigo-500 to-purple-400"
-    }
-  ];
-
-  // Expanded timeline with more detail
-  const journeyTimeline = [
-    { 
-      year: "2018", 
-      title: "Foundation", 
-      milestone: "DartsUnity was founded with a vision to revolutionize lead generation",
-      achievements: ["First office established", "Initial team of 5", "First 10 clients"],
-      icon: Building
-    },
-    { 
-      year: "2019", 
-      title: "Growth Surge", 
-      milestone: "Expanded to 100+ clients and launched AI analytics platform",
-      achievements: ["Team grew to 25", "Series A funding", "Patent filed"],
-      icon: TrendingUp
-    },
-    { 
-      year: "2020", 
-      title: "Innovation Leap", 
-      milestone: "Pioneered predictive AI models for lead scoring accuracy",
-      achievements: ["AI platform v2.0", "Remote-first transition", "1000+ users"],
-      icon: Cpu
-    },
-    { 
-      year: "2021", 
-      title: "Global Expansion", 
-      milestone: "Opened international offices across 3 continents",
-      achievements: ["EMEA HQ opened", "APAC expansion", "50+ countries served"],
-      icon: MapPin
-    },
-    { 
-      year: "2022", 
-      title: "Platform Evolution", 
-      milestone: "Launched integrated suite with real-time market intelligence",
-      achievements: ["Unified platform", "Mobile app launch", "Enterprise tier"],
-      icon: Layers
-    },
-    { 
-      year: "2023", 
-      title: "Industry Recognition", 
-      milestone: "Award-winning solutions and strategic partnerships",
-      achievements: ["3 industry awards", "Fortune 500 partners", "ISO certification"],
-      icon: Award
-    }
-  ];
-
-  // Expanded leadership team
-  const leadershipTeam = [
-    {
-      name: "Alexandra Morgan",
-      role: "CEO & Founder",
-      bio: "Former Google executive with 15+ years in enterprise SaaS and AI-driven solutions. Led three successful startups to acquisition.",
-      expertise: ["AI Strategy", "Scaling Startups", "Enterprise Sales"],
-      initials: "AM",
-      color: "bg-gradient-to-br from-blue-600 to-cyan-500",
-      shape: "hexagon"
-    },
-    {
-      name: "Dr. Sarah Chen",
-      role: "Chief Technology Officer",
-      bio: "MIT PhD in Machine Learning. Published 20+ research papers. Leads our AI research division and innovation labs.",
-      expertise: ["Machine Learning", "Research", "System Architecture"],
-      initials: "SC",
-      color: "bg-gradient-to-br from-emerald-600 to-teal-500",
-      shape: "circle"
-    },
-    {
-      name: "Marcus Johnson",
-      role: "Head of Growth",
-      bio: "Scaled three tech startups from 0 to 100M+ revenue. Expert in market expansion and customer acquisition.",
-      expertise: ["Go-to-Market", "Revenue Operations", "Team Building"],
-      initials: "MJ",
-      color: "bg-gradient-to-br from-amber-600 to-orange-500",
-      shape: "square"
-    },
-    {
-      name: "Priya Patel",
-      role: "Product Director",
-      bio: "Led product teams at Salesforce and Adobe. Specializes in UX-driven product strategy and roadmap execution.",
-      expertise: ["Product Strategy", "UX Design", "Agile Development"],
-      initials: "PP",
-      color: "bg-gradient-to-br from-violet-600 to-purple-500",
-      shape: "triangle"
-    }
-  ];
-
-  // Company culture highlights
-  const cultureHighlights = [
-    { icon: UsersIcon, title: "Diverse Team", value: "18 nationalities", color: "text-blue-600" },
-    { icon: RefreshCw, title: "Remote First", value: "Flexible work", color: "text-green-600" },
-    { icon: Award, title: "Learning Budget", value: "$5k/year", color: "text-amber-600" },
-    { icon: Heart, title: "Wellness Focus", value: "Holistic care", color: "text-rose-600" },
-  ];
-
   return (
-    <div className="min-h-screen bg-white overflow-hidden" ref={containerRef}>
-      {/* Navigation Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-50 bg-gray-200">
-        <div 
-          className="h-full bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-500 transition-all duration-300"
-          style={{ width: `${scrollProgress * 100}%` }}
-        />
-      </div>
-
-      {/* Section Navigation Dots */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        {['story', 'mission', 'values', 'journey', 'team'].map((section, index) => (
-          <button
-            key={section}
-            onClick={() => {
-              const element = document.getElementById(section);
-              element?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="block w-3 h-3 my-4 rounded-full transition-all duration-300 hover:scale-150"
-            style={{
-              backgroundColor: activeSection === section 
-                ? 'rgb(59 130 246)' 
-                : 'rgb(209 213 219)',
-              transform: activeSection === section ? 'scale(1.5)' : 'scale(1)'
-            }}
-          >
-            <span className="sr-only">{section}</span>
-          </button>
-        ))}
-      </div>
-
-      {/* Hero Section - Asymmetrical Layout */}
-      {/* Alternative Background - Abstract Blobs */}
-      <section id="story" className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
-          {/* Large Background Blobs */}
-          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-gradient-to-br from-blue-200/20 via-cyan-100/10 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-emerald-200/20 via-teal-100/10 to-transparent rounded-full blur-3xl"></div>
-          
-          {/* Intersecting Lines Pattern */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200/30 to-transparent"></div>
-            <div className="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-emerald-200/30 to-transparent"></div>
-            
-            {/* Diagonal Lines */}
-            <div className="absolute inset-0" style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(59, 130, 246, 0.03) 10px,
-                rgba(59, 130, 246, 0.03) 20px
-              )`
-            }}></div>
-          </div>
-          
-          {/* Floating Cards */}
-          <div className="absolute top-20 left-1/4 w-64 h-40 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg transform -rotate-6"></div>
-          <div className="absolute bottom-32 right-1/4 w-56 h-32 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg transform rotate-12"></div>
+    <div className="min-h-screen bg-white">
+      
+      {/* ===================== HERO SECTION - Diagonal Split Design ===================== */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-0">
+        
+        {/* Diagonal split background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="0,0 100,0 100,60 0,40" fill="url(#diagonalGradient)" opacity="0.05"/>
+            <defs>
+              <linearGradient id="diagonalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1110C4" />
+                <stop offset="100%" stopColor="#0B0A8A" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            {/* Left Column - Main Content */}
-            <div className="lg:col-span-7 space-y-8">
-              <div className="inline-flex items-center gap-3 px-4 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-lg">
-                <div className="relative">
-                  <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full animate-pulse"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full animate-ping opacity-20"></div>
+
+        {/* Hexagon pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='%231110C4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px'
+        }}></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          
+          {/* MOBILE Layout */}
+          <div className="md:hidden space-y-12">
+            <div className="text-center space-y-8">
+              <div className="inline-block">
+                <div className="px-6 py-3 bg-white rounded-2xl shadow-lg border-2 border-[#1110C4]/10">
+                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] bg-clip-text text-transparent tracking-wider">
+                    ABOUT DARTSUNITY
+                  </span>
                 </div>
-                <span className="text-sm font-semibold text-gray-700 tracking-wide">INNOVATING SINCE 2018</span>
               </div>
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="block text-gray-900">Redefining</span>
-                <span className="block text-transparent bg-gradient-to-r from-blue-600 via-emerald-600 to-amber-600 bg-clip-text">
-                  Lead Generation
+
+              <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] text-gray-900">
+                Precision-Driven
+                <span className="block mt-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+                  B2B Growth
                 </span>
-                <span className="block text-gray-900">Through Intelligence</span>
               </h1>
               
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
-                We're not just another SaaS company. We're architects of intelligent connections, 
-                building bridges between businesses and their perfect customers through data-driven 
-                insights and human-centered design.
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                Research-led execution that transforms your pipeline into predictable revenue streams.
               </p>
 
-              {/* Quick Stats Row */}
-              <div className="flex flex-wrap gap-6 pt-8">
-                {enhancedStats.map((stat, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${stat.gradient} rounded-xl flex items-center justify-center`}>
-                      <stat.icon className="h-6 w-6 text-white" />
+              <div className="grid grid-cols-2 gap-4 pt-8">
+                {[
+                  { value: '10+', label: 'Years' },
+                  { value: '500+', label: 'Clients' },
+                  { value: '2.5M+', label: 'Leads' },
+                  { value: '94%', label: 'Retention' }
+                ].map((stat, i) => (
+                  <div key={i} className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 border border-gray-200 shadow-lg">
+                    <div className="text-4xl font-bold text-[#1110C4] mb-1">{stat.value}</div>
+                    <div className="text-xs text-gray-600 font-semibold uppercase tracking-wide">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[3/2] rounded-[2.5rem] overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                <img 
+                  src={officeTeamImage}
+                  alt="DartsUnity Team"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                    e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">👥</div><div class="text-gray-600">Modern office with team</div></div>';
+                  }}
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#1110C4] rounded-full opacity-10 blur-2xl"></div>
+            </div>
+          </div>
+
+          {/* DESKTOP Layout */}
+          <div className="hidden md:grid grid-cols-12 gap-12 items-center">
+            
+            <div className="col-span-7 space-y-10">
+              <div className="inline-block">
+                <div className="px-8 py-4 bg-white rounded-2xl shadow-xl border-2 border-[#1110C4]/10">
+                  <span className="text-sm font-bold bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] bg-clip-text text-transparent tracking-widest">
+                    ABOUT DARTSUNITY
+                  </span>
+                </div>
+              </div>
+
+              <h1 className="text-6xl lg:text-7xl font-bold leading-[1.05] text-gray-900">
+                Precision-Driven
+                <span className="block mt-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+                  B2B Growth
+                </span>
+              </h1>
+              
+              <p className="text-2xl text-gray-600 leading-relaxed">
+                Research-led execution that transforms your pipeline into predictable revenue streams.
+              </p>
+
+              <div className="grid grid-cols-4 gap-6 pt-8">
+                {[
+                  { value: '10+', label: 'Years' },
+                  { value: '500+', label: 'Clients' },
+                  { value: '2.5M+', label: 'Leads' },
+                  { value: '94%', label: 'Retention' }
+                ].map((stat, i) => (
+                  <div key={i} className="group">
+                    <div className="text-5xl font-bold text-[#1110C4] mb-2 group-hover:scale-110 transition-transform">{stat.value}</div>
+                    <div className="text-sm text-gray-600 uppercase tracking-wide font-semibold">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="col-span-5 relative">
+              <div className="relative">
+                <div className="aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-all duration-500">
+                  <img 
+                    src={officeTeamImage}
+                    alt="DartsUnity Team"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                      e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">👥</div><div class="text-gray-600">Modern office team</div></div>';
+                    }}
+                  />
+                </div>
+                <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-full opacity-20 blur-3xl"></div>
+                <div className="absolute -top-8 -right-8 w-40 h-40 bg-[#1AD603] rounded-full opacity-10 blur-3xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+            <path d="M0,64 L60,58 L120,64 L180,70 L240,64 L300,58 L360,52 L420,46 L480,52 L540,58 L600,64 L660,70 L720,64 L780,58 L840,52 L900,46 L960,52 L1020,58 L1080,64 L1140,70 L1200,64 L1260,58 L1320,52 L1380,58 L1440,64 L1440,120 L0,120 Z" 
+                  fill="#F9FAFB"/>
+          </svg>
+        </div>
+      </section>
+
+  {/* ===================== OUR STORY - Bento Box Layout ===================== */}
+
+<section className="relative bg-gray-50 py-32 overflow-hidden">
+
+    {/* Diagonal gradient wave layer */}
+    <div className="absolute inset-0 pointer-events-none">
+      <svg
+        viewBox="0 0 1440 800"
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute -top-40 left-0 w-full rotate-[-4deg]"
+        preserveAspectRatio="none"
+      >
+        <defs>
+        <linearGradient id="diagWave" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#1110C4" stopOpacity="0.14" />
+          <stop offset="55%" stopColor="#1110C4" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="#1AD603" stopOpacity="0.10" />
+        </linearGradient>
+
+        </defs>
+
+        <path
+          d="M0,300 C200,180 420,220 640,260 C900,320 1120,240 1440,180 L1440,0 L0,0 Z"
+          fill="url(#diagWave)"
+        />
+      </svg>
+    </div>
+
+
+        {/* Soft diagonal wave */}
+        <div className="absolute inset-0 pointer-events-none">
+          <svg
+            viewBox="0 0 1440 600"
+            className="absolute bottom-0 left-0 w-full rotate-[3deg]"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,120 C240,200 480,80 720,140 C960,200 1200,100 1440,140 L1440,600 L0,600 Z"
+              fill="#1110C4"
+              opacity="0.04"
+            />
+          </svg>
+        </div>
+
+        {/* Radial gradient background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-gradient-radial from-[#1110C4]/5 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-[#1AD603]/5 to-transparent rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Curved lines pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="curvedLines" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                <path d="M0,50 Q25,25 50,50 T100,50" stroke="#1110C4" fill="none" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#curvedLines)"/>
+          </svg>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-20">
+            <div className="inline-block mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#1110C4] blur-xl opacity-20 rounded-full"></div>
+                <div className="relative px-8 py-4 bg-white rounded-full shadow-lg border border-gray-200">
+                  <span className="text-sm font-bold text-[#1110C4] tracking-widest">OUR FOUNDATION</span>
+                </div>
+              </div>
+            </div>
+            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Built on{' '}
+              <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+                Precision & Trust
+              </span>
+            </h2>
+          </div>
+
+          {/* Bento Grid Layout */}
+          <div className="grid lg:grid-cols-12 gap-6">
+            
+            {/* Large text card */}
+            <div className="lg:col-span-7 bg-white rounded-[2.5rem] p-10 lg:p-14 shadow-xl border border-gray-200 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#1110C4]/5 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative space-y-6">
+                <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                  DartsUnity is a B2B data and growth solutions company
+                </h3>
+                <p className="text-xl text-gray-700 leading-relaxed">
+                  We support organizations with structured, research-led sales and marketing execution. 
+                  Our services connect businesses with relevant decision-makers through account-based marketing, 
+                  lead generation, and email outreach.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Every engagement is grounded in accurate data validation, industry-specific research, and clearly 
+                  defined ICPs—ensuring long-term value creation over short-term volume.
+                </p>
+              </div>
+            </div>
+
+            {/* Image card */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-gray-100 to-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-200 relative group">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1110C4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <img 
+                src={dataAnalyticsImage}
+                alt="Data Analytics"
+                className="w-full h-full object-cover min-h-[400px] lg:min-h-full"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
+                  e.target.parentElement.innerHTML = '<div class="text-center p-12"><div class="text-7xl mb-4">📊</div><div class="text-gray-600 text-lg">Data analytics illustration</div></div>';
+                }}
+              />
+            </div>
+
+            {/* Stats cards row */}
+            <div className="lg:col-span-4 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-[2.5rem] p-8 shadow-xl text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold mb-2">500+</div>
+                <div className="text-white/80 text-sm uppercase tracking-wider">Global Clients</div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 bg-white rounded-[2.5rem] p-8 shadow-xl border-2 border-[#1110C4]/20 relative overflow-hidden group">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#1110C4] opacity-5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-[#1110C4] mb-2">2.5M+</div>
+                <div className="text-gray-600 text-sm uppercase tracking-wider">Leads Generated</div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-8 shadow-xl text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#1AD603] opacity-10 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold mb-2">94%</div>
+                <div className="text-white/80 text-sm uppercase tracking-wider">Client Retention</div>
+              </div>
+            </div>
+
+            {/* Values cards */}
+            {[
+              { title: 'Data Integrity', desc: 'Multi-layer validation ensures accuracy', icon: '🎯' },
+              { title: 'Compliance First', desc: 'Transparency & regulatory adherence', icon: '🛡️' },
+              { title: 'Long-Term Value', desc: 'Sustainable growth over volume', icon: '📈' }
+            ].map((item, i) => (
+              <div key={i} className="lg:col-span-4 bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:border-[#1110C4]/30 transition-all duration-300">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Wavy divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+            <path d="M0,64 C240,90 480,40 720,64 C960,88 1200,38 1440,64 L1440,120 L0,120 Z" fill="white"/>
+          </svg>
+        </div>
+      </section>
+
+{/* ===================== OUR APPROACH - Circular Flow ===================== */}
+<section className="relative bg-white py-32 overflow-hidden">
+  
+  {/* Diagonal stripes background */}
+  <div className="absolute inset-0 opacity-[0.015]">
+    <div className="absolute inset-0" style={{
+      backgroundImage: `repeating-linear-gradient(45deg, #1110C4 0px, #1110C4 2px, transparent 2px, transparent 60px)`
+    }}></div>
+  </div>
+
+  {/* Floating accent shapes */}
+  <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1AD603] opacity-5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div className="text-center mb-24">
+      <div className="inline-block mb-6">
+        <div className="px-8 py-4 bg-gradient-to-r from-[#1110C4]/5 to-[#1AD603]/5 rounded-full border-2 border-[#1110C4]/20">
+          <span className="text-sm font-bold text-[#1110C4] tracking-widest">OUR METHODOLOGY</span>
+        </div>
+      </div>
+      <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        How We{' '}
+        <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+          Drive Results
+        </span>
+      </h2>
+    </div>
+
+    {/* Desktop: Circular flow with central image */}
+    <div className="hidden lg:block relative" style={{ minHeight: '700px' }}>
+      
+      {/* Central image */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="relative">
+          {/* Rotating ring */}
+          <div className="absolute inset-0 -m-6">
+            <div className="w-full h-full rounded-full border-2 border-dashed border-[#1110C4]/30 animate-[spin_30s_linear_infinite]"></div>
+          </div>
+          
+          {/* Image */}
+          <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-8 border-white relative">
+            <img 
+              src={processIllustration}
+              alt="Process"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl">⚙️</div><div class="text-gray-600 mt-2">Process flow</div></div>';
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Process cards in circular layout - NOW WITH 6 CARDS */}
+      {[
+        { pos: 'top-0 left-1/2 -translate-x-1/2', num: '01', title: 'Research & Discovery', desc: 'Deep ICP analysis & market positioning' }, 
+        { pos: 'top-1/4 right-0 ', num: '02', title: 'Data Validation', desc: 'Multi-layer verification for accuracy' },
+        { pos: 'bottom-1/4 right-0', num: '03', title: 'Campaign Execution', desc: 'Personalized multi-channel outreach' },
+        { pos: 'bottom-0 left-1/2 -translate-x-1/2', num: '04', title: 'Optimization', desc: 'Continuous refinement & reporting' },
+        { pos: 'top-1/4 left-0 -translate-y-10', num: '06', title: 'Strategic Planning', desc: 'Goal alignment & roadmap development' },
+        { pos: 'bottom-1/4 left-0 translate-y-10', num: '05', title: 'Performance Tracking', desc: 'Real-time analytics & KPI monitoring' },
+        
+      ].map((item, i) => (
+        <div key={i} className={`absolute ${item.pos} group`}>
+          <div className="w-72 bg-white rounded-3xl p-7 shadow-xl border-2 border-gray-100 hover:border-[#1110C4]/40 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center flex-shrink-0 text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                {item.num}
+              </div>
+              <div className="flex-1">
+                <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Mobile: Grid layout - NOW WITH 6 CARDS */}
+    <div className="lg:hidden space-y-6 mb-12">
+      {[
+        { num: '01', title: 'Research & Discovery', desc: 'Deep ICP analysis & market positioning' },
+        { num: '02', title: 'Data Validation', desc: 'Multi-layer verification for accuracy' },
+        { num: '03', title: 'Campaign Execution', desc: 'Personalized multi-channel outreach' },
+        { num: '04', title: 'Optimization', desc: 'Continuous refinement & reporting' },
+        { num: '05', title: 'Performance Tracking', desc: 'Real-time analytics & KPI monitoring' },
+        { num: '06', title: 'Strategic Planning', desc: 'Goal alignment & roadmap development' }
+      ].map((item, i) => (
+        <div key={i} className="bg-white rounded-3xl p-6 shadow-xl border-2 border-gray-100">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center flex-shrink-0 text-white font-bold">
+              {item.num}
+            </div>
+            <div className="flex-1">
+              <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
+              <p className="text-gray-600 text-sm">{item.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Mobile image */}
+    <div className="lg:hidden">
+      <div className="aspect-square max-w-md mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
+        <img 
+          src={processIllustration}
+          alt="Process"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+            e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-7xl">⚙️</div><div class="text-gray-600 mt-4">Process workflow</div></div>';
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ===================== WHY CHOOSE US - Staggered Cards ===================== */}
+
+<section className="relative bg-gradient-to-b from-gray-50 to-white py-32 overflow-hidden">
+
+      {/* Unique top wave cut */}
+      <div className="absolute top-0 left-0 right-0 -translate-y-full pointer-events-none">
+        <svg
+          viewBox="0 0 1440 160"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          className="w-full h-40"
+        >
+          <path
+            d="M0,120 C180,60 360,140 540,100 C720,60 900,140 1080,100 C1260,60 1350,80 1440,60 L1440,160 L0,160 Z"
+            fill="#f9fafb"
+          />
+        </svg>
+      </div>
+
+      {/* Main flowing wave layer */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg
+          viewBox="0 0 1440 600"
+          preserveAspectRatio="none"
+          className="absolute top-0 left-0 w-full h-full"
+        >
+          <defs>
+            <linearGradient id="whyWave" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#1110C4" stopOpacity="0.06" />
+              <stop offset="50%" stopColor="#1110C4" stopOpacity="0.02" />
+              <stop offset="100%" stopColor="#1AD603" stopOpacity="0.05" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M0,180 C240,260 480,140 720,200 C960,260 1200,140 1440,200 L1440,600 L0,600 Z"
+            fill="url(#whyWave)"
+          />
+        </svg>
+      </div>
+
+      {/* Secondary depth wave */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg
+          viewBox="0 0 1440 600"
+          preserveAspectRatio="none"
+          className="absolute bottom-0 left-0 w-full h-full"
+        >
+          <path
+            d="M0,420 C300,360 600,460 900,420 C1200,380 1320,420 1440,400 L1440,600 L0,600 Z"
+            fill="#1110C4"
+            opacity="0.035"
+          />
+        </svg>
+      </div>
+
+            
+        {/* Mesh gradient background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-br from-[#1110C4]/5 via-transparent to-transparent"></div>
+          <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-tl from-[#1AD603]/5 via-transparent to-transparent"></div>
+        </div>
+
+        {/* Dot grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle, #1110C4 1.5px, transparent 1.5px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-20">
+            <div className="inline-block mb-6">
+              <div className="px-8 py-4 bg-white rounded-full shadow-xl border border-gray-200">
+                <span className="text-sm font-bold text-[#1110C4] tracking-widest">WHY DARTSUNITY</span>
+              </div>
+            </div>
+            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              The DartsUnity{' '}
+              <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+                Difference
+              </span>
+            </h2>
+          </div>
+
+          {/* Staggered grid - Desktop */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: 'Data Integrity', desc: 'Every lead validated through multiple verification layers ensuring accuracy and relevance', shift: 'md:mt-0' },
+              { title: 'Industry Expertise', desc: 'Specialized knowledge across tech, healthcare, finance, manufacturing, and professional services', shift: 'md:mt-12' },
+              { title: 'Dedicated Support', desc: 'Committed account teams focused on understanding and achieving your specific goals', shift: 'md:mt-0' },
+              { title: 'Scalable Solutions', desc: 'Infrastructure that grows seamlessly from pilot programs to enterprise-wide campaigns', shift: 'md:mt-12' },
+              { title: 'Compliance First', desc: 'Full adherence to GDPR, CAN-SPAM, and industry regulations protecting both parties', shift: 'md:mt-24' },
+              { title: 'Proven Results', desc: '10+ years delivering measurable outcomes with 94% client retention rate', shift: 'md:mt-12' }
+            ].map((item, i) => (
+              <div key={i} className={`${item.shift} group`}>
+                <div className="bg-white rounded-[2rem] p-10 border-2 border-gray-200 shadow-lg hover:shadow-2xl hover:border-[#1110C4]/40 transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
+                  {/* Animated background on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative">
+                    {/* Number indicator */}
+                    <div className="text-7xl font-bold text-[#1110C4]/10 mb-4 group-hover:text-[#1110C4]/20 transition-colors">
+                      {String(i + 1).padStart(2, '0')}
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                    
+                    {/* Hover accent line */}
+                    <div className="mt-6 w-0 h-1 bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] group-hover:w-16 transition-all duration-500"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Simple grid - Mobile */}
+          <div className="md:hidden space-y-6">
+            {[
+              { title: 'Data Integrity', desc: 'Every lead validated through multiple verification layers' },
+              { title: 'Industry Expertise', desc: 'Specialized knowledge across multiple B2B verticals' },
+              { title: 'Dedicated Support', desc: 'Committed teams focused on your success' },
+              { title: 'Scalable Solutions', desc: 'Infrastructure that grows with your needs' },
+              { title: 'Compliance First', desc: 'Full regulatory adherence and protection' },
+              { title: 'Proven Results', desc: '10+ years with 94% client retention' }
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="text-5xl font-bold text-[#1110C4]/10 mb-3">{String(i + 1).padStart(2, '0')}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== CULTURE - Offset Layout ===================== */}
+      <section className="relative bg-white py-32 overflow-hidden">
+        
+        {/* Organic blob shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <svg className="absolute top-0 left-0 w-1/2 h-1/2 opacity-5" viewBox="0 0 200 200">
+            <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.1,73.1,42.3C64.8,55.4,53.8,67.1,40.3,74.3C26.8,81.5,10.8,84.1,-4.9,82.8C-20.6,81.5,-36.1,76.2,-49.3,68.4C-62.5,60.6,-73.4,50.2,-80.1,37.4C-86.8,24.6,-89.3,9.4,-87.8,-5.2C-86.3,-19.8,-80.8,-33.8,-72.6,-46.2C-64.4,-58.6,-53.5,-69.4,-40.4,-77.2C-27.3,-85,-12.1,-89.8,2.4,-93.8C16.9,-97.8,30.6,-83.6,44.7,-76.4Z" 
+                  fill="#1110C4"/>
+          </svg>
+          <svg className="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-5" viewBox="0 0 200 200">
+            <path d="M39.9,-65.6C51.4,-58.1,60.3,-46.7,67.4,-34C74.5,-21.3,79.8,-7.3,79.7,6.8C79.6,20.9,74.1,35.1,65.3,46.8C56.5,58.5,44.4,67.7,30.9,73.1C17.4,78.5,2.5,80.1,-12.8,78.3C-28.1,76.5,-43.8,71.3,-56.8,62.4C-69.8,53.5,-80.1,40.9,-84.7,26.4C-89.3,11.9,-88.2,-4.5,-82.8,-18.7C-77.4,-32.9,-67.7,-44.9,-55.6,-52.2C-43.5,-59.5,-29,-62.1,-15.5,-64.8C-2,-67.5,10.5,-70.3,22.4,-69.2C34.3,-68.1,28.4,-73.1,39.9,-65.6Z" 
+                  fill="#1AD603"/>
+          </svg>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Content - Desktop left, Mobile top */}
+            <div className="lg:col-span-7 order-2 lg:order-1 space-y-8">
+              <div className="inline-block">
+                <div className="px-8 py-4 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 rounded-full border border-[#1110C4]/20">
+                  <span className="text-sm font-bold text-[#1110C4] tracking-widest">OUR CULTURE</span>
+                </div>
+              </div>
+
+              <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Built on{' '}
+                <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+                  Excellence & Integrity
+                </span>
+              </h2>
+
+              <p className="text-xl text-gray-600 leading-relaxed">
+                At DartsUnity, sustainable growth comes from transparency, accountability, 
+                and genuine partnership with our clients.
+              </p>
+
+              {/* Value cards */}
+              <div className="space-y-5 pt-6">
+                {[
+                  { icon: '🎯', title: 'Client-Centric Mindset', desc: 'Every strategy and decision prioritizes your success objectives' },
+                  { icon: '💡', title: 'Continuous Innovation', desc: 'Leveraging latest technologies and industry best practices' },
+                  { icon: '🛡️', title: 'Ethical Standards', desc: 'Non-negotiable commitment to compliance and data privacy' }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 items-start bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl hover:border-[#1110C4]/30 transition-all duration-300 group">
+                    <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform">{item.icon}</div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right Column - Image & Floating Elements */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative group">
-                {/* Main Image with Layered Effects */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-700">
+            {/* Image - Desktop right, Mobile bottom */}
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <div className="relative">
+                {/* Main image */}
+                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white transform lg:translate-x-12 hover:translate-x-0 transition-transform duration-500">
                   <img 
-                    src={teamImage}
-                    alt="Innovative Team Collaboration"
-                    className="w-full h-auto object-cover aspect-[4/5]"
+                    src={cultureImage}
+                    alt="Company Culture"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                      e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-7xl mb-4">🏢</div><div class="text-gray-600 text-lg">Office culture</div></div>';
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 mix-blend-overlay"></div>
                 </div>
 
-                {/* Floating Elements */}
-                <div className="absolute -top-6 -right-6 bg-white rounded-2xl p-4 shadow-2xl border border-gray-100 animate-float">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center">
-                      <Target className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-gray-900">98.7%</div>
-                      <div className="text-xs text-gray-600">Accuracy</div>
-                    </div>
-                  </div>
+                {/* Floating accent card */}
+                <div className="hidden lg:block absolute -bottom-8 -left-8 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-3xl p-8 shadow-2xl text-white max-w-xs">
+                  <div className="text-4xl font-bold mb-2">10+</div>
+                  <div className="text-white/90 text-sm uppercase tracking-wide">Years of Excellence</div>
                 </div>
 
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-2xl border border-gray-100 animate-float" style={{ animationDelay: '1s' }}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-400 rounded-xl flex items-center justify-center">
-                      <Zap className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-gray-900">40%</div>
-                      <div className="text-xs text-gray-600">Faster</div>
-                    </div>
-                  </div>
-                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-6 -right-6 w-32 h-32 bg-[#1AD603] rounded-full opacity-20 blur-3xl"></div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator with Animation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center animate-bounce">
-            <span className="text-sm text-gray-500 mb-2 tracking-wider">EXPLORE OUR STORY</span>
-            <div className="relative w-6 h-10 border-2 border-gray-300 rounded-full">
-              <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-1 h-3 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full animate-scroll-wheel"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Enhanced Stats Section - Diagonal Layout */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-100/20 to-transparent -translate-y-1/2 translate-x-1/3 rounded-full"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-emerald-100/20 to-transparent translate-y-1/2 -translate-x-1/3 rounded-full"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {enhancedStats.map((stat, index) => (
-              <div 
-                key={index}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                  <div className={`mb-6 w-16 h-16 bg-gradient-to-br ${stat.gradient} rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="text-4xl font-bold text-gray-900">{stat.value}</div>
-                    <div className="text-lg font-semibold text-gray-800">{stat.label}</div>
-                    <div className="text-sm text-gray-600">{stat.description}</div>
-                  </div>
-                  
-                  <div className="mt-6 pt-6 border-t border-gray-100">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <TrendingUp className="h-4 w-4 mr-2" />
-                      Growing continuously
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* ===================== CTA SECTION ===================== */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#1110C4] to-[#0B0A8A] py-28 overflow-hidden">
+        
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#1AD603] rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
-      </section>
 
-      {/* Mission & Vision - Split Layout with Interactive Cards */}
-      <section id="mission" className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-full mb-6">
-              <TargetIcon className="h-5 w-5 text-blue-600" />
-              <span className="text-sm font-semibold text-gray-700">OUR NORTH STAR</span>
-            </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              More Than a Company.<br />
-              <span className="text-transparent bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text">A Movement.</span>
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-10">
+            <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Ready to Transform Your{' '}
+              <span className="block mt-3 text-[#1AD603]">
+                B2B Growth Strategy?
+              </span>
             </h2>
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Interactive Mission Card */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-              <div className="relative bg-white rounded-3xl p-8 shadow-xl">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center">
-                    <Bullseye className="h-7 w-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
-                    <div className="text-sm text-gray-500">What drives us every day</div>
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  To democratize access to intelligent sales insights, empowering businesses of all sizes 
-                  to make data-driven decisions that fuel sustainable growth and forge meaningful customer relationships.
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  {['AI-Powered', "Real-Time", "Scalable", "Accessible"].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm font-medium text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Vision Card with Image Overlay */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              <img 
-                src={missionImage}
-                alt="Strategic Vision"
-                className="w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-400 rounded-xl flex items-center justify-center">
-                    <Eye className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">Our Vision</h3>
-                    <div className="text-amber-100">The future we're building</div>
-                  </div>
-                </div>
-                <p className="text-white/90 text-lg">
-                  To create a world where every business decision is empowered by intelligent, 
-                  accessible, and ethical AI-driven insights.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Principles - Hexagonal Grid Layout */}
-      <section id="values" className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
-              Our DNA
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The foundational principles that shape every decision, every innovation, and every partnership
+            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss how DartsUnity can help you achieve predictable, scalable revenue growth 
+              through precision-targeted campaigns and data-driven execution.
             </p>
-          </div>
 
-          <div className="relative">
-            {/* Geometric Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-1/4 left-1/4 w-64 h-64 border-2 border-blue-300 rotate-45 rounded-3xl"></div>
-              <div className="absolute bottom-1/4 right-1/4 w-64 h-64 border-2 border-emerald-300 -rotate-12 rounded-3xl"></div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-5 justify-center pt-8">
+              <button className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                Schedule a Consultation
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <button className="px-12 py-6 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border-2 border-white/40 hover:bg-white/20 hover:border-white/60 transition-all duration-300">
+                View Our Services
+              </button>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 relative">
-              {corePrinciples.map((principle, index) => (
-                <div 
-                  key={index}
-                  className="group perspective-1000"
-                >
-                  <div className="relative transform transition-all duration-500 group-hover:rotate-x-12 group-hover:-translate-y-2">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-                    <div className="relative bg-white rounded-2xl p-8 shadow-xl overflow-hidden">
-                      {/* Principle Header */}
-                      <div className="flex items-start gap-6 mb-8">
-                        <div className={`${principle.color} w-16 h-16 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
-                          <principle.icon className="h-8 w-8 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">{principle.title}</h3>
-                          <p className="text-gray-600">{principle.description}</p>
-                        </div>
-                      </div>
-
-                      {/* Pillars */}
-                      <div className="space-y-3">
-                        {principle.pillars.map((pillar, i) => (
-                          <div 
-                            key={i}
-                            className="flex items-center gap-3 p-3 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100 transform transition-all duration-300 hover:translate-x-2"
-                          >
-                            <div className={`w-2 h-2 rounded-full ${principle.color.split(' ')[2]}`}></div>
-                            <span className="text-sm font-medium text-gray-700">{pillar}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Hover Effect Line */}
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    </div>
-                  </div>
+            {/* Trust indicators */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-16 border-t border-white/20">
+              {[
+                { value: '10+', label: 'Years Experience' },
+                { value: '500+', label: 'Active Clients' },
+                { value: '2.5M+', label: 'Leads Delivered' },
+                { value: '94%', label: 'Retention Rate' }
+              ].map((stat, i) => (
+                <div key={i} className="text-center group">
+                  <div className="text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">{stat.value}</div>
+                  <div className="text-white/70 text-sm uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Interactive Timeline - Horizontal Scrolling */}
-      <section id="journey" className="py-20 bg-white" ref={timelineRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-50 to-orange-50 rounded-full mb-6">
-              <Calendar className="h-5 w-5 text-amber-600" />
-              <span className="text-sm font-semibold text-gray-700">OUR EVOLUTION</span>
-            </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
-              The Journey So Far
-            </h2>
-          </div>
-
-          <div className="relative">
-            {/* Main Timeline Line */}
-            <div className="absolute left-4 lg:left-1/2 top-8 bottom-8 w-1 bg-gradient-to-b from-blue-500 via-emerald-500 to-amber-500 transform lg:-translate-x-1/2"></div>
-            
-            <div className="space-y-12">
-              {journeyTimeline.map((item, index) => (
-                <div 
-                  key={index}
-                  className={`relative flex flex-col lg:flex-row ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8`}
-                >
-                  {/* Year Indicator */}
-                  <div className="absolute lg:static left-0 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-lg">{item.year}</span>
-                    </div>
-                  </div>
-
-                  {/* Content Card */}
-                  <div className={`lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-16' : 'lg:pl-16'} ml-20 lg:ml-0`}>
-                    <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-400 rounded-xl flex items-center justify-center">
-                          <item.icon className="h-6 w-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
-                          <div className="text-sm text-gray-500">Key Milestone</div>
-                        </div>
-                      </div>
-                      
-                      <p className="text-gray-600 mb-6">{item.milestone}</p>
-                      
-                      <div className="space-y-2">
-                        {item.achievements.map((achievement, i) => (
-                          <div key={i} className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full"></div>
-                            <span className="text-sm text-gray-700">{achievement}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Empty space for alternating layout */}
-                  <div className="lg:w-5/12 hidden lg:block"></div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Top wave divider */}
+        <div className="absolute top-0 left-0 right-0">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+            <path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
-      {/* Leadership Team - Asymmetrical Cards */}
-      <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
-              Meet Our Visionaries
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              The brilliant minds and passionate leaders driving our mission forward
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadershipTeam.map((person, index) => (
-              <div 
-                key={index}
-                className="group relative"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3">
-                  {/* Avatar with Shape */}
-                  <div className="relative mb-8">
-                    <div 
-                      className={`${person.color} w-24 h-24 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 ${person.shape === 'hexagon' ? 'clip-hexagon' : person.shape === 'triangle' ? 'clip-triangle' : ''}`}
-                    >
-                      <span className="text-white text-2xl font-bold">{person.initials}</span>
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-white rounded-full border-4 border-white flex items-center justify-center shadow-lg">
-                      <Sparkles className="h-4 w-4 text-amber-500" />
-                    </div>
-                  </div>
-
-                  {/* Info */}
-                  <div className="text-center space-y-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{person.name}</h3>
-                      <div className="text-transparent bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text font-semibold">
-                        {person.role}
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed">{person.bio}</p>
-                    
-                    {/* Expertise Tags */}
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {person.expertise.map((exp, i) => (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 bg-gradient-to-r from-gray-50 to-white text-xs font-medium text-gray-700 rounded-full border border-gray-200"
-                        >
-                          {exp}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Social Links - Appear on Hover */}
-                  <div className="flex justify-center space-x-4 mt-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    {['LinkedIn', 'Email', 'Twitter'].map((social) => (
-                      <button
-                        key={social}
-                        className="text-xs px-3 py-1 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 transition-colors"
-                      >
-                        {social}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Culture Highlights */}
-          <div className="mt-20 bg-white rounded-3xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Our Culture in Numbers</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {cultureHighlights.map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-100 to-white rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <item.icon className={`h-6 w-6 ${item.color}`} />
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900">{item.value}</div>
-                  <div className="text-sm text-gray-600">{item.title}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA - Geometric Layout */}
-      <section className="py-20 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-emerald-50/20 to-amber-50/10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-200/20 to-cyan-100/20 rounded-full -translate-y-48 translate-x-48"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-200/20 to-teal-100/20 rounded-full translate-y-48 -translate-x-48"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-12 shadow-2xl border border-gray-100 relative overflow-hidden">
-            {/* Floating Elements */}
-            <div className="absolute -top-12 -left-12 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-cyan-400/10 rounded-3xl rotate-45"></div>
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tr from-emerald-500/10 to-teal-400/10 rounded-3xl -rotate-12"></div>
-
-            <div className="relative z-10 text-center space-y-8">
-              <div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                  Ready to Transform Your Growth?
-                </h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  Join thousands of businesses already experiencing the DartsUnity difference
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-105">
-                  Start Your Journey
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
-                </button>
-                <button className="px-8 py-4 bg-gradient-to-r from-gray-50 to-white text-gray-700 rounded-full font-semibold border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300">
-                  Schedule a Demo
-                </button>
-              </div>
-
-              <div className="pt-8 border-t border-gray-100">
-                <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>No credit card required</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>30-day free trial</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>24/7 support</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Custom CSS for Shapes and Animations */}
-      <style jsx>{`
-        @keyframes fade-up {
+      <style>{`
+        @keyframes pulse-ring {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.3;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.1;
+          }
+        }
+        
+        @keyframes slow-rotate {
           from {
-            opacity: 0;
-            transform: translateY(30px);
+            transform: rotate(0deg);
           }
           to {
-            opacity: 1;
-            transform: translateY(0);
+            transform: rotate(360deg);
           }
-        }
-
-        @keyframes scroll-wheel {
-          0%, 100% {
-            transform: translateX(-50%) translateY(0);
-          }
-          50% {
-            transform: translateX(-50%) translateY(10px);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-
-        @keyframes gradient-flow {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-scroll-wheel {
-          animation: scroll-wheel 1.5s ease-in-out infinite;
-        }
-
-        .animate-gradient-flow {
-          background-size: 200% 200%;
-          animation: gradient-flow 3s ease infinite;
-        }
-
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-
-        .clip-hexagon {
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-
-        .clip-triangle {
-          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-
-        /* Staggered animations for cards */
-        .animate-stagger > * {
-          opacity: 0;
-          animation: fade-up 0.6s ease-out forwards;
-        }
-
-        .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-        .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-        .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-        .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-
-        /* Smooth scroll behavior */
-        html {
-          scroll-behavior: smooth;
         }
       `}</style>
     </div>
