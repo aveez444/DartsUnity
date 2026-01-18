@@ -1,16 +1,15 @@
-import { ArrowRight, CheckCircle2, Target, Users, TrendingUp, Sparkles, Database, Mail } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Target, Star, Users, TrendingUp, Sparkles, Database, Mail } from 'lucide-react';
 
 // Import images - rename your files to match these names
 import heroBgImage from '../assets/officebg.jpg'; // Image 1 - Meeting room
 import heroMainImage from '../assets/team-collaboration.jpg'; // Image 2 or 3 - Dashboard/Analytics
 import aboutImage from '../assets/officebg2.jpg'; // Image 6 - Office interior
 import dataVisualization from '../assets/office4.jpg'; // Image 4 - Charts/Analytics
-
 const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Background Image */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-0">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img 
@@ -25,7 +24,7 @@ const Home = () => {
           {/* Dark gradient overlay - Adjust opacity here (95 = 95%, 90 = 90%, etc.) */}
           {/* For lighter overlay, reduce the numbers: /70 or /60 */}
           {/* For grey overlay, use: from-gray-900/70 via-gray-800/65 to-gray-900/70 */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/65 via-gray-800/70 to-gray-900/80"></div>
         </div>
 
         {/* Subtle animated pattern overlay */}
@@ -34,16 +33,128 @@ const Home = () => {
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#1AD603] rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
+        {/* Grid Pattern - Mobile Enhancements */}
+        <div className="absolute inset-0 opacity-5 hidden md:block" style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
           backgroundSize: '50px 50px'
         }}></div>
+        
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+        {/* Floating Particles for Mobile */}
+        <div className="absolute inset-0 overflow-hidden md:hidden">
+          {[...Array(20)].map((_, i) => (
+            <div 
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: Math.random() * 3 + 1 + 'px',
+                height: Math.random() * 3 + 1 + 'px',
+                background: i % 3 === 0 ? '#1AD603' : i % 3 === 1 ? '#1110C4' : '#FFFFFF',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                animation: `float ${Math.random() * 4 + 3}s infinite ease-in-out ${Math.random() * 3}s`,
+                opacity: Math.random() * 0.4 + 0.1
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full">
+          {/* Mobile Layout (Full Width Text Centered) */}
+          <div className="md:hidden w-full">
+            <div className="max-w-2xl mx-auto text-center space-y-8">
+              {/* Trust Badge with Animation */}
+              <div className="inline-block">
+                <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/25 shadow-lg">
+                  <div className="flex items-center gap-2">
+                    <div className="relative">
+                      <div className="w-3 h-3 bg-[#1AD603] rounded-full"></div>
+                      <div className="absolute inset-0 bg-[#1AD603] rounded-full animate-ping"></div>
+                    </div>
+                    <span className="text-sm font-semibold tracking-wide">TRUSTED BY 500+ ENTERPRISE CLIENTS</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Heading with Enhanced Typography */}
+              <div className="space-y-4">
+                <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
+                  <span className="block text-white mb-3">
+                    Data-Driven Lead
+                  </span>
+                  <span className="block text-white mb-3">
+                    Generation That
+                  </span>
+                  <span className="block bg-gradient-to-r from-[#1AD603] via-[#2BEC06] to-[#1AD603] bg-clip-text text-transparent animate-gradient">
+                    Accelerates Growth
+                  </span>
+                </h1>
+                
+                {/* Subtitle with Icon */}
+                <div className="flex items-center justify-center space-x-2 pt-4">
+                  <div className="w-10 h-0.5 bg-gradient-to-r from-transparent via-[#1AD603] to-transparent"></div>
+                  <span className="text-white/70 text-xs font-semibold tracking-widest">PREMIUM B2B SOLUTIONS</span>
+                  <div className="w-10 h-0.5 bg-gradient-to-r from-transparent via-[#1AD603] to-transparent"></div>
+                </div>
+              </div>
+
+              {/* Description with Better Spacing */}
+              <p className="text-lg leading-relaxed text-white/90 px-2">
+                Transform your B2B pipeline with research-led strategies, precise targeting, 
+                and account-based marketing that connects you with qualified decision-makers.
+              </p>
+
+              {/* CTA Buttons - Mobile Optimized */}
+              <div className="flex flex-col gap-4 pt-6">
+                <button className="group relative px-8 py-4 bg-white text-[#1110C4] rounded-2xl font-bold text-lg shadow-2xl shadow-white/20 hover:shadow-white/30 transition-all duration-300 active:scale-95">
+                  <div className="flex items-center justify-center gap-3">
+                    <span className="relative z-10">Get Started Free</span>
+                    <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                  {/* Button Glow Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </button>
+                
+                <button className="px-8 py-4 bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-md text-white rounded-2xl font-bold text-lg border-2 border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-300 active:scale-95">
+                  View Case Studies
+                </button>
+              </div>
+
+              {/* Stats Grid - Mobile Enhanced */}
+              <div className="pt-8">
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { value: "500+", label: "Enterprise Clients", icon: "🏢" },
+                    { value: "2.5M+", label: "Leads Generated", icon: "📈" },
+                    { value: "94%", label: "Client Retention", icon: "⭐" }
+                  ].map((stat, index) => (
+                    <div key={index} className="group relative">
+                      <div className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-[#1AD603]/50 transition-all duration-300">
+                        <div className="flex flex-col items-center space-y-2">
+                          <div className="text-2xl">{stat.icon}</div>
+                          <div className="text-2xl font-bold text-[#1AD603]">{stat.value}</div>
+                          <div className="text-xs text-white/80 font-medium leading-tight">{stat.label}</div>
+                        </div>
+                      </div>
+                      {/* Hover Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1AD603]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="pt-6">
+                <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout (Two Columns with Image) */}
+          <div className="hidden md:grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content - Desktop */}
             <div className="space-y-8 z-10 text-white">
               <div className="inline-block">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
@@ -91,7 +202,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Image with Frame */}
+            {/* Right Image with Frame - Desktop Only */}
             <div className="relative z-10">
               <div className="relative">
                 {/* Decorative frame elements */}
@@ -124,6 +235,19 @@ const Home = () => {
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
             <path d="M0,64 C360,120 1080,0 1440,64 L1440,120 L0,120 Z" fill="white"/>
           </svg>
+        </div>
+        
+        {/* Scroll Indicator for Mobile */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:hidden">
+          <div className="flex flex-col items-center space-y-2">
+            <span className="text-white/60 text-xs font-semibold tracking-widest">SCROLL TO EXPLORE</span>
+            <div className="relative">
+              <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-gradient-to-b from-[#1AD603] to-white rounded-full mt-2 animate-bounce"></div>
+              </div>
+              <div className="absolute inset-0 w-6 h-10 border-2 border-[#1AD603]/30 rounded-full animate-ping"></div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1070,6 +1194,7 @@ const Home = () => {
     </svg>
   </div>
 </section>
+
 
 
     </div>
