@@ -423,9 +423,9 @@ const Home = () => {
             </div>
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] hover:bg-gradient-to-r hover:from-[#1AD603] hover:via-[#1AD603] hover:to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1AD603]/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+            <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1AD603]/20 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
               Learn More About Us
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />  
             </button>
             <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#1110C4] rounded-full font-semibold border-2 border-[#1110C4] hover:bg-[#1AD603] hover:border-[#1AD603] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
               <Mail className="h-5 w-5" />
@@ -810,10 +810,10 @@ const Home = () => {
         </p>
         <a 
           href="/services" 
-          className="group inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] hover:bg-gradient-to-r hover:from-[#1AD603] hover:via-[#1AD603] hover:to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1AD603]/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
+          className="group inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1AD603]/20 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
         >
           View All Services
-          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />                      
         </a>
       </div>
     </div>
@@ -1079,7 +1079,7 @@ const Home = () => {
   </div>
 
   {/* ---------- Bottom CTA ---------- */}
-  <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-12 text-center text-white shadow-2xl">
+  <div className="bg-gradient-to-r from-blue-900 to-blue-900 rounded-3xl p-12 text-center text-white shadow-2xl">
     <h3 className="text-3xl font-bold mb-4">
       Industry-Specific Expertise
     </h3>
@@ -1092,6 +1092,7 @@ const Home = () => {
   </div>
 </div>
 </section>
+
 {/* ================= Contact / Send Inquiry (Modern Light Theme) ================= */}
 <section className="relative bg-[#F9FAFB] py-28 overflow-hidden">
 
