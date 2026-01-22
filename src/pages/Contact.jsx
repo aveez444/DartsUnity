@@ -85,21 +85,7 @@ const Contact = () => {
               Connect with our experts to discuss how we can accelerate your business objectives.
             </p>
 
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mt-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#1AD603] mb-2">24h</div>
-                <div className="text-sm text-white/80">Average Response Time</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#1AD603] mb-2">95%</div>
-                <div className="text-sm text-white/80">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#1AD603] mb-2">50+</div>
-                <div className="text-sm text-white/80">Industries Served</div>
-              </div>
-            </div>
+          
           </div>
         </div>
 
@@ -144,22 +130,13 @@ const Contact = () => {
                       content: "contact@dartsunity.com",
                       href: "mailto:contact@dartsunity.com"
                     },
-                    {
-                      icon: Phone,
-                      title: "Phone",
-                      content: "+1 (234) 567-890",
-                      href: "tel:+1234567890"
-                    },
+                   
                     {
                       icon: MapPin,
                       title: "Location",
                       content: "Bhayandar, Maharashtra, IN"
                     },
-                    {
-                      icon: Clock,
-                      title: "Business Hours",
-                      content: "Mon - Fri: 9:00 AM - 6:00 PM IST"
-                    }
+                   
                   ].map((item, index) => (
                     <div key={index} className="group flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-all duration-300">
                       <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
@@ -427,13 +404,7 @@ const Contact = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="tel:+1234567890" 
-                  className="group inline-flex items-center justify-center px-8 py-3.5 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#1110C4] hover:text-[#1110C4] transition-all duration-300"
-                >
-                  <Phone className="h-5 w-5 mr-3 group-hover:animate-pulse" />
-                  Schedule a Call
-                </a>
+             
                 <a 
                   href="mailto:contact@dartsunity.com" 
                   className="group inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-[#1110C4]/30 transition-all duration-300"

@@ -37,6 +37,7 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
+            <a href="/" className="nav-link">Home</a>
             <a href="/services" className="nav-link">Services</a>
             <a href="/about" className="nav-link">About</a>
             <a href="/contact" className="nav-link">Contact</a>
@@ -44,12 +45,7 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="/login"
-              className="px-5 py-2.5 font-medium text-[#1110C4] hover:bg-[#1110C4]/5 rounded-full transition"
-            >
-              Sign In
-            </a>
+          
             <a
               href="/get-started"
               className="px-6 py-2.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603]
@@ -76,6 +72,10 @@ const Navbar = () => {
         <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#1110C4]/10">
           <div className="max-h-[calc(100vh-80px)] overflow-y-auto px-6 py-8 space-y-6">
 
+          <a href="/" onClick={closeMenu} className="mobile-link">
+              Home
+            </a>
+
             <a href="/services" onClick={closeMenu} className="mobile-link">
               Services
             </a>
@@ -89,14 +89,7 @@ const Navbar = () => {
             </a>
 
             <div className="pt-6 space-y-4 border-t border-[#1110C4]/10">
-              <a
-                href="/login"
-                onClick={closeMenu}
-                className="block text-center py-3 rounded-full border-2 border-[#1110C4]
-                text-[#1110C4] font-medium hover:bg-[#1110C4] hover:text-white transition"
-              >
-                Sign In
-              </a>
+            
 
               <a
                 href="/get-started"

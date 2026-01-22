@@ -436,8 +436,8 @@ const Home = () => {
         L0 500
         Z
       "
-      fill="#4F46E5"
-      opacity="0.06"
+      fill="#4CAF50"
+      opacity="0.08"
     />
 
     {/* Front wave (slightly darker, tighter) */}
@@ -450,8 +450,8 @@ const Home = () => {
         L0 500
         Z
       "
-      fill="#4338CA"
-      opacity="0.10"
+      fill="#2E7D32"
+      opacity="0.12"
     />
   </svg>
 </div>
@@ -1008,8 +1008,8 @@ const Home = () => {
            C120 100 80 260 140 380
            C200 520 120 700 200 900
            L0 900 Z"
-        fill="#1110C4"
-        opacity="0.10"
+           fill="#60C5F1" 
+        opacity="0.12"
       />
 
       {/* Front wave */}
@@ -1018,8 +1018,8 @@ const Home = () => {
            C160 140 120 300 180 420
            C240 560 160 740 260 900
            L0 900 Z"
-        fill="#1110C4"
-        opacity="0.18"
+           fill="#3AA8D8"
+        opacity="0.20"
       />
     </svg>
   </div>
@@ -1038,7 +1038,7 @@ const Home = () => {
            C280 100 320 260 260 380
            C200 520 280 700 200 900
            L400 900 Z"
-        fill="#1110C4"
+           fill="#60C5F1" 
         opacity="0.10"
       />
 
@@ -1048,7 +1048,7 @@ const Home = () => {
            C240 140 280 300 220 420
            C160 560 240 740 140 900
            L400 900 Z"
-        fill="#1110C4"
+           fill="#3AA8D8"
         opacity="0.18"
       />
     </svg>
@@ -1236,7 +1236,7 @@ const Home = () => {
   </div>
 
   {/* ---------- Bottom CTA ---------- */}
-  <div className="bg-gradient-to-r from-blue-900 to-blue-900 rounded-3xl p-12 text-center text-white shadow-2xl">
+  <div className="bg-gradient-to-br from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] rounded-3xl p-12 text-center text-white shadow-2xl">
     <h3 className="text-3xl font-bold mb-4">
       Industry-Specific Expertise
     </h3>
@@ -1326,7 +1326,7 @@ const Home = () => {
             <div className="space-y-6">
               {[
                 { label: "Email", value: "contact@dartsunity.com", icon: "✉️" },
-                { label: "Phone", value: "+91 XXX XXX XXXX", icon: "📱" },
+               
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
                   <div className="flex items-center gap-3">

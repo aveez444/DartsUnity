@@ -173,7 +173,7 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4 pt-8">
                 {[
                   { value: "10+", label: "Years Building", icon: "🏗️" },
-                  { value: "500+", label: "Blueprints Delivered", icon: "📐" },
+                  { value: "100M+", label: "Business Emails", icon: "📐" },
                   { value: "2.5M+", label: "Connections Engineered", icon: "⚙️" },
                   { value: "94%", label: "Structural Integrity", icon: "🔧" }
                 ].map((stat, index) => (
@@ -297,7 +297,7 @@ const About = () => {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8">
                 {[
                   { value: '10+', label: 'Years Building', desc: 'Experience' },
-                  { value: '500+', label: 'Blueprints', desc: 'Delivered' },
+                  { value: '10M+', label: 'Business', desc: 'Emails' },
                   { value: '2.5M+', label: 'Connections', desc: 'Engineered' },
                   { value: '94%', label: 'Structural', desc: 'Integrity' }
                 ].map((stat, i) => (
@@ -614,8 +614,8 @@ const About = () => {
             <div className="lg:col-span-4 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-[2.5rem] p-8 shadow-xl text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl"></div>
               <div className="relative">
-                <div className="text-5xl font-bold mb-2">500+</div>
-                <div className="text-white/80 text-sm uppercase tracking-wider">Global Clients</div>
+                <div className="text-5xl font-bold mb-2">100M+</div>
+                <div className="text-white/80 text-sm uppercase tracking-wider">Business Emails</div>
               </div>
             </div>
 

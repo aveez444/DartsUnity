@@ -105,32 +105,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-6 text-white">Resources</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#blog" className="text-white/80 hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#case-studies" className="text-white/80 hover:text-white transition-colors">
-                  Case Studies
-                </a>
-              </li>
-              <li>
-                <a href="#whitepapers" className="text-white/80 hover:text-white transition-colors">
-                  Whitepapers
-                </a>
-              </li>
-              <li>
-                <a href="#webinars" className="text-white/80 hover:text-white transition-colors">
-                  Webinars
-                </a>
-              </li>
-            </ul>
-          </div>
+
         </div>
 
         {/* Divider */}
@@ -152,7 +127,7 @@ const Footer = () => {
               <a href="#cookies" className="text-white/70 hover:text-white transition-colors">
                 Cookie Policy
               </a>
-              <a href="#gdpr" className="text-white/70 hover:text-white transition-colors">
+              <a href="/GDPR" className="text-white/70 hover:text-white transition-colors">
                 GDPR
               </a>
             </div>

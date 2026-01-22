@@ -126,7 +126,7 @@ const GDPR = () => {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">Contact Information</h2>
         <p className="mb-4">
         For GDPR-related questions or requests, please contact:
-        DartsUnity
+        DartsUnity <br></br>
         📧 Email: info@dartsunity.com
         🌐 Website: www.dartsunity.com
 

@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import GDPR from './pages/GDPR';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/GDPR" element={<GDPR />} />
          
         </Routes>
         <Footer />
