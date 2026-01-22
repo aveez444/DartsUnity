@@ -366,18 +366,7 @@ const Home = () => {
           </svg>
         </div>
         
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:hidden z-20">
-          <div className="flex flex-col items-center space-y-2">
-            <span className="text-white/60 text-xs font-semibold tracking-widest">SCROLL TO EXPLORE</span>
-            <div className="relative">
-              <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-gradient-to-b from-[#1AD603] to-white rounded-full mt-2 animate-bounce"></div>
-              </div>
-              <div className="absolute inset-0 w-6 h-10 border-2 border-[#1AD603]/30 rounded-full animate-ping"></div>
-            </div>
-          </div>
-        </div>
+
 
         {/* CSS for Animations */}
         <style>{`
@@ -1249,18 +1238,17 @@ const Home = () => {
   </div>
 </div>
 </section>
-
 {/* ================= Contact / Send Inquiry (Modern Light Theme) ================= */}
-<section className="relative bg-[#F9FAFB] py-28 overflow-hidden">
+<section className="relative bg-[#F9FAFB] py-16 md:py-28 overflow-hidden">
 
   {/* ===== Background Patterns ===== */}
   <div className="absolute inset-0 pointer-events-none">
     {/* Animated gradient background */}
     <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F0F7FF] to-white"></div>
     
-    {/* Animated floating orbs */}
-    <div className="absolute top-1/4 -left-20 w-96 h-96 bg-gradient-to-r from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[100px] animate-pulse"></div>
-    <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gradient-to-l from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[100px] animate-pulse"></div>
+    {/* Animated floating orbs - smaller on mobile */}
+    <div className="absolute top-1/4 -left-10 md:-left-20 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-r from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[50px] md:blur-[100px] animate-pulse"></div>
+    <div className="absolute bottom-1/4 -right-10 md:-right-20 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-l from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[50px] md:blur-[100px] animate-pulse"></div>
     
     {/* Geometric pattern overlay */}
     <div className="absolute inset-0 opacity-[0.03]"
@@ -1275,75 +1263,76 @@ const Home = () => {
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* ===== Section Header ===== */}
-    <div className="text-center max-w-3xl mx-auto mb-20">
-      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 px-4 py-2.5 rounded-full mb-6 border border-white/50 backdrop-blur-sm shadow-lg">
+    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 px-3 py-2 md:px-4 md:py-2.5 rounded-full mb-4 md:mb-6 border border-white/50 backdrop-blur-sm shadow-lg">
         <div className="relative flex items-center">
-          <span className="absolute w-4 h-4 bg-[#1AD603] rounded-full animate-ping opacity-75"></span>
-          <span className="relative w-2 h-2 bg-[#1AD603] rounded-full"></span>
+          <span className="absolute w-3 h-3 md:w-4 md:h-4 bg-[#1AD603] rounded-full animate-ping opacity-75"></span>
+          <span className="relative w-1.5 h-1.5 md:w-2 md:h-2 bg-[#1AD603] rounded-full"></span>
         </div>
-        <span className="text-sm font-semibold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+        <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
           Get in Touch
         </span>
       </div>
 
-      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
         Let's Discuss Your{" "}
         <span className="relative">
           <span className="bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-clip-text text-transparent bg-[length:200%] animate-gradient">
             Growth Goals
           </span>
-          <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-full"></span>
+          <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-full"></span>
         </span>
       </h2>
 
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-        Share your vision with us. We'll craft a bespoke strategy that aligns perfectly with your business objectives and market dynamics.
+      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+        Share your vision with us. We'll craft a bespoke strategy that aligns perfectly with your business objectives.
       </p>
     </div>
 
     {/* ===== Main Grid ===== */}
-    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 md:gap-12">
 
-      {/* ===== Left: Contact Details ===== */}
-      <div className="lg:col-span-5 space-y-8">
-        {/* Modern Info Card */}
-        <div className="relative group">
-          {/* Glow effect behind card */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#1110C4]/30 to-[#1AD603]/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
-          
-          <div className="relative bg-white/80 backdrop-blur-sm border border-white/30 rounded-3xl p-8 shadow-2xl">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2.5 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-xl">
-                <svg className="w-6 h-6 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                Contact Information
-              </h3>
-            </div>
+{/* ===== Left: Contact Details ===== */}
+<div className="lg:col-span-5 space-y-6 md:space-y-8 order-2 lg:order-1">
+  {/* Modern Info Card - Fixed layout for mobile */}
+  <div className="relative group">
+    {/* Glow effect behind card */}
+    <div className="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-[#1110C4]/30 to-[#1AD603]/30 rounded-2xl md:rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+    
+    <div className="relative bg-white/80 backdrop-blur-sm border border-white/30 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
+      {/* Header Section */}
+      <div className="flex items-center gap-3 mb-6 md:mb-8">
+        <div className="p-2 md:p-2.5 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-lg md:rounded-xl">
+          <svg className="w-5 h-5 md:w-6 md:h-6 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          Contact Information
+        </h3>
+      </div>
 
-            <div className="space-y-6">
-              {[
-                { label: "Email", value: "contact@dartsunity.com", icon: "✉️" },
-               
-              ].map((item, i) => (
-                <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
-                  <div className="flex items-center gap-3">
-                    <span className="text-lg">{item.icon}</span>
-                    <span className="font-medium text-gray-700">{item.label}</span>
-                  </div>
-                  <span className="font-semibold text-gray-900 group-hover/item:text-[#1110C4] transition-colors">
-                    {item.value}
-                  </span>
-                </div>
-              ))}
-            </div>
+      {/* Email Item - Fixed inline layout */}
+      <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
+        <div className="flex items-center gap-3">
+          <span className="text-base md:text-lg">✉️</span>
+          <span className="font-medium text-gray-700 text-sm md:text-base">Email</span>
+        </div>
+        <div className="flex items-center gap-2 md:gap-3">
+          <span className="hidden md:inline text-gray-400">•</span>
+          <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1110C4] transition-colors break-words text-right">
+            contact@dartsunity.com
+          </span>
+        </div>
+      </div>
+
+            {/* Optional: Add more contact methods here if needed */}
+         
           </div>
         </div>
 
-        {/* Trust Badges Grid */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* Trust Badges Grid - Responsive adjustments */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {[
             { text: "Enterprise-focused", color: "from-[#1110C4]/10 to-[#1110C4]/5" },
             { text: "Data & Compliance", color: "from-[#1AD603]/10 to-[#1AD603]/5" },
@@ -1352,8 +1341,8 @@ const Home = () => {
           ].map((item, i) => (
             <div key={i} className={`relative overflow-hidden group/badge`}>
               <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover/badge:opacity-100 transition-opacity duration-500`}></div>
-              <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-5 text-center hover:border-transparent transition-all duration-300">
-                <div className="text-sm font-medium text-gray-800">{item.text}</div>
+              <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl md:rounded-2xl p-4 md:p-5 text-center hover:border-transparent transition-all duration-300">
+                <div className="text-xs md:text-sm font-medium text-gray-800">{item.text}</div>
               </div>
             </div>
           ))}
@@ -1361,76 +1350,80 @@ const Home = () => {
       </div>
 
       {/* ===== Right: Inquiry Form with Enhanced Glow ===== */}
-      <div className="lg:col-span-7 relative">
-        {/* Animated Glow Effects for Form */}
-        <div className="absolute -inset-4">
+      <div className="lg:col-span-7 relative order-1 lg:order-2">
+        {/* Animated Glow Effects for Form - Adjusted for mobile */}
+        <div className="absolute -inset-2 md:-inset-4">
           {/* Blue glow layer */}
-          <div className="absolute top-1/4 -left-8 w-64 h-64 bg-gradient-to-r from-[#1110C4]/40 to-transparent rounded-full blur-[80px] animate-float-slow"></div>
+          <div className="absolute top-1/4 -left-4 md:-left-8 w-32 md:w-64 h-32 md:h-64 bg-gradient-to-r from-[#1110C4]/40 to-transparent rounded-full blur-[40px] md:blur-[80px] animate-float-slow"></div>
           
           {/* Green glow layer */}
-          <div className="absolute bottom-1/4 -right-8 w-64 h-64 bg-gradient-to-l from-[#1AD603]/40 to-transparent rounded-full blur-[80px] animate-float-slower"></div>
+          <div className="absolute bottom-1/4 -right-4 md:-right-8 w-32 md:w-64 h-32 md:h-64 bg-gradient-to-l from-[#1AD603]/40 to-transparent rounded-full blur-[40px] md:blur-[80px] animate-float-slower"></div>
           
           {/* Combined glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 via-transparent to-[#1AD603]/20 rounded-4xl blur-xl opacity-30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 via-transparent to-[#1AD603]/20 rounded-3xl md:rounded-4xl blur-xl opacity-30"></div>
         </div>
 
         {/* Form Container */}
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-4xl p-10 shadow-2xl border border-white/30">
+        <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl md:rounded-4xl p-6 md:p-10 shadow-2xl border border-white/30">
           {/* Form Header */}
-          <div className="flex items-center justify-between mb-10">
+          <div className="flex items-start md:items-center justify-between mb-8 md:mb-10">
             <div>
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 Send an Inquiry
               </h3>
-             
+              <p className="text-sm md:text-base text-gray-500 mt-1 hidden md:block">
+                Fill out the form below
+              </p>
             </div>
-            <div className="p-3 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-2xl">
-              <svg className="w-8 h-8 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="p-2.5 md:p-3 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-xl md:rounded-2xl">
+              <svg className="w-6 h-6 md:w-8 md:h-8 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
               </svg>
             </div>
           </div>
 
           {/* Form */}
-          <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              { label: "Full Name", placeholder: "John Doe", type: "text" },
-              { label: "Company Name", placeholder: "Company Inc.", type: "text" },
-              { label: "Business Email", placeholder: "you@company.com", type: "email" },
-              { label: "Phone Number", placeholder: "+91", type: "tel" }
-            ].map((field, i) => (
-              <div key={i} className="group/field">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  {field.label}
-                </label>
-                <input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300"
-                />
-              </div>
-            ))}
+          <form className="space-y-4 md:space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {[
+                { label: "Full Name",  type: "text" },
+                { label: "Company Name",  type: "text" },
+                { label: "Business Email",  type: "email" },
+                { label: "Phone Number", type: "tel" }
+              ].map((field, i) => (
+                <div key={i} className="group/field">
+                  <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
+                    {field.label}
+                  </label>
+                  <input
+                    type={field.type}
+                    placeholder={field.placeholder}
+                    className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300 text-sm md:text-base"
+                  />
+                </div>
+              ))}
+            </div>
 
             {/* Message Field */}
-            <div className="sm:col-span-2">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
                 Your Requirement
               </label>
               <textarea
-                rows="5"
+                rows="4"
                 placeholder="Tell us about your goals, target market, or challenges..."
-                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 resize-none outline-none hover:border-gray-300"
+                className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 resize-none outline-none hover:border-gray-300 text-sm md:text-base"
               ></textarea>
             </div>
 
             {/* Submit Button */}
-            <div className="sm:col-span-2 pt-6">
+            <div className="pt-4 md:pt-6">
               <button
                 type="submit"
-                className="group relative w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-[length:200%] text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-gradient hover:bg-right"
+                className="group relative w-full px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-[length:200%] text-white rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-gradient hover:bg-right"
               >
                 <span className="relative z-10">Send Inquiry →</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-xl md:rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
               </button>
             </div>
           </form>
@@ -1461,7 +1454,6 @@ const Home = () => {
     </svg>
   </div>
 </section>
-
 
     </div>
   );
