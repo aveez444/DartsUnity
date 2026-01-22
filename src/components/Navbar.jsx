@@ -76,8 +76,8 @@ const Navbar = () => {
         <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#1110C4]/10">
           <div className="max-h-[calc(100vh-80px)] overflow-y-auto px-6 py-8 space-y-6">
 
-            <a href="/solutions" onClick={closeMenu} className="mobile-link">
-              Solutions
+            <a href="/services" onClick={closeMenu} className="mobile-link">
+              Services
             </a>
 
             <a href="/about" onClick={closeMenu} className="mobile-link">
