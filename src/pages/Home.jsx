@@ -600,8 +600,8 @@ const Home = () => {
                 <div className="text-white/80 text-sm">Years Experience</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">500+</div>
-                <div className="text-white/80 text-sm">Global Clients</div>
+                <div className="text-4xl font-bold mb-2">100M+</div>
+                <div className="text-white/80 text-sm">Business Emails</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">2.5M+</div>
