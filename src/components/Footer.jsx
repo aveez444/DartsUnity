@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Facebook, Mail } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,13 +11,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Company Info - Larger Column */}
           <div className="lg:col-span-2">
-            <img 
-              src="/assets/logo.png" 
-              alt="DartsUnity" 
-              className="h-10 w-auto mb-6 brightness-0 invert"
-            />
+          <span className="text-xl font-bold bg-gradient-to-r from-[#1AD603] to-[#1AD603] bg-clip-text text-transparent">
+              DartsUnity
+            </span>
             <p className="text-white/80 mb-6 leading-relaxed max-w-sm">
-              Data-driven B2B lead generation that accelerates your business growth. Trusted by 500+ enterprise clients worldwide.
+              Data-driven B2B lead generation that accelerates your business growth. Trusted by worldwide enterprise clients.
             </p>
             
             {/* Social Links */}

@@ -1,14 +1,18 @@
 import { ArrowRight, CheckCircle2, Target, Star, Users, TrendingUp, Sparkles, Database, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import CaseStudyDownload from '../components/CaseStudyDownload'; // Adjust path as needed
 
 // Import images - rename your files to match these names
 import heroBgImage from '../assets/officebg.jpg'; // Image 1 - Meeting room
-import heroMainImage from '../assets/team-collaboration.jpg'; // Image 2 or 3 - Dashboard/Analytics
-import aboutImage from '../assets/officebg2.jpg'; // Image 6 - Office interior
+import heroMainImage from '../assets/B2Bimg4.jpg'; // Image 2 or 3 - Dashboard/Analytics
+import aboutImage from '../assets/B2Bimg2.jpg'; // Image 6 - Office interior
 import dataVisualization from '../assets/office4.jpg'; // Image 4 - Charts/Analytics
 
 const Home = () => {
+  const navigate = useNavigate();
+  const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
 
-  
   const IndustryCard = ({ icon, title, desc }) => (
     <div className="group flex flex-col items-center text-center">
       <div className="w-36 h-36 bg-white rounded-2xl border border-gray-100 shadow-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-[#1AD603]">
@@ -21,68 +25,201 @@ const Home = () => {
     </div>
   );
 
-  
+  const handleGetStartedClick = () => {
+    navigate('/contact');
+  };
+
+  const handleCaseStudyClick = () => {
+    setIsCaseStudyModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Background Image */}
+      {/* Case Study Download Modal */}
+      <CaseStudyDownload 
+        isOpen={isCaseStudyModalOpen}
+        onClose={() => setIsCaseStudyModalOpen(false)}
+        caseStudyTitle="B2B Lead Generation Success Story"
+      />
+      {/* Hero Section with Animated Background */}
       <section className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-0">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src={heroBgImage}
-            alt="DartsUnity Background"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.parentElement.style.background = 'linear-gradient(135deg, #1110C4 0%, #2A29DF 100%)';
+        {/* Animated Background - Dark Navy Blue with Green Accents */}
+        <div className="absolute inset-0 bg-[#0a1628]">
+          {/* Ambient Gradient Orbs - Static, No Mouse Interaction */}
+          <div 
+            className="absolute w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
+            style={{
+              background: 'radial-gradient(circle, #1AD603 0%, transparent 70%)',
+              top: '20%',
+              left: '10%',
+              animation: 'gentleFloat 25s infinite ease-in-out'
             }}
           />
-          {/* Dark gradient overlay - Adjust opacity here (95 = 95%, 90 = 90%, etc.) */}
-          {/* For lighter overlay, reduce the numbers: /70 or /60 */}
-          {/* For grey overlay, use: from-gray-900/70 via-gray-800/65 to-gray-900/70 */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/65 via-gray-800/70 to-gray-900/80"></div>
+          <div 
+            className="absolute w-[400px] h-[400px] rounded-full opacity-15 blur-3xl"
+            style={{
+              background: 'radial-gradient(circle, #2BEC06 0%, transparent 70%)',
+              bottom: '20%',
+              right: '15%',
+              animation: 'gentleFloat 30s infinite ease-in-out 5s'
+            }}
+          />
+
+          {/* Geometric Lines Pattern Behind Text - Growth Path Visualization */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <svg className="w-full h-full max-w-4xl opacity-20" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+              {/* Upward Growth Path - From bottom to top through content */}
+              <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stopColor="#1AD603" stopOpacity="0.2" />
+                  <stop offset="50%" stopColor="#1AD603" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#2BEC06" stopOpacity="0.9" />
+                </linearGradient>
+                
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              {/* Main Growth Path - Zigzag upward trend */}
+              <path 
+                d="M 100 550 L 200 450 L 150 350 L 300 250 L 250 150 L 400 100 L 500 50" 
+                stroke="url(#lineGradient)" 
+                strokeWidth="3" 
+                fill="none"
+                filter="url(#glow)"
+                strokeLinecap="round"
+              >
+                <animate
+                  attributeName="stroke-dasharray"
+                  from="0,1000"
+                  to="1000,0"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+              </path>
+
+              {/* Secondary parallel path */}
+              <path 
+                d="M 150 530 L 250 430 L 200 330 L 350 230 L 300 130 L 450 80" 
+                stroke="url(#lineGradient)" 
+                strokeWidth="2" 
+                fill="none"
+                opacity="0.5"
+                strokeLinecap="round"
+              >
+                <animate
+                  attributeName="stroke-dasharray"
+                  from="0,800"
+                  to="800,0"
+                  dur="3.5s"
+                  repeatCount="indefinite"
+                />
+              </path>
+
+              {/* Connecting nodes/data points */}
+              <circle cx="100" cy="550" r="4" fill="#1AD603" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="200" cy="450" r="5" fill="#1AD603" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.2s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="300" cy="250" r="6" fill="#1AD603" opacity="0.7">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="400" cy="100" r="7" fill="#2BEC06" opacity="0.8">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Abstract geometric shapes scattered */}
+              <polygon 
+                points="600,200 650,250 600,300 550,250" 
+                fill="none" 
+                stroke="#1AD603" 
+                strokeWidth="2" 
+                opacity="0.3"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 600 250"
+                  to="360 600 250"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </polygon>
+
+              <rect 
+                x="650" 
+                y="400" 
+                width="60" 
+                height="60" 
+                fill="none" 
+                stroke="#1AD603" 
+                strokeWidth="2" 
+                opacity="0.25"
+                transform="rotate(45 680 430)"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="45 680 430"
+                  to="405 680 430"
+                  dur="25s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+
+              {/* Small accent lines radiating from center */}
+              <line x1="400" y1="300" x2="450" y2="280" stroke="#1AD603" strokeWidth="1" opacity="0.2">
+                <animate attributeName="opacity" values="0.1;0.3;0.1" dur="3s" repeatCount="indefinite" />
+              </line>
+              <line x1="400" y1="300" x2="380" y2="250" stroke="#1AD603" strokeWidth="1" opacity="0.2">
+                <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.5s" repeatCount="indefinite" />
+              </line>
+              <line x1="400" y1="300" x2="350" y2="320" stroke="#1AD603" strokeWidth="1" opacity="0.2">
+                <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" />
+              </line>
+            </svg>
+          </div>
+
+          {/* Minimal Floating Particles - Reduced to 8 */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(8)].map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full"
+                style={{
+                  width: '3px',
+                  height: '3px',
+                  background: '#1AD603',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animation: `gentleFloat ${Math.random() * 8 + 6}s infinite ease-in-out ${Math.random() * 5}s`,
+                  opacity: Math.random() * 0.3 + 0.2,
+                  boxShadow: '0 0 10px rgba(26, 214, 3, 0.4)'
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: `linear-gradient(rgba(26, 214, 3, 0.3) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(26, 214, 3, 0.3) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}></div>
         </div>
 
-        {/* Subtle animated pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#1AD603] rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        </div>
-
-        {/* Grid Pattern - Mobile Enhancements */}
-        <div className="absolute inset-0 opacity-5 hidden md:block" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-        
-
-        {/* Floating Particles for Mobile */}
-        <div className="absolute inset-0 overflow-hidden md:hidden">
-          {[...Array(20)].map((_, i) => (
-            <div 
-              key={i}
-              className="absolute rounded-full"
-              style={{
-                width: Math.random() * 3 + 1 + 'px',
-                height: Math.random() * 3 + 1 + 'px',
-                background: i % 3 === 0 ? '#1AD603' : i % 3 === 1 ? '#1110C4' : '#FFFFFF',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%',
-                animation: `float ${Math.random() * 4 + 3}s infinite ease-in-out ${Math.random() * 3}s`,
-                opacity: Math.random() * 0.4 + 0.1
-              }}
-            />
-          ))}
-        </div>
-
+        {/* Content with Better Spacing */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full">
-          {/* Mobile Layout (Full Width Text Centered) */}
+          {/* Mobile Layout */}
           <div className="md:hidden w-full">
             <div className="max-w-2xl mx-auto text-center space-y-8">
-              {/* Removed: Trust Badge with Animation */}
-
-              {/* Main Heading with Enhanced Typography */}
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
                   <span className="block text-white mb-3">
@@ -96,7 +233,6 @@ const Home = () => {
                   </span>
                 </h1>
                 
-                {/* Subtitle with Icon */}
                 <div className="flex items-center justify-center space-x-2 pt-4">
                   <div className="w-10 h-0.5 bg-gradient-to-r from-transparent via-[#1AD603] to-transparent"></div>
                   <span className="text-white/70 text-xs font-semibold tracking-widest">PREMIUM B2B SOLUTIONS</span>
@@ -104,34 +240,35 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Description with Better Spacing */}
               <p className="text-lg leading-relaxed text-white/90 px-2">
                 Transform your B2B pipeline with research-led strategies, precise targeting, 
                 and account-based marketing that connects you with qualified decision-makers.
               </p>
 
-              {/* CTA Buttons - Mobile Optimized */}
               <div className="flex flex-col gap-4 pt-6">
-                <button className="group relative px-8 py-4 bg-white text-[#1110C4] rounded-2xl font-bold text-lg shadow-2xl shadow-white/20 hover:shadow-white/30 transition-all duration-300 active:scale-95">
+              <button 
+                  onClick={handleGetStartedClick}
+                  className="group relative px-8 py-4 bg-white text-[#0a1628] rounded-2xl font-bold text-lg shadow-2xl shadow-[#1AD603]/20 hover:shadow-[#1AD603]/30 transition-all duration-300 active:scale-95"
+                >
                   <div className="flex items-center justify-center gap-3">
                     <span className="relative z-10">Get Started Free</span>
                     <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-2 transition-transform" />
                   </div>
-                  {/* Button Glow Effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </button>
                 
-                {/* Updated: Changed View Case Studies button to blue */}
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-2xl font-bold text-lg border-2 border-blue-400/50 hover:border-blue-300 transition-all duration-300 active:scale-95 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30">
+                <button 
+                  onClick={handleCaseStudyClick}
+                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-2xl font-bold text-lg border-2 border-blue-400/50 hover:border-blue-300 transition-all duration-300 active:scale-95 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
+                >
                   View Case Studies
                 </button>
               </div>
 
-              {/* Stats Grid - Mobile Enhanced */}
               <div className="pt-8">
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-3">
                   {[
-                    { value: "200+", label: "Global Clients", icon: "🌍" },
+                    { value: "100M+", label: "Business Emails", icon: "🌍" },
                     { value: "2.5M+", label: "Leads Generated", icon: "📈" },
                     { value: "94%", label: "Client Retention", icon: "⭐" }
                   ].map((stat, index) => (
@@ -143,104 +280,94 @@ const Home = () => {
                           <div className="text-xs text-white/80 font-medium leading-tight">{stat.label}</div>
                         </div>
                       </div>
-                      {/* Hover Effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#1AD603]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Trust Badges */}
-              <div className="pt-6">
-                <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Desktop Layout (Two Columns with Image) */}
-          <div className="hidden md:grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content - Desktop */}
-            <div className="space-y-8 z-10 text-white">
-              {/* Removed: Trusted by 500+ Enterprise Clients badge */}
-
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+          {/* Desktop Layout - Increased Gap for Better Spacing */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-16 xl:gap-20 items-center">
+            {/* Left Content - Takes 3 columns on large screens */}
+            <div className="md:col-span-1 lg:col-span-3 space-y-8 z-10 text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 Data-Driven Lead Generation That{' '}
                 <span className="bg-gradient-to-r from-[#1AD603] to-[#2BEC06] bg-clip-text text-transparent">
                   Accelerates Growth
                 </span>
               </h1>
 
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl">
                 Transform your B2B pipeline with research-led strategies, precise targeting, 
                 and account-based marketing that connects you with qualified decision-makers.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="group px-8 py-4 bg-white text-[#1110C4] rounded-full font-semibold hover:shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+              <button 
+                  onClick={handleGetStartedClick}
+                  className="group px-8 py-4 bg-white text-[#0a1628] rounded-full font-semibold hover:shadow-2xl hover:shadow-[#1AD603]/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                >
                   Get Started Free
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                {/* Updated: Changed View Case Studies button to blue */}
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-700 hover:to-blue-600 text-white rounded-full font-semibold border-2 border-blue-400/50 hover:border-blue-300 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30">
+                <button 
+                  onClick={handleCaseStudyClick}
+                  className="px-8 py-4 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-700 hover:to-blue-600 text-white rounded-full font-semibold border-2 border-blue-400/50 hover:border-blue-300 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
+                >
                   View Case Studies
                 </button>
               </div>
 
-              {/* Stats - Updated first stat */}
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/20">
+              <div className="grid grid-cols-3 gap-6 md:gap-8 pt-8 border-t border-white/20">
                 <div>
-                  <div className="text-3xl font-bold text-[#1AD603]">200+</div>
-                  <div className="text-sm text-white/70 mt-1">Global Clients</div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">100M+</div>
+                  <div className="text-xs md:text-sm text-white/70 mt-1">Business Emails</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#1AD603]">2.5M+</div>
-                  <div className="text-sm text-white/70 mt-1">Leads Generated</div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">2.5M+</div>
+                  <div className="text-xs md:text-sm text-white/70 mt-1">Leads Generated</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#1AD603]">94%</div>
-                  <div className="text-sm text-white/70 mt-1">Client Retention</div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">94%</div>
+                  <div className="text-xs md:text-sm text-white/70 mt-1">Client Retention</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Image with Frame - Desktop Only */}
-            <div className="relative z-10">
-              <div className="relative">
-                {/* Decorative frame elements */}
-                <div className="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-[#1AD603] rounded-tl-3xl"></div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-[#1AD603] rounded-br-3xl"></div>
+            {/* Right Image - Takes 2 columns on large screens with proper spacing */}
+            <div className="md:col-span-1 lg:col-span-2 relative z-10">
+              <div className="relative w-full max-w-lg mx-auto">
+                <div className="absolute -top-4 -left-4 w-20 h-20 md:w-24 md:h-24 border-t-4 border-l-4 border-[#1AD603] rounded-tl-3xl"></div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 md:w-24 md:h-24 border-b-4 border-r-4 border-[#1AD603] rounded-br-3xl"></div>
                 
-                {/* Main image container */}
-                <div className="relative aspect-square bg-white/10 backdrop-blur-sm rounded-3xl border-2 border-white/20 overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                <div className="relative aspect-square bg-white/10 backdrop-blur-sm rounded-3xl border-2 border-[#1AD603]/30 overflow-hidden shadow-2xl shadow-[#1AD603]/20 transform hover:scale-105 transition-transform duration-500">
+                  {/* Replace this div with your actual image */}
                   <img 
                     src={heroMainImage}
                     alt="Lead Generation Dashboard"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
-                      e.target.parentElement.innerHTML = '<div class="text-white/50 text-center p-8"><div class="text-6xl mb-4">📊</div><div>Replace with dashboard image</div><div class="text-sm mt-2">/assets/hero-main.jpg</div></div>';
-                    }}
                   />
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1AD603]/20 to-[#0a1628]/40 backdrop-blur-sm"> 
+                  </div>
                 </div>
 
-                {/* Glowing accent */}
-                <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-[#1AD603] to-[#2BEC06] rounded-full opacity-20 blur-3xl"></div>
+                <div className="absolute -bottom-12 -right-12 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-[#1AD603] to-[#2BEC06] rounded-full opacity-20 blur-3xl"></div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Smooth Curved Bottom Divider - seamless transition */}
+        {/* Smooth Curved Bottom Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
             <path d="M0,64 C360,120 1080,0 1440,64 L1440,120 L0,120 Z" fill="white"/>
           </svg>
         </div>
         
-        {/* Scroll Indicator for Mobile */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:hidden">
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:hidden z-20">
           <div className="flex flex-col items-center space-y-2">
             <span className="text-white/60 text-xs font-semibold tracking-widest">SCROLL TO EXPLORE</span>
             <div className="relative">
@@ -251,7 +378,37 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* CSS for Animations */}
+        <style>{`
+          @keyframes gentleFloat {
+            0%, 100% {
+              transform: translate(0, 0) scale(1);
+            }
+            33% {
+              transform: translate(15px, -15px) scale(1.05);
+            }
+            66% {
+              transform: translate(-10px, 10px) scale(0.95);
+            }
+          }
+
+          @keyframes gradient {
+            0%, 100% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+          }
+
+          .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+          }
+        `}</style>
       </section>
+
 
       {/* About Us Section - Enhanced Layout */}
       <section className="relative bg-white py-24 overflow-hidden -mt-[1px]">
@@ -342,7 +499,7 @@ const Home = () => {
               </div>
 
               {/* Overlapping data visualization card */}
-              <div className="hidden lg:block absolute -bottom-12 -right-12 w-80 h-64 bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white z-20">
+              <div className="hidden lg:block absolute -bottom-12 -right-12 w-80 h-54 bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white z-20">
                 <img 
                   src={dataVisualization}
                   alt="Data Analytics"
@@ -1170,7 +1327,6 @@ const Home = () => {
               {[
                 { label: "Email", value: "contact@dartsunity.com", icon: "✉️" },
                 { label: "Phone", value: "+91 XXX XXX XXXX", icon: "📱" },
-                { label: "Working Hours", value: "Mon – Fri, 9AM – 6PM IST", icon: "🕐" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
                   <div className="flex items-center gap-3">
@@ -1226,7 +1382,7 @@ const Home = () => {
               <h3 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 Send an Inquiry
               </h3>
-              <p className="text-gray-600 mt-2">We'll respond within 24 hours</p>
+             
             </div>
             <div className="p-3 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-2xl">
               <svg className="w-8 h-8 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
