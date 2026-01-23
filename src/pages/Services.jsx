@@ -1,10 +1,13 @@
 import { ArrowRight, CheckCircle2, Target, Mail, Phone, TrendingUp, Users, FileText, Zap } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 // Import images
 import servicesHeroImage from '../assets/ManagedService.jpg';
 import servicesProcessImage from '../assets/AccountBasedMarket1.jpg';
 
 const Services = () => {
+  const navigate = useNavigate();
+
     return (
         <div className="min-h-screen bg-white">
           
@@ -72,13 +75,20 @@ const Services = () => {
                 </p>
       
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                  <button className="group px-8 py-4 bg-white text-[#1110C4] rounded-full font-semibold hover:shadow-2xl hover:shadow-[#1AD603]/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-                    Schedule Consultation
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300">
-                    Get Pricing
-                  </button>
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="group px-8 py-4 bg-white text-[#1110C4] rounded-full font-semibold hover:shadow-2xl hover:shadow-[#1AD603]/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  Schedule Consultation
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+                >
+                  Get Pricing
+                </button>
                 </div>
               </div>
             </div>
@@ -785,14 +795,14 @@ const Services = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-5 justify-center pt-8">
-              <button className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                Schedule a Consultation
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </button>
+            <button
+              onClick={() => navigate("/contact")}
+              className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+            >
+              Schedule a Consultation
+              <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
+            </button>
               
-              <button className="px-12 py-6 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border-2 border-white/40 hover:bg-white/20 hover:border-white/60 transition-all duration-300">
-                Download Service Guide
-              </button>
             </div>
 
             {/* Trust indicators */}

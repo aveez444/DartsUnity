@@ -224,14 +224,14 @@ const Contact = () => {
                           name: "name",
                           type: "text",
                           required: true,
-                          placeholder: "John Doe"
+                         
                         },
                         {
                           label: "Email Address",
                           name: "email",
                           type: "email",
                           required: true,
-                          placeholder: "john@company.com"
+                         
                         }
                       ].map((field, index) => (
                         <div key={index} className="relative">
@@ -258,14 +258,14 @@ const Contact = () => {
                           name: "company",
                           type: "text",
                           required: true,
-                          placeholder: "Your Company"
+                         
                         },
                         {
                           label: "Phone Number",
                           name: "phone",
                           type: "tel",
                           required: false,
-                          placeholder: "+1 (234) 567-890"
+                          
                         }
                       ].map((field, index) => (
                         <div key={index} className="relative">

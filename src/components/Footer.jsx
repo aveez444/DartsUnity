@@ -128,12 +128,16 @@ const Footer = () => {
               <a href="/termsandconditions" className="text-white/70 hover:text-white transition-colors">
                 Terms of Service
               </a>
-              <a href="#cookies" className="text-white/70 hover:text-white transition-colors">
-                Cookie Policy
-              </a>
               <a href="/GDPR" className="text-white/70 hover:text-white transition-colors">
                 GDPR
               </a>
+              <a href="/CCPA" className="text-white/70 hover:text-white transition-colors">
+                CCPA
+              </a>
+              <a href="/CASL" className="text-white/70 hover:text-white transition-colors">
+                CASL
+              </a>
+
             </div>
           </div>
         </div>

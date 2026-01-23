@@ -1,4 +1,5 @@
 import { ArrowRight, Target, Database, Users, TrendingUp, CheckCircle2, Award, Globe, BarChart3, Shield, Sparkles, Clock, Zap, Eye, Lightbulb } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 // Import images
 import officeTeamImage from '../assets/B2Bimg.jpg'; // Modern office with team collaborating
@@ -7,6 +8,8 @@ import cultureImage from '../assets/company-culture.jpg'; // Office interior sho
 import processIllustration from '../assets/process-illustration.jpg'; // AI-generated workflow/process illustration
 
 const About = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-white">
       {/* ===================== HERO SECTION - Blueprint Architecture Design ===================== */}
@@ -1045,21 +1048,28 @@ const About = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-5 justify-center pt-8">
-              <button className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                Schedule a Consultation
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </button>
+            <button
+              onClick={() => navigate("/contact")}
+              className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+            >
+              Schedule a Consultation
+              <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
+            </button>
+
               
-              <button className="px-12 py-6 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border-2 border-white/40 hover:bg-white/20 hover:border-white/60 transition-all duration-300">
-                View Our Services
-              </button>
+            <button
+              onClick={() => navigate("/services")}
+              className="px-12 py-6 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border-2 border-white/40 hover:bg-white/20 hover:border-white/60 transition-all duration-300"
+            >
+              View Our Services
+            </button>
             </div>
 
             {/* Trust indicators */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-16 border-t border-white/20">
               {[
                 { value: '10+', label: 'Years Experience' },
-                { value: '500+', label: 'Active Clients' },
+                { value: '100M+', label: 'Business Emails' },
                 { value: '2.5M+', label: 'Leads Delivered' },
                 { value: '94%', label: 'Retention Rate' }
               ].map((stat, i) => (

@@ -567,16 +567,27 @@ const Home = () => {
                 </p>
               </div>
             </div>
+            
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1AD603]/20 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+            {/* Learn More */}
+            <button
+              onClick={() => navigate("/about")}
+              className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] hover:from-[#1110C4] hover:to-[#1AD603] text-white rounded-full font-semibold hover:shadow-xl hover:shadow-[#1AD603]/20 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
+            >
               Learn More About Us
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />  
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#1110C4] rounded-full font-semibold border-2 border-[#1110C4] hover:bg-[#1AD603] hover:border-[#1AD603] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
-              <Mail className="h-5 w-5" />
-              Contact Us  
-            </button>
+
+              {/* Contact */}
+              <button
+                onClick={() => navigate("/contact")}
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#1110C4] rounded-full font-semibold border-2 border-[#1110C4] hover:bg-[#1AD603] hover:border-[#1AD603] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
+              >
+                <Mail className="h-5 w-5" />
+                Contact Us
+              </button>
+
           </div>
           </div>
           </div>
