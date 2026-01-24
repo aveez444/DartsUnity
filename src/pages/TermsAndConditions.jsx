@@ -5,7 +5,7 @@ const TermsAndConditions = () => {
   return (
     <DocumentPage 
       title="Terms and Conditions"
-      lastUpdated="January 1, 2024"
+     
     >
       {/* PASTE YOUR ACTUAL TERMS AND CONDITIONS CONTENT HERE */}
       <section>

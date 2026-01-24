@@ -5,7 +5,7 @@ const GDPR = () => {
   return (
     <DocumentPage 
       title="GDPR"
-      lastUpdated="January 1, 2026"
+     
     >
       {/* PASTE YOUR ACTUAL PRIVACY POLICY CONTENT HERE */}
       <section>
