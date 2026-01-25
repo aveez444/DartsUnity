@@ -78,7 +78,7 @@ const Services = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <button
                   onClick={() => navigate("/contact")}
-                  className="group px-8 py-4 bg-white text-[#1110C4] rounded-full font-semibold hover:shadow-2xl hover:shadow-[#1AD603]/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] hover:text-white transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   Schedule Consultation
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
