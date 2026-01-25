@@ -624,33 +624,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Mobile Stats Bar */}
-        <div className="lg:hidden grid grid-cols-3 gap-3 pt-4">
-          {[
-            { value: '50+', label: 'Countries' },
-            { value: '10+', label: 'Time Zones' },
-            { value: '24/7', label: 'Support' }
-          ].map((stat, i) => (
-            <div key={i} className="bg-white rounded-xl p-4 text-center border border-gray-200">
-              <div className="text-xl font-bold text-[#1110C4] mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-xs">{stat.label}</div>
-            </div>
-          ))}
-        </div>
 
-        {/* Desktop Stats Bar */}
-        <div className="hidden lg:grid grid-cols-3 gap-4">
-          {[
-            { value: '50+', label: 'Countries' },
-            { value: '10+', label: 'Time Zones' },
-            { value: '24/7', label: 'Support' }
-          ].map((stat, i) => (
-            <div key={i} className="bg-white rounded-2xl p-5 text-center border border-gray-200 hover:border-[#1110C4]/30 transition-colors">
-              <div className="text-2xl lg:text-3xl font-bold text-[#1110C4] mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
-            </div>
-          ))}
-        </div>
 
       </div>
     </div>
