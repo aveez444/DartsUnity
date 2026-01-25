@@ -274,154 +274,167 @@ const Services = () => {
   </div>
 </section>
 
-
 {/* ===================== SERVICE 1: LEAD QUALIFICATION ===================== */}
-<section className="relative bg-gray-50 py-20 overflow-hidden">
+<section className="relative bg-gray-50 py-12 lg:py-20 overflow-hidden">
         
-        {/* Wave Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full" preserveAspectRatio="none">
-            <path d="M0,200 C240,260 480,140 720,200 C960,260 1200,140 1440,200 L1440,600 L0,600 Z" fill="#1110C4" opacity="0.03"/>
-          </svg>
-        </div>
+  {/* Wave Background */}
+  <div className="absolute inset-0 pointer-events-none">
+    <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full" preserveAspectRatio="none">
+      <path d="M0,200 C240,260 480,140 720,200 C960,260 1200,140 1440,200 L1440,600 L0,600 Z" fill="#1110C4" opacity="0.03"/>
+    </svg>
+  </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="mb-12">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
-                <Target className="h-6 w-6 text-white" />
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-                Lead Qualification
-              </h2>
-            </div>
-            <p className="text-lg text-gray-600 max-w-3xl">
-              Delivering verified, sales-ready leads that match your Ideal Customer Profile with precision
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Header */}
+    <div className="mb-8 lg:mb-12">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center flex-shrink-0">
+          <Target className="h-6 w-6 text-white" />
+        </div>
+        <h2 className="text-2xl lg:text-4xl font-bold text-gray-900">
+          Lead Qualification
+        </h2>
+      </div>
+      <p className="text-base lg:text-lg text-gray-600 max-w-3xl">
+        Delivering verified, sales-ready leads that match your Ideal Customer Profile with precision
+      </p>
+    </div>
+
+    {/* Lead Types */}
+    <div className="space-y-6 lg:space-y-8">
+      
+      {/* HQL */}
+      <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
+          <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
+            <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">HQL</span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">High Quality Leads</h3>
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+              Leads that match the approved ICP with verified decision-maker details, validated company 
+              information, and relevance to the target industry and geography.
             </p>
           </div>
+        </div>
+      </div>
 
-          {/* Lead Types */}
-          <div className="space-y-8">
-            
-            {/* HQL */}
-            <div className="bg-white rounded-2xl p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[#1110C4]">HQL</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">High Quality Leads</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Leads that match the approved ICP with verified decision-maker details, validated company 
-                    information, and relevance to the target industry and geography.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* MQL */}
-            <div className="bg-white rounded-2xl p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[#1AD603]">MQL</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Marketing Qualified Leads</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    A prospect who has engaged with marketing campaigns and shows potential interest. Leads are 
-                    evaluated based on fit with the Ideal Customer Profile and behavioral indicators. MQLs help 
-                    sales teams focus on prospects most likely to convert.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* SQL */}
-            <div className="bg-white rounded-2xl p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[#1110C4]">SQL</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Sales Qualified Leads</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    A prospect vetted for sales readiness, demonstrating clear need, authority, and intent to purchase. 
-                    SQLs have been validated through interactions or engagement, making them ready for direct sales 
-                    follow-up. Focusing on SQLs ensures efficient pipeline management and higher conversion potential.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Touch Leads */}
-            <div className="space-y-8">
-              {/* Single Touch Leads - Blue */}
-              <div className="bg-white rounded-2xl p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-[#1110C4]">ST</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Single Touch Leads</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Contacts validated through one direct outreach attempt (email or LinkedIn), confirming accuracy 
-                      and role relevance.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Double Touch Leads - Green */}
-              <div className="bg-white rounded-2xl p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-[#1AD603]">DT</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Double Touch Leads</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Contacts validated through multiple outreach demonstrated by two touchpoints (email, LinkedIn, or 
-                      follow-up), improving engagement confidence and lead reliability.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* BANT - Blue (alternating pattern) */}
-            <div className="bg-white rounded-2xl p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[#1110C4]">BANT</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">BANT Qualified Leads</h3>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    BANT (Budget, Authority, Need, Timeline) qualified leads are evaluated to ensure sales readiness 
-                    and business relevance. Each lead is assessed based on budget availability, decision-making authority, 
-                    identified business need, and expected purchase timeline.
-                  </p>
-                  <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                      { title: 'Budget', desc: 'Budget availability and allocation' },
-                      { title: 'Authority', desc: 'Decision-making power and influence' },
-                      { title: 'Need', desc: 'Identified business requirements' },
-                      { title: 'Timeline', desc: 'Expected purchase timeframe' }
-                    ].map((item, i) => (
-                      <div key={i} className="bg-gray-50 rounded-xl p-4">
-                        <div className="font-bold text-gray-900 mb-1">{item.title}</div>
-                        <div className="text-sm text-gray-600">{item.desc}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
+      {/* MQL */}
+      <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
+          <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
+            <span className="text-xl lg:text-2xl font-bold text-[#1AD603]">MQL</span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">Marketing Qualified Leads</h3>
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+              A prospect who has engaged with marketing campaigns and shows potential interest. Leads are 
+              evaluated based on fit with the Ideal Customer Profile and behavioral indicators. MQLs help 
+              sales teams focus on prospects most likely to convert.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* SQL */}
+      <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
+          <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
+            <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">SQL</span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">Sales Qualified Leads</h3>
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+              A prospect vetted for sales readiness, demonstrating clear need, authority, and intent to purchase. 
+              SQLs have been validated through interactions or engagement, making them ready for direct sales 
+              follow-up. Focusing on SQLs ensures efficient pipeline management and higher conversion potential.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Touch Leads - Stacked on mobile, side-by-side on larger screens */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+        {/* Single Touch Leads */}
+        <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex flex-col items-start gap-4">
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
+                <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">ST</span>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900">Single Touch Leads</h3>
+            </div>
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+              Contacts validated through one direct outreach attempt (email or LinkedIn), confirming accuracy 
+              and role relevance.
+            </p>
+          </div>
+        </div>
+
+        {/* Double Touch Leads */}
+        <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex flex-col items-start gap-4">
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
+                <span className="text-xl lg:text-2xl font-bold text-[#1AD603]">DT</span>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900">Double Touch Leads</h3>
+            </div>
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+              Contacts validated through multiple outreach demonstrated by two touchpoints (email, LinkedIn, or 
+              follow-up), improving engagement confidence and lead reliability.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* BANT Section */}
+      <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6 mb-6 lg:mb-8">
+          <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
+            <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">BANT</span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">BANT Qualified Leads</h3>
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+              BANT (Budget, Authority, Need, Timeline) qualified leads are evaluated to ensure sales readiness 
+              and business relevance. Each lead is assessed based on budget availability, decision-making authority, 
+              identified business need, and expected purchase timeline.
+            </p>
+          </div>
+        </div>
+        
+        {/* BANT Grid - Stack on mobile, 2x2 on tablet, 4 columns on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { title: 'Budget', desc: 'Budget availability and allocation' },
+            { title: 'Authority', desc: 'Decision-making power and influence' },
+            { title: 'Need', desc: 'Identified business requirements' },
+            { title: 'Timeline', desc: 'Expected purchase timeframe' }
+          ].map((item, i) => (
+            <div key={i} className="bg-gray-50 rounded-lg lg:rounded-xl p-4 hover:bg-gray-100 transition-colors">
+              <div className="font-bold text-gray-900 text-base lg:text-lg mb-1 lg:mb-2">{item.title}</div>
+              <div className="text-xs lg:text-sm text-gray-600">{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+    
+    {/* Mobile-Friendly CTA */}
+    <div className="mt-10 lg:mt-12 text-center">
+      <button 
+        onClick={() => navigate("/contact")}
+        className="px-8 py-4 lg:px-10 lg:py-4 bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] text-white rounded-full font-semibold text-sm lg:text-base hover:from-[#0B0A8A] hover:to-[#1110C4] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+      >
+        Get Qualified Leads Now
+      </button>
+    </div>
+
+  </div>
+</section>
 
 {/* ===================== SERVICES 2-4: ENGAGEMENT SERVICES ===================== */}
 <section className="relative bg-white py-20">
