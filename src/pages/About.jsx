@@ -498,7 +498,6 @@ const About = () => {
   </div>
   </div>
 </section>
-
 {/* ===================== WHERE WE SERVE ===================== */}
 <section className="relative bg-gradient-to-b from-white to-gray-50 py-24 lg:py-32 overflow-hidden">
   
@@ -512,12 +511,12 @@ const About = () => {
     
     {/* Header */}
     <div className="text-center mb-16 lg:mb-20">
-    <div className="inline-block mb-4">
-            <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
-             <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
-                <span className="text-sm font-semibold text-[#1110C4]">Global Reach</span>
-              </div>
-            </div>
+      <div className="inline-block mb-4">
+        <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
+          <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
+          <span className="text-sm font-semibold text-[#1110C4]">Global Reach</span>
+        </div>
+      </div>
       
       <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
         Where We{' '}
@@ -530,23 +529,25 @@ const About = () => {
       </p>
     </div>
 
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
       
-      {/* Left: World Map Image */}
-      <div className="relative">
-        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white relative group">
+      {/* Left: World Map Image - Fixed for mobile */}
+      <div className="relative order-1 lg:order-1">
+        <div className="rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-xl lg:shadow-2xl border-4 lg:border-8 border-white relative group">
           <img 
             src={yourWorldMapImage}
             alt="Global Coverage Map"
-            className="w-full h-full object-cover min-h-[400px] lg:min-h-[500px] group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-auto aspect-[4/3] lg:aspect-auto lg:min-h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
             onError={(e) => {
               e.target.style.display = 'none';
               e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-blue-50', 'to-gray-100');
               e.target.parentElement.innerHTML = `
-                <div class="text-center p-12">
-                  <div class="text-7xl mb-6">🌍</div>
-                  <div class="text-2xl font-bold text-gray-800 mb-2">Global Coverage</div>
-                  <div class="text-gray-600">World Map Illustration</div>
+                <div class="text-center p-8 lg:p-12 w-full aspect-[4/3] lg:aspect-auto lg:min-h-[500px] flex items-center justify-center">
+                  <div>
+                    <div class="text-5xl lg:text-7xl mb-4 lg:mb-6">🌍</div>
+                    <div class="text-xl lg:text-2xl font-bold text-gray-800 mb-2">Global Coverage</div>
+                    <div class="text-gray-600 text-sm lg:text-base">World Map Illustration</div>
+                  </div>
                 </div>
               `;
             }}
@@ -557,19 +558,19 @@ const About = () => {
         </div>
         
         {/* Decorative Elements */}
-        <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-[#1110C4]/20 rounded-full -z-10"></div>
-        <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-[#1AD603]/20 rounded-full -z-10"></div>
+        <div className="hidden lg:block absolute -top-4 -right-4 w-20 h-20 border-2 border-[#1110C4]/20 rounded-full -z-10"></div>
+        <div className="hidden lg:block absolute -bottom-4 -left-4 w-16 h-16 border-2 border-[#1AD603]/20 rounded-full -z-10"></div>
       </div>
 
       {/* Right: Content */}
-      <div className="space-y-8">
+      <div className="space-y-6 lg:space-y-8 order-2 lg:order-2">
         
-        <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-lg border-2 border-gray-100 hover:border-[#1110C4]/30 transition-all duration-300">
-          <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+        <div className="bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 shadow-lg border-2 border-gray-100 hover:border-[#1110C4]/30 transition-all duration-300">
+          <h3 className="text-xl lg:text-3xl font-bold text-gray-900 mb-4 lg:mb-6">
             Primary Markets
           </h3>
           
-          <div className="space-y-6">
+          <div className="space-y-4 lg:space-y-6">
             {[
               {
                 region: "North America",
@@ -587,12 +588,12 @@ const About = () => {
                 stats: "Rapid growth markets"
               }
             ].map((market, index) => (
-              <div key={index} className="flex items-start gap-4 group">
-                <div className="flex-shrink-0 w-3 h-3 mt-3 rounded-full bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] group-hover:scale-125 transition-transform"></div>
+              <div key={index} className="flex items-start gap-3 lg:gap-4 group">
+                <div className="flex-shrink-0 w-2 h-2 lg:w-3 lg:h-3 mt-3 rounded-full bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] group-hover:scale-125 transition-transform"></div>
                 <div className="flex-1">
-                  <h4 className="text-xl font-bold text-gray-900 mb-1">{market.region}</h4>
-                  <p className="text-gray-600 mb-2">{market.description}</p>
-                  <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
+                  <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-1">{market.region}</h4>
+                  <p className="text-gray-600 text-sm lg:text-base mb-2">{market.description}</p>
+                  <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs lg:text-sm font-medium rounded-full">
                     {market.stats}
                   </div>
                 </div>
@@ -601,20 +602,20 @@ const About = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-10 shadow-lg border-2 border-gray-100">
+        <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl lg:rounded-3xl p-6 lg:p-10 shadow-lg border-2 border-gray-100">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-xl flex items-center justify-center">
-              <Globe className="w-6 h-6 text-white" />
+            <div className="flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-xl flex items-center justify-center">
+              <Globe className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">Global Delivery Model</h4>
-              <p className="text-gray-700 leading-relaxed">
+              <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-3">Global Delivery Model</h4>
+              <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
                 Our global delivery model ensures consistency, compliance, and relevance across industries and geographies. 
-                We maintain standardized quality benchmarks while adapting to regional nuances and market-specific requirements.
+                We maintain standardized quality benchmarks while adapting to regional nuances.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {['Consistent Quality', 'Regional Adaptation', 'Compliance Focus', 'Local Expertise'].map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-white border border-gray-200 text-gray-700 text-sm rounded-full">
+                  <span key={i} className="px-2 lg:px-3 py-1 bg-white border border-gray-200 text-gray-700 text-xs lg:text-sm rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -623,7 +624,34 @@ const About = () => {
           </div>
         </div>
 
-     
+        {/* Mobile Stats Bar */}
+        <div className="lg:hidden grid grid-cols-3 gap-3 pt-4">
+          {[
+            { value: '50+', label: 'Countries' },
+            { value: '10+', label: 'Time Zones' },
+            { value: '24/7', label: 'Support' }
+          ].map((stat, i) => (
+            <div key={i} className="bg-white rounded-xl p-4 text-center border border-gray-200">
+              <div className="text-xl font-bold text-[#1110C4] mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-xs">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Stats Bar */}
+        <div className="hidden lg:grid grid-cols-3 gap-4">
+          {[
+            { value: '50+', label: 'Countries' },
+            { value: '10+', label: 'Time Zones' },
+            { value: '24/7', label: 'Support' }
+          ].map((stat, i) => (
+            <div key={i} className="bg-white rounded-2xl p-5 text-center border border-gray-200 hover:border-[#1110C4]/30 transition-colors">
+              <div className="text-2xl lg:text-3xl font-bold text-[#1110C4] mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
 
