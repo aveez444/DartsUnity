@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +47,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
           
             <a
-              href="/get-started"
+              href="/contact"
               className="px-6 py-2.5 bg-gradient-to-r from-[#1110C4] to-[#1AD603]
               text-white rounded-full font-medium hover:shadow-xl hover:shadow-[#1110C4]/30
               transition"

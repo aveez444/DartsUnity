@@ -269,8 +269,8 @@ const Home = () => {
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     { value: "100M+", label: "Business Emails", icon: "🌍" },
-                    { value: "2.5M+", label: "Leads Generated", icon: "📈" },
-                    { value: "94%", label: "Client Retention", icon: "⭐" }
+                    { value: "2.5M+", label: "Interactions", icon: "📈" },
+                    { value: "84%", label: "Client Retention", icon: "⭐" }
                   ].map((stat, index) => (
                     <div key={index} className="group relative">
                       <div className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-[#1AD603]/50 transition-all duration-300">
@@ -327,10 +327,10 @@ const Home = () => {
                 </div>
                 <div>
                   <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">2.5M+</div>
-                  <div className="text-xs md:text-sm text-white/70 mt-1">Leads Generated</div>
+                  <div className="text-xs md:text-sm text-white/70 mt-1">Interactions</div>
                 </div>
                 <div>
-                  <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">94%</div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">84%</div>
                   <div className="text-xs md:text-sm text-white/70 mt-1">Client Retention</div>
                 </div>
               </div>
@@ -597,7 +597,7 @@ const Home = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-white text-center">
               <div>
                 <div className="text-4xl font-bold mb-2">10+</div>
-                <div className="text-white/80 text-sm">Years Experience</div>
+                <div className="text-white/80 text-sm">Industries Served</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">100M+</div>
@@ -605,10 +605,10 @@ const Home = () => {
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">2.5M+</div>
-                <div className="text-white/80 text-sm">Leads Generated</div>
+                <div className="text-white/80 text-sm">Interactions</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">94%</div>
+                <div className="text-4xl font-bold mb-2">84%</div>
                 <div className="text-white/80 text-sm">Retention Rate</div>
               </div>
             </div>
@@ -898,7 +898,7 @@ const Home = () => {
             {/* Phone device */}
             <div className="w-48 h-48 bg-gradient-to-br from-[#1AD603]/5 to-[#1110C4]/5 rounded-full group-hover:animate-[ringing_2s_ease-in-out_infinite]">
               {/* Phone screen */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-inner flex items-center justify-center">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl shadow-inner flex items-center justify-center">
                 {/* Call interface */}
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#1AD603] to-[#1110C4] rounded-full flex items-center justify-center mx-auto mb-2 group-hover:animate-[call-pulse_2s_infinite]">
@@ -1243,12 +1243,17 @@ const Home = () => {
     <p className="text-white/80 max-w-2xl mx-auto mb-8">
       Proven strategies and deep vertical knowledge tailored to your industry's challenges.
     </p>
-    <button className="px-10 py-4 bg-white text-gray-900 rounded-full font-semibold hover:scale-105 transition">
+    <button
+      onClick={() => navigate("/contact")}
+      className="px-10 py-4 bg-white text-gray-900 rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] hover:text-white hover:scale-105 transition-all duration-300"
+    >
       Discuss Your Industry
     </button>
   </div>
-</div>
+ </div>
 </section>
+
+
 {/* ================= Contact / Send Inquiry (Modern Light Theme) ================= */}
 <section className="relative bg-[#F9FAFB] py-16 md:py-28 overflow-hidden">
 
@@ -1324,7 +1329,7 @@ const Home = () => {
       </div>
 
       {/* Email Item - Fixed inline layout */}
-      <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
+      <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item mb-4">
         <div className="flex items-center gap-3">
           <span className="text-base md:text-lg">✉️</span>
           <span className="font-medium text-gray-700 text-sm md:text-base">Email</span>
@@ -1332,10 +1337,25 @@ const Home = () => {
         <div className="flex items-center gap-2 md:gap-3">
           <span className="hidden md:inline text-gray-400">•</span>
           <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1110C4] transition-colors break-words text-right">
-            contact@dartsunity.com
+           info@dartsunity.com
           </span>
         </div>
       </div>
+
+      {/* Phone Item - Added below email */}
+      <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
+        <div className="flex items-center gap-3">
+          <span className="text-base md:text-lg">📱</span>
+          <span className="font-medium text-gray-700 text-sm md:text-base">Phone</span>
+        </div>
+        <div className="flex items-center gap-2 md:gap-3">
+          <span className="hidden md:inline text-gray-400">•</span>
+          <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1AD603] transition-colors break-words text-right">
+            7855965423
+          </span>
+        </div>
+      </div>
+
 
             {/* Optional: Add more contact methods here if needed */}
          

@@ -9,6 +9,9 @@ const GDPR = () => {
     >
       {/* PASTE YOUR ACTUAL PRIVACY POLICY CONTENT HERE */}
       <section>
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">GDPR</h2>
+      </div>
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">GDPR Compliance Statement</h2>
         <p className="mb-4">
         At DartsUnity, we are committed to protecting your personal data and complying with the General Data Protection Regulation (GDPR) (EU Regulation 2016/679).

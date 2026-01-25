@@ -9,6 +9,10 @@ const CASL = () => {
     >
       {/* PASTE YOUR ACTUAL PRIVACY POLICY CONTENT HERE */}
       <section>
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">CASL</h2>
+      </div>
+
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">CASL Compliance Statement </h2>
         <p className="mb-4">
         Company Name: DartsUnity

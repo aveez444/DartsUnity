@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Facebook, Mail } from 'lucide-react';
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -60,22 +60,22 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-6 text-white">Company</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#about" className="text-white/80 hover:text-white transition-colors">
+                <a href="/about" className="text-white/80 hover:text-white transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#careers" className="text-white/80 hover:text-white transition-colors">
+                <a href="/contact" className="text-white/80 hover:text-white transition-colors">
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#press" className="text-white/80 hover:text-white transition-colors">
+                <a href="/contact" className="text-white/80 hover:text-white transition-colors">
                   Press
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-white/80 hover:text-white transition-colors">
+                <a href="/contact" className="text-white/80 hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
@@ -84,25 +84,25 @@ const Footer = () => {
 
           {/* Solutions Links */}
           <div>
-            <h3 className="font-bold text-lg mb-6 text-white">Solutions</h3>
+            <h3 className="font-bold text-lg mb-6 text-white">Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#lead-discovery" className="text-white/80 hover:text-white transition-colors">
+                <a href="/services" className="text-white/80 hover:text-white transition-colors">
                   Lead Discovery
                 </a>
               </li>
               <li>
-                <a href="#email-outreach" className="text-white/80 hover:text-white transition-colors">
+                <a href="/services" className="text-white/80 hover:text-white transition-colors">
                   Email Outreach
                 </a>
               </li>
               <li>
-                <a href="#analytics" className="text-white/80 hover:text-white transition-colors">
+                <a href="/services" className="text-white/80 hover:text-white transition-colors">
                   Analytics & Insights
                 </a>
               </li>
               <li>
-                <a href="#managed-services" className="text-white/80 hover:text-white transition-colors">
+                <a href="/services" className="text-white/80 hover:text-white transition-colors">
                   Managed Services
                 </a>
               </li>
@@ -126,7 +126,7 @@ const Footer = () => {
                 Privacy Policy
               </a>
               <a href="/termsandconditions" className="text-white/70 hover:text-white transition-colors">
-                Terms of Service
+                Terms and Conditions
               </a>
               <a href="/GDPR" className="text-white/70 hover:text-white transition-colors">
                 GDPR

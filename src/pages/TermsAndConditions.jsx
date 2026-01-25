@@ -9,6 +9,11 @@ const TermsAndConditions = () => {
     >
       {/* PASTE YOUR ACTUAL TERMS AND CONDITIONS CONTENT HERE */}
       <section>
+
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">Terms and Conditions</h2>
+      </div>
+
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">1. Agreement to Terms</h2>
         <p className="mb-4">
           Acceptance of Terms and Intellectual Property Rights

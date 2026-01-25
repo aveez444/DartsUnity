@@ -9,6 +9,9 @@ const CCPA = () => {
     >
       {/* PASTE YOUR ACTUAL PRIVACY POLICY CONTENT HERE */}
       <section>
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">CCPA</h2>
+      </div>
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">CCPA Privacy Notice (California Residents)</h2>
         <p className="mb-4">
         This CCPA Notice applies solely to visitors, users, and others who reside in the State of California (“consumers” or “you”).

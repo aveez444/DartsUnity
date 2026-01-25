@@ -31,11 +31,6 @@ const DocumentPage = ({ title, lastUpdated, children }) => {
             
             {/* Document content */}
             <div className="prose prose-lg max-w-none text-gray-700">
-              {/* 
-                =============================================
-                REPLACE THE CONTENT BELOW WITH YOUR ACTUAL TEXT
-                =============================================
-              */}
               {children || (
                 <div className="space-y-6">
                   <p className="text-gray-600 italic">
@@ -62,11 +57,6 @@ const DocumentPage = ({ title, lastUpdated, children }) => {
                   </section>
                 </div>
               )}
-              {/* 
-                =============================================
-                END OF CONTENT REPLACEMENT AREA
-                =============================================
-              */}
             </div>
             
             {/* Footer note */}

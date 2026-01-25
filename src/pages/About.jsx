@@ -5,496 +5,16 @@ import { useNavigate } from "react-router-dom";
 import officeTeamImage from '../assets/B2Bimg.jpg'; // Modern office with team collaborating
 import dataAnalyticsImage from '../assets/data-analytics-illustration.jpg'; // AI-generated illustration of data/analytics
 import cultureImage from '../assets/company-culture.jpg'; // Office interior showing company culture
-import processIllustration from '../assets/process-illustration.jpg'; // AI-generated workflow/process illustration
+import processIllustration from '../assets/vision-board.jpg'; // AI-generated workflow/process illustration
+import yourWorldMapImage from '../assets/WorldMapImage.jpg'; // AI-generated workflow/process illustration
+
 
 const About = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      {/* ===================== HERO SECTION - Blueprint Architecture Design ===================== */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-0">
-        
-        {/* Blueprint Grid Background with Animated DU Letters */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/20 to-white">
-          
-          {/* Main Blueprint Grid */}
-          <div className="absolute inset-0 opacity-[0.08]" style={{
-            backgroundImage: `
-              linear-gradient(90deg, transparent 95%, rgba(59, 130, 246, 0.3) 95%),
-              linear-gradient(0deg, transparent 95%, rgba(59, 130, 246, 0.3) 95%)
-            `,
-            backgroundSize: '60px 60px'
-          }}></div>
-          
-          {/* Animated DU Letters - Neon Blue Tracing Effect */}
-          <div className="absolute inset-0 pointer-events-none opacity-40">
-            {/* Letter D - Left side */}
-            <div className="absolute top-1/4 left-1/4">
-              {/* D - Outer curve */}
-              <div className="relative w-48 h-48">
-                {/* Vertical stroke */}
-                <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-green-400 via-green-500 to-green-400 rounded-full animate-d-stroke-1"></div>
-                {/* Top curve */}
-                <div className="absolute left-2 top-0 w-44 h-2 bg-gradient-to-r from-green-400 to-green-500 rounded-full animate-d-stroke-2"></div>
-                {/* Bottom curve */}
-                <div className="absolute left-2 bottom-0 w-44 h-2 bg-gradient-to-r from-green-500 to-green-400 rounded-full animate-d-stroke-3"></div>
-                {/* Right curve */}
-                {/* <div className="absolute right-0 top-2 w-2 h-44 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-500 rounded-full animate-d-stroke-4"></div> */}
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full opacity-0 animate-d-glow"></div>
-              </div>
-            </div>
 
-          
-
-            {/* Connecting lines between letters */}
-            <div className="absolute top-1/2 left-1/3 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-connect-letters"></div>
-          </div>
-
-          {/* Secondary Diagonal Grid */}
-          <div className="absolute inset-0 opacity-[0.05]" style={{
-            backgroundImage: `
-              linear-gradient(45deg, transparent 97%, rgba(37, 99, 235, 0.2) 97%),
-              linear-gradient(-45deg, transparent 97%, rgba(37, 99, 235, 0.2) 97%)
-            `,
-            backgroundSize: '80px 80px'
-          }}></div>
-  
-          {/* Architectural Blueprint Elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Corner Measurement Lines with Green Accents */}
-            <div className="absolute top-10 left-10 w-20 h-20">
-              <div className="absolute top-0 left-0 w-12 h-px bg-blue-400/30"></div>
-              <div className="absolute top-0 left-0 h-12 w-px bg-blue-400/30"></div>
-              <div className="absolute top-0 left-0 w-2 h-2 border border-blue-400/50"></div>
-              {/* Green dot accent */}
-              <div className="absolute top-1 left-1 w-1 h-1 bg-green-400/60 rounded-full animate-pulse"></div>
-            </div>
-            
-            <div className="absolute bottom-10 right-10 w-20 h-20">
-              <div className="absolute bottom-0 right-0 w-12 h-px bg-blue-400/30"></div>
-              <div className="absolute bottom-0 right-0 h-12 w-px bg-blue-400/30"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 border border-blue-400/50"></div>
-              {/* Green dot accent */}
-              <div className="absolute bottom-1 right-1 w-1 h-1 bg-green-400/60 rounded-full animate-pulse"></div>
-            </div>
-  
-            {/* Dimension Lines with Green Highlights */}
-            <div className="absolute top-1/2 left-10 w-16">
-              <div className="h-px w-full bg-gradient-to-r from-blue-300/40 to-transparent"></div>
-              <div className="absolute top-1/2 left-0 w-1 h-3 -translate-y-1/2 bg-blue-400/50"></div>
-              <div className="absolute top-1/2 right-0 w-1 h-3 -translate-y-1/2 bg-blue-400/50"></div>
-              {/* Green glow effect */}
-              <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-green-400/20 blur-sm -translate-y-1/2"></div>
-            </div>
-  
-            <div className="absolute right-10 top-1/3 h-16">
-              <div className="w-px h-full bg-gradient-to-b from-blue-300/40 to-transparent"></div>
-              <div className="absolute top-0 left-1/2 h-1 w-3 -translate-x-1/2 bg-blue-400/50"></div>
-              <div className="absolute bottom-0 left-1/2 h-1 w-3 -translate-x-1/2 bg-blue-400/50"></div>
-              {/* Green glow effect */}
-              <div className="absolute left-1/2 top-1/4 w-4 h-4 bg-green-400/20 blur-sm -translate-x-1/2"></div>
-            </div>
-  
-            {/* Blueprint Circles with Green Highlights */}
-            <div className="absolute top-20 right-20 opacity-10">
-              <div className="w-16 h-16 border border-blue-400/50 rounded-full"></div>
-              <div className="absolute top-1/2 left-full h-px w-8 bg-blue-400/40 -translate-y-1/2"></div>
-              {/* Green inner circle */}
-              <div className="absolute top-1/2 left-1/2 w-8 h-8 border border-green-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-            </div>
-  
-            <div className="absolute bottom-32 left-32 opacity-10">
-              <div className="w-12 h-12 border border-blue-400/50 rounded-full"></div>
-              <div className="absolute top-full left-1/2 w-px h-8 bg-blue-400/40 -translate-x-1/2"></div>
-              {/* Green center dot */}
-              <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-green-400/40 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-            </div>
-          </div>
-  
-          {/* Green Glow Effects */}
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-green-400/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-400/3 rounded-full blur-3xl"></div>
-          
-          {/* Subtle Green Grid Overlay */}
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: `
-              linear-gradient(90deg, transparent 99%, rgba(52, 211, 153, 0.1) 99%),
-              linear-gradient(0deg, transparent 99%, rgba(52, 211, 153, 0.1) 99%)
-            `,
-            backgroundSize: '100px 100px'
-          }}></div>
-  
-          {/* Gradient Overlays with Green Tint */}
-          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-green-500/10 via-blue-500/5 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-green-400/8 via-transparent to-transparent"></div>
-        </div>
-  
-        {/* Content Section */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full">
-          
-          {/* MOBILE Layout */}
-          <div className="md:hidden w-full">
-            <div className="max-w-2xl mx-auto space-y-12">
-              {/* Badge with Blueprint Style and Green Accent */}
-              <div className="inline-block relative">
-                <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-xl border border-blue-200/80 shadow-md">
-                  <span className="text-sm font-bold text-blue-700 tracking-wider relative z-10">
-                    ARCHITECTS OF GROWTH
-                  </span>
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-blue-400/60"></div>
-                <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-blue-400/60"></div>
-                {/* Green corner accent */}
-                <div className="absolute -top-2 -right-2 w-2 h-2 bg-green-400/50 rounded-full"></div>
-              </div>
-  
-              {/* Headline */}
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-                  Building Digital
-                  <span className="block text-blue-700 mt-2">
-                    Foundations
-                  </span>
-                  for B2B Success
-                </h1>
-                
-                <div className="pt-4">
-                  <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"></div>
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-300 rounded-full mt-1 ml-4"></div>
-                </div>
-              </div>
-  
-              {/* Description */}
-              <p className="text-lg leading-relaxed text-gray-700">
-                We engineer data-driven pipelines with architectural precision, 
-                transforming complex challenges into scalable revenue solutions.
-              </p>
-  
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4 pt-8">
-                {[
-                  { value: "10+", label: "Years Building", icon: "🏗️" },
-                  { value: "100M+", label: "Business Emails", icon: "📐" },
-                  { value: "2.5M+", label: "Connections Engineered", icon: "⚙️" },
-                  { value: "94%", label: "Structural Integrity", icon: "🔧" }
-                ].map((stat, index) => (
-                  <div key={index} className="group relative">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-blue-100/80 hover:border-green-300/50 transition-all duration-300 shadow-sm hover:shadow-md">
-                      <div className="flex items-start space-x-3">
-                        <div className="text-xl mt-1">{stat.icon}</div>
-                        <div>
-                          <div className="text-2xl font-bold text-blue-700">{stat.value}</div>
-                          <div className="text-xs text-gray-600 font-medium leading-tight pt-1">{stat.label}</div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Green glow on hover */}
-                    <div className="absolute inset-0 rounded-xl bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-1 blur-sm"></div>
-                  </div>
-                ))}
-              </div>
-  
-              {/* Team Image with Blueprint Frame */}
-              <div className="pt-10 relative">
-                <div className="relative rounded-2xl overflow-hidden border-2 border-blue-100 bg-gradient-to-br from-white to-blue-50/30">
-                  <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-blue-400/50 z-10"></div>
-                  <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-blue-400/50 z-10"></div>
-                  <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-blue-400/50 z-10"></div>
-                  <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-blue-400/50 z-10"></div>
-                  
-                  {/* Green corner accents */}
-                  <div className="absolute top-3 left-3 w-2 h-2 bg-green-400/40 rounded-full z-10"></div>
-                  <div className="absolute top-3 right-3 w-2 h-2 bg-green-400/40 rounded-full z-10"></div>
-                  
-                  <div className="aspect-[4/3] relative">
-                    <img 
-                      src={officeTeamImage}
-                      alt="DartsUnity Team"
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-blue-50', 'to-green-50');
-                        e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">🏢</div><div class="text-gray-700 font-medium">Our Architectural Team</div></div>';
-                      }}
-                    />
-                  </div>
-                  
-                  {/* Blueprint overlay effect with green accents */}
-                  <div className="absolute inset-0 pointer-events-none opacity-10">
-                    <div className="absolute inset-0" style={{
-                      backgroundImage: `
-                        linear-gradient(90deg, transparent 49%, rgba(59, 130, 246, 0.3) 49%, rgba(59, 130, 246, 0.3) 51%, transparent 51%),
-                        linear-gradient(0deg, transparent 49%, rgba(59, 130, 246, 0.3) 49%, rgba(59, 130, 246, 0.3) 51%, transparent 51%)
-                      `,
-                      backgroundSize: '40px 40px'
-                    }}></div>
-                    {/* Green grid overlay */}
-                    <div className="absolute inset-0" style={{
-                      backgroundImage: `
-                        linear-gradient(45deg, transparent 49.5%, rgba(52, 211, 153, 0.1) 49.5%, rgba(52, 211, 153, 0.1) 50.5%, transparent 50.5%)
-                      `,
-                      backgroundSize: '60px 60px'
-                    }}></div>
-                  </div>
-                </div>
-                
-                {/* Blueprint annotation with green accent */}
-                <div className="absolute -right-4 top-1/2 transform -translate-y-1/2">
-                  <div className="flex items-center">
-                    <div className="w-8 h-px bg-blue-400/50"></div>
-                    <div className="text-xs text-blue-600 font-mono bg-white px-2 py-1 rounded border border-blue-200 shadow-sm">
-                      TEAM
-                      <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          {/* DESKTOP Layout */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 xl:gap-16 items-center">
-            {/* Left Content - Takes 3 columns */}
-            <div className="md:col-span-1 lg:col-span-3 space-y-10 z-10">
-              {/* Badge with Green Glow */}
-              <div className="inline-block relative">
-                <div className="px-8 py-4 bg-white/90 backdrop-blur-sm rounded-xl border border-blue-200/80 shadow-lg">
-                  <span className="text-sm font-bold text-blue-700 tracking-widest relative z-10">
-                    ARCHITECTS OF GROWTH
-                  </span>
-                </div>
-                <div className="absolute -top-2 -right-2 w-4 h-4 border-t border-r border-blue-400/60"></div>
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 border-b border-l border-blue-400/60"></div>
-                {/* Green glow effect */}
-                <div className="absolute -inset-1 bg-green-400/10 blur-sm rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-  
-              {/* Headline */}
-              <div className="space-y-6">
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
-                  Building Digital
-                  <br />
-                  <span className="text-blue-700">
-                    Foundations
-                  </span>
-                  <br />
-                  for B2B Success
-                </h1>
-                
-                <div className="pt-2">
-                  <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
-                  <div className="w-16 h-1 bg-gradient-to-r from-green-400 to-green-300 rounded-full mt-2 ml-8 opacity-80"></div>
-                </div>
-              </div>
-  
-              {/* Description */}
-              <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-3xl">
-                We engineer data-driven pipelines with architectural precision, 
-                transforming complex challenges into scalable revenue solutions through 
-                strategic design and systematic execution.
-              </p>
-  
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8">
-                {[
-                  { value: '10+', label: 'Years Building', desc: 'Experience' },
-                  { value: '10M+', label: 'Business', desc: 'Emails' },
-                  { value: '2.5M+', label: 'Connections', desc: 'Engineered' },
-                  { value: '94%', label: 'Structural', desc: 'Integrity' }
-                ].map((stat, i) => (
-                  <div key={i} className="group relative">
-                    <div className="relative">
-                      <div className="text-4xl lg:text-5xl font-bold text-blue-700 mb-2 group-hover:translate-y-[-4px] transition-transform duration-300">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-gray-600 uppercase tracking-wide font-semibold">{stat.label}</div>
-                      <div className="text-xs text-gray-500 mt-1">{stat.desc}</div>
-                    </div>
-                    {/* Green hover effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-2"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-  
-            {/* Right Image - Takes 2 columns */}
-            <div className="md:col-span-1 lg:col-span-2 relative z-10">
-              <div className="relative group">
-                {/* Blueprint frame with green accents */}
-                <div className="relative rounded-[2rem] overflow-hidden border-4 border-blue-100 bg-gradient-to-br from-white to-blue-50/30 shadow-2xl">
-                  {/* Corner markers */}
-                  <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-blue-400/60 z-10"></div>
-                  <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-blue-400/60 z-10"></div>
-                  <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-blue-400/60 z-10"></div>
-                  <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-blue-400/60 z-10"></div>
-                  
-                  {/* Green corner accents */}
-                  <div className="absolute top-5 left-5 w-3 h-3 bg-green-400/30 rounded-full z-10 animate-pulse"></div>
-                  <div className="absolute top-5 right-5 w-3 h-3 bg-green-400/30 rounded-full z-10 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                  
-                  {/* Main image */}
-                  <div className="aspect-[3/4] relative overflow-hidden">
-                    <img 
-                      src={officeTeamImage}
-                      alt="DartsUnity Team"
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-blue-50', 'to-green-50');
-                        e.target.parentElement.innerHTML = '<div class="text-center p-12"><div class="text-8xl mb-6">🏢</div><div class="text-2xl text-gray-800 font-semibold">Architectural Team</div><div class="text-gray-600 mt-2">Building digital foundations</div></div>';
-                      }}
-                    />
-                    {/* Gradient overlay with green tint */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 via-transparent to-green-900/5"></div>
-                  </div>
-                  
-                  {/* Blueprint grid overlay with green accents */}
-                  <div className="absolute inset-0 pointer-events-none opacity-[0.08]">
-                    <div className="absolute inset-0" style={{
-                      backgroundImage: `
-                        linear-gradient(90deg, transparent 49.5%, rgba(59, 130, 246, 0.4) 49.5%, rgba(59, 130, 246, 0.4) 50.5%, transparent 50.5%),
-                        linear-gradient(0deg, transparent 49.5%, rgba(59, 130, 246, 0.4) 49.5%, rgba(59, 130, 246, 0.4) 50.5%, transparent 50.5%)
-                      `,
-                      backgroundSize: '60px 60px'
-                    }}></div>
-                    {/* Green diagonal grid */}
-                    <div className="absolute inset-0 opacity-[0.04]" style={{
-                      backgroundImage: `
-                        linear-gradient(45deg, transparent 49%, rgba(52, 211, 153, 0.2) 49%, rgba(52, 211, 153, 0.2) 51%, transparent 51%)
-                      `,
-                      backgroundSize: '80px 80px'
-                    }}></div>
-                  </div>
-                </div>
-                
-                {/* Green glow effect on hover */}
-                <div className="absolute -inset-4 bg-green-400/10 blur-xl rounded-[2.5rem] opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10"></div>
-                
-                {/* Background architectural elements with green */}
-                <div className="absolute -z-10 top-10 -right-10 w-40 h-40 border border-green-200/30 rounded-lg transform rotate-12 opacity-30"></div>
-                <div className="absolute -z-10 -bottom-10 -left-10 w-32 h-32 border border-green-200/20 rounded-full opacity-20"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* CSS Animations for DU Letters */}
-        <style jsx>{`
-          @keyframes d-stroke-1 {
-            0% { height: 0; opacity: 0; }
-            10% { opacity: 1; }
-            90% { height: 100%; opacity: 1; }
-            100% { height: 100%; opacity: 0; }
-          }
-          
-          @keyframes d-stroke-2 {
-            0%, 10% { width: 0; opacity: 0; }
-            20% { opacity: 1; }
-            90% { width: 44rem; opacity: 1; }
-            100% { width: 44rem; opacity: 0; }
-          }
-          
-          @keyframes d-stroke-3 {
-            0%, 30% { width: 0; opacity: 0; }
-            40% { opacity: 1; }
-            90% { width: 44rem; opacity: 1; }
-            100% { width: 44rem; opacity: 0; }
-          }
-          
-          @keyframes d-stroke-4 {
-            0%, 40% { height: 0; opacity: 0; }
-            50% { opacity: 1; }
-            90% { height: 44rem; opacity: 1; }
-            100% { height: 44rem; opacity: 0; }
-          }
-          
-          @keyframes d-glow {
-            0%, 60% { opacity: 0; }
-            70% { opacity: 0.5; }
-            80% { opacity: 0.3; }
-            90% { opacity: 0.1; }
-            100% { opacity: 0; }
-          }
-          
-          @keyframes u-stroke-1 {
-            0% { height: 0; opacity: 0; }
-            10% { opacity: 1; }
-            90% { height: 40rem; opacity: 1; }
-            100% { height: 40rem; opacity: 0; }
-          }
-          
-          @keyframes u-stroke-2 {
-            0%, 15% { height: 0; opacity: 0; }
-            25% { opacity: 1; }
-            90% { height: 40rem; opacity: 1; }
-            100% { height: 40rem; opacity: 0; }
-          }
-          
-          @keyframes u-stroke-3 {
-            0%, 40% { width: 0; opacity: 0; }
-            50% { opacity: 1; }
-            90% { width: 100%; opacity: 1; }
-            100% { width: 100%; opacity: 0; }
-          }
-          
-          @keyframes u-glow {
-            0%, 70% { opacity: 0; }
-            80% { opacity: 0.5; }
-            90% { opacity: 0.3; }
-            100% { opacity: 0; }
-          }
-          
-          @keyframes connect-letters {
-            0%, 80% { opacity: 0; }
-            85% { opacity: 0.5; }
-            95% { opacity: 0.2; }
-            100% { opacity: 0; }
-          }
-          
-          .animate-d-stroke-1 {
-            animation: d-stroke-1 6s ease-in-out infinite;
-          }
-          
-          .animate-d-stroke-2 {
-            animation: d-stroke-2 6s ease-in-out infinite;
-          }
-          
-          .animate-d-stroke-3 {
-            animation: d-stroke-3 6s ease-in-out infinite;
-          }
-          
-          .animate-d-stroke-4 {
-            animation: d-stroke-4 6s ease-in-out infinite;
-          }
-          
-          .animate-d-glow {
-            animation: d-glow 6s ease-in-out infinite;
-          }
-          
-          .animate-u-stroke-1 {
-            animation: u-stroke-1 6s ease-in-out infinite;
-          }
-          
-          .animate-u-stroke-2 {
-            animation: u-stroke-2 6s ease-in-out infinite;
-          }
-          
-          .animate-u-stroke-3 {
-            animation: u-stroke-3 6s ease-in-out infinite;
-          }
-          
-          .animate-u-glow {
-            animation: u-glow 6s ease-in-out infinite;
-          }
-          
-          .animate-connect-letters {
-            animation: connect-letters 6s ease-in-out infinite;
-          }
-        `}</style>
-      </section>
-      
   {/* ===================== OUR STORY - Bento Box Layout ===================== */}
 
 <section className="relative bg-gray-50 py-32 overflow-hidden">
@@ -562,18 +82,16 @@ const About = () => {
           <div className="text-center mb-20">
             <div className="inline-block mb-6">
               <div className="relative">      
-                <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
-                  <span className="text-sm font-semibold text-[#1110C4]">Our Foundation</span>
-              </div>
-              </div>
-            </div>
-            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Built on{' '}
+              <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+             About{' '}
               <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
-                Precision & Trust
+               Us
               </span>
             </h2>
+              </div>
+            
+            </div>
+        
           </div>
 
           {/* Bento Grid Layout */}
@@ -626,14 +144,14 @@ const About = () => {
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#1110C4] opacity-5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative">
                 <div className="text-5xl font-bold text-[#1110C4] mb-2">2.5M+</div>
-                <div className="text-gray-600 text-sm uppercase tracking-wider">Leads Generated</div>
+                <div className="text-gray-600 text-sm uppercase tracking-wider">Interactions</div>
               </div>
             </div>
 
             <div className="lg:col-span-4 bg-gradient-to-br from-green-600 to-green-500 rounded-[2.5rem] p-8 shadow-xl text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#1AD603] opacity-10 rounded-full blur-2xl"></div>
               <div className="relative">
-                <div className="text-5xl font-bold mb-2">94%</div>
+                <div className="text-5xl font-bold mb-2">84%</div>
                 <div className="text-white/80 text-sm uppercase tracking-wider">Client Retention</div>
               </div>
             </div>
@@ -660,222 +178,457 @@ const About = () => {
           </svg>
         </div>
       </section>
+{/* ===================== MISSION & VISION ===================== */}
+<section className="relative bg-gradient-to-br from-blue-50 to-white py-24 lg:py-32 overflow-hidden">
+  {/* Background path line */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="relative h-full max-w-6xl mx-auto">
+      <div className="absolute left-1/4 top-1/3 w-1/2 h-0.5 bg-blue-100"></div>
+      <div className="absolute left-3/4 top-1/3 w-0.5 h-1/3 bg-blue-100"></div>
+      <div className="absolute left-1/4 top-1/3 w-0.5 h-1/3 bg-blue-100"></div>
+    </div>
+  </div>
 
+  <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* ===================== OUR MISSION ===================== */}
+    <div className="mb-24 lg:mb-32">
+      <div className="flex flex-col lg:flex-row lg:items-start gap-12">
+        {/* Title Section - Left aligned */}
+        <div className="lg:w-2/5">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white rounded-full border border-gray-200 shadow-sm">
+            <Target className="w-5 h-5 text-blue-700" />
+            <span className="text-lg font-bold text-gray-900 tracking-wide">OUR MISSION</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            Driving Growth Through Quality Data
+          </h2>
+        </div>
+        
+        {/* Card - Right aligned */}
+        <div className="lg:w-3/5">
+          <div className="bg-white rounded-3xl p-10 lg:p-12 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all duration-300 hover:shadow-xl">
+            <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
+              Our mission is to enable B2B organizations to achieve consistent growth through high-quality data, structured execution, and measurable outcomes. We aim to support sales and marketing teams by delivering reliable, decision-ready leads and scalable demand programs. DartsUnity is committed to maintaining accuracy, integrity, and operational excellence in every engagement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    {/* ===================== OUR VISION ===================== */}
+    <div className="lg:ml-24">
+      <div className="flex flex-col lg:flex-row lg:items-start gap-12">
+        {/* Title Section - Right aligned */}
+        <div className="lg:w-2/5 lg:order-2">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white rounded-full border border-gray-200 shadow-sm">
+            <Globe className="w-5 h-5 text-blue-700" />
+            <span className="text-lg font-bold text-gray-900 tracking-wide">OUR VISION</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            Setting Global Benchmarks
+          </h2>
+        </div>
+        
+        {/* Card - Left aligned */}
+        <div className="lg:w-3/5 lg:order-1">
+          <div className="bg-white rounded-3xl p-10 lg:p-12 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all duration-300 hover:shadow-xl">
+            <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
+              Our vision is to be a trusted global partner for B2B data and growth execution. We strive to set industry benchmarks for data quality, compliance, and process-driven delivery. By continuously refining our methodologies, we aim to help organizations build sustainable pipelines and long-term revenue growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-{/* ===================== OUR APPROACH - Circular Flow ===================== */}
-<section className="relative bg-white py-32 overflow-hidden">
+  </div>
+</section>
+
+{/* ===================== OUR APPROACH - Modern Process Flow ===================== */}
+<section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32 overflow-hidden">
   
-  {/* Diagonal stripes background */}
-  <div className="absolute inset-0 opacity-[0.015]">
-    <div className="absolute inset-0" style={{
-      backgroundImage: `repeating-linear-gradient(45deg, #1110C4 0px, #1110C4 2px, transparent 2px, transparent 60px)`
+  {/* Background Elements */}
+  <div className="absolute inset-0">
+    <div className="absolute top-0 left-0 w-96 h-96 bg-[#1110C4]/5 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#1AD603]/5 rounded-full blur-3xl"></div>
+    
+    {/* Subtle grid */}
+    <div className="absolute inset-0 opacity-5" style={{
+      backgroundImage: `linear-gradient(to right, #1110C4 1px, transparent 1px),
+                       linear-gradient(to bottom, #1110C4 1px, transparent 1px)`,
+      backgroundSize: '40px 40px'
     }}></div>
   </div>
 
-  {/* Floating accent shapes */}
-  <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1AD603] opacity-5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
-
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div className="text-center mb-24">
-      <div className="inline-block mb-6">
-        <div className="px-8 py-4 bg-gradient-to-r from-[#1110C4]/5 to-[#1AD603]/5 rounded-full border-2 border-[#1110C4]/20">
-          <span className="text-sm font-bold text-[#1110C4] tracking-widest">OUR METHODOLOGY</span>
-        </div>
-      </div>
-      <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-        How We{' '}
-        <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
-          Drive Results
+    {/* Header */}
+    <div className="text-center mb-12 lg:mb-20">
+    <div className="inline-block mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
+             <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
+                <span className="text-sm font-semibold text-[#1110C4]">Our Process</span>
+              </div>
+            </div>
+      
+      <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+        A Results-Driven{' '}
+        <span className="bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] bg-clip-text text-transparent">
+          Methodology
         </span>
       </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto text-base lg:text-lg">
+        Our six-step framework transforms complex challenges into measurable outcomes
+      </p>
     </div>
 
-    {/* Desktop: Circular flow with central image */}
-    <div className="hidden lg:block relative" style={{ minHeight: '700px' }}>
+    {/* Desktop Layout - Side by side */}
+    <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-center">
       
-      {/* Central image */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="relative">
-          {/* Rotating ring */}
-          <div className="absolute inset-0 -m-6">
-            <div className="w-full h-full rounded-full border-2 border-dashed border-[#1110C4]/30 animate-[spin_30s_linear_infinite]"></div>
+      {/* Left: Process Steps */}
+      <div className="space-y-8">
+        {[
+          { 
+            title: 'Research & Discovery', 
+            desc: 'Deep ICP analysis, market positioning, and strategic foundation building',
+            icon: '🔍'
+          },
+          { 
+            title: 'Strategic Planning', 
+            desc: 'Goal alignment, roadmap development, and impact planning',
+            icon: '📋'
+          },
+          { 
+            title: 'Data Validation', 
+            desc: 'Multi-layer verification ensuring accuracy and decision-maker identification',
+            icon: '✅'
+          },
+          { 
+            title: 'Campaign Execution', 
+            desc: 'Personalized multi-channel outreach for maximum engagement',
+            icon: '🚀'
+          },
+          { 
+            title: 'Performance Tracking', 
+            desc: 'Real-time analytics and KPI monitoring for measurable results',
+            icon: '📊'
+          },
+          { 
+            title: 'Optimization', 
+            desc: 'Continuous refinement and reporting to maximize ROI',
+            icon: '⚡'
+          }
+        ].map((step, index) => (
+          <div 
+            key={index} 
+            className="group bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-[#1AD603] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+          >
+            <div className="flex items-start gap-5">
+              {/* Step Indicator */}
+              <div className="flex-shrink-0 relative">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center group-hover:from-[#1AD603] group-hover:to-[#2BEC06] transition-all duration-300">
+                  <span className="text-xl text-white font-medium">{step.icon}</span>
+                </div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-gray-100 rounded-full flex items-center justify-center text-xs font-bold text-gray-500">
+                  {index + 1}
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#1110C4] transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            </div>
+            
+            {/* Hover Indicator */}
+            <div className="mt-4 pl-17 relative">
+              <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#1AD603] to-[#2BEC06] transition-all duration-500"></div>
+            </div>
           </div>
-          
-          {/* Image */}
-          <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-8 border-white relative">
+        ))}
+      </div>
+      
+      {/* Right: Process Image */}
+      <div className="relative">
+        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
+          <div className="aspect-[4/5] relative">
             <img 
               src={processIllustration}
-              alt="Process"
+              alt="Our Process Methodology"
               className="w-full h-full object-cover"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
-                e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl">⚙️</div><div class="text-gray-600 mt-2">Process flow</div></div>';
+                e.target.parentElement.innerHTML = `
+                  <div class="text-center p-8">
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                      ${[1,2,3,4,5,6].map(num => `
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center mx-auto">
+                          <span class="text-white text-2xl">${['🔍','📋','✅','🚀','📊','⚡'][num-1]}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                    <div class="text-xl text-gray-800 font-semibold">Process Workflow</div>
+                    <div class="text-gray-600 mt-2">6-Step Methodology</div>
+                  </div>
+                `;
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 to-transparent"></div>
+            
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1110C4]/20 via-transparent to-transparent"></div>
+
+          </div>
+        </div>
+        
+        {/* Decorative Elements */}
+        <div className="absolute -top-6 -right-6 w-32 h-32 border-2 border-[#1110C4]/20 rounded-3xl -z-10"></div>
+        <div className="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-[#1AD603]/20 rounded-full -z-10"></div>
+      </div>
+    </div>
+
+{/* Process Steps - Zigzag Pattern for Mobile */}
+<div className="lg:hidden space-y-6 relative">
+  
+  {/* Connecting line */}
+  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#1110C4]/20 via-[#1110C4]/40 to-[#1110C4]/20 -z-10"></div>
+  
+  {[
+    { 
+      title: 'Research & Discovery', 
+      desc: 'Deep ICP analysis, market positioning, and strategic foundation building',
+      icon: '🔍',
+      side: 'left'
+    },
+    { 
+      title: 'Strategic Planning', 
+      desc: 'Goal alignment, roadmap development, and impact planning',
+      icon: '📋',
+      side: 'right'
+    },
+    { 
+      title: 'Data Validation', 
+      desc: 'Multi-layer verification ensuring accuracy and decision-maker identification',
+      icon: '✅',
+      side: 'left'
+    },
+    { 
+      title: 'Campaign Execution', 
+      desc: 'Personalized multi-channel outreach for maximum engagement',
+      icon: '🚀',
+      side: 'right'
+    },
+    { 
+      title: 'Performance Tracking', 
+      desc: 'Real-time analytics and KPI monitoring for measurable results',
+      icon: '📊',
+      side: 'left'
+    },
+    { 
+      title: 'Optimization', 
+      desc: 'Continuous refinement and reporting to maximize ROI',
+      icon: '⚡',
+      side: 'right'
+    }
+  ].map((step, index) => (
+    <div 
+      key={index} 
+      className={`relative flex items-start gap-4 ${step.side === 'left' ? 'pr-8' : 'pl-8'}`}
+    >
+      {/* Step Number Indicator - Left side */}
+      <div className={`flex-shrink-0 absolute ${step.side === 'left' ? 'left-0' : 'right-0'} top-0`}>
+        <div className="w-8 h-8 rounded-full bg-white border-4 border-white shadow-md flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
+            <span className="text-xs font-bold text-white">{index + 1}</span>
           </div>
         </div>
       </div>
-
-      {/* Process cards in circular layout - NOW WITH 6 CARDS */}
-      {[
-        { pos: 'top-0 left-1/2 -translate-x-1/2', num: '01', title: 'Research & Discovery', desc: 'Deep ICP analysis & market positioning' }, 
-        { pos: 'top-1/4 right-0 ', num: '02', title: 'Data Validation', desc: 'Multi-layer verification for accuracy' },
-        { pos: 'bottom-1/4 right-0', num: '03', title: 'Campaign Execution', desc: 'Personalized multi-channel outreach' },
-        { pos: 'bottom-0 left-1/2 -translate-x-1/2', num: '04', title: 'Optimization', desc: 'Continuous refinement & reporting' },
-        { pos: 'top-1/4 left-0 -translate-y-10', num: '06', title: 'Strategic Planning', desc: 'Goal alignment & roadmap development' },
-        { pos: 'bottom-1/4 left-0 translate-y-10', num: '05', title: 'Performance Tracking', desc: 'Real-time analytics & KPI monitoring' },
-        
-      ].map((item, i) => (
-        <div key={i} className={`absolute ${item.pos} group`}>
-          <div className="w-72 bg-white rounded-3xl p-7 shadow-xl border-2 border-gray-100 hover:border-[#1110C4]/40 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center flex-shrink-0 text-white font-bold text-lg group-hover:scale-110 transition-transform">
-                {item.num}
-              </div>
-              <div className="flex-1">
-                <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    {/* Mobile: Grid layout - NOW WITH 6 CARDS */}
-    <div className="lg:hidden space-y-6 mb-12">
-      {[
-        { num: '01', title: 'Research & Discovery', desc: 'Deep ICP analysis & market positioning' },
-        { num: '02', title: 'Data Validation', desc: 'Multi-layer verification for accuracy' },
-        { num: '03', title: 'Campaign Execution', desc: 'Personalized multi-channel outreach' },
-        { num: '04', title: 'Optimization', desc: 'Continuous refinement & reporting' },
-        { num: '05', title: 'Performance Tracking', desc: 'Real-time analytics & KPI monitoring' },
-        { num: '06', title: 'Strategic Planning', desc: 'Goal alignment & roadmap development' }
-      ].map((item, i) => (
-        <div key={i} className="bg-white rounded-3xl p-6 shadow-xl border-2 border-gray-100">
+      
+      {/* Content Card - Alternating sides */}
+      <div className={`flex-1 ${step.side === 'left' ? 'ml-12' : 'mr-12'}`}>
+        <div className="bg-white rounded-2xl p-5 border-2 border-gray-100 shadow-sm hover:shadow-md active:shadow-lg transition-shadow">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center flex-shrink-0 text-white font-bold">
-              {item.num}
+            {/* Icon */}
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
+                <span className="text-lg text-white">{step.icon}</span>
+              </div>
             </div>
+            
+            {/* Content */}
             <div className="flex-1">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
-              <p className="text-gray-600 text-sm">{item.desc}</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+              <p className="text-gray-600 text-sm">{step.desc}</p>
             </div>
           </div>
         </div>
-      ))}
+      </div>
     </div>
+  ))}
+</div>
 
-    {/* Mobile image */}
-    <div className="lg:hidden">
-      <div className="aspect-square max-w-md mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-        <img 
-          src={processIllustration}
-          alt="Process"
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
-            e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-7xl">⚙️</div><div class="text-gray-600 mt-4">Process workflow</div></div>';
-          }}
-        />
+  {/* CTA Note */}
+  <div className="text-center mt-20 lg:mt-28">
+    <div className="inline-flex flex-col sm:flex-row items-center gap-5 px-10 py-8 bg-gradient-to-r from-white to-gray-50/80 rounded-3xl border-2 border-[#1110C4]/10 shadow-xl backdrop-blur-sm">
+      {/* Animated Icon */}
+      <div className="flex-shrink-0">
+        <div className="relative">
+
+         
+        </div>
+      </div>
+      
+      {/* Text Content */}
+      <div className="text-left">
+        <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+          Every Step is <span className="bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] bg-clip-text text-transparent">Evidence-Based</span>
+        </h3>
+        <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+          Backed by <span className="font-bold text-[#1110C4]">data-driven insights</span> and 
+          validated through <span className="font-bold text-[#1AD603]">proven methodologies</span> for 
+          measurable, scalable results.
+        </p>
       </div>
     </div>
   </div>
+  </div>
 </section>
 
-      {/* ===================== CULTURE - Offset Layout ===================== */}
-      <section className="relative bg-white py-32 overflow-hidden">
-        
-        {/* Organic blob shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <svg className="absolute top-0 left-0 w-1/2 h-1/2 opacity-5" viewBox="0 0 200 200">
-            <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.1,73.1,42.3C64.8,55.4,53.8,67.1,40.3,74.3C26.8,81.5,10.8,84.1,-4.9,82.8C-20.6,81.5,-36.1,76.2,-49.3,68.4C-62.5,60.6,-73.4,50.2,-80.1,37.4C-86.8,24.6,-89.3,9.4,-87.8,-5.2C-86.3,-19.8,-80.8,-33.8,-72.6,-46.2C-64.4,-58.6,-53.5,-69.4,-40.4,-77.2C-27.3,-85,-12.1,-89.8,2.4,-93.8C16.9,-97.8,30.6,-83.6,44.7,-76.4Z" 
-                  fill="#1110C4"/>
-          </svg>
-          <svg className="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-5" viewBox="0 0 200 200">
-            <path d="M39.9,-65.6C51.4,-58.1,60.3,-46.7,67.4,-34C74.5,-21.3,79.8,-7.3,79.7,6.8C79.6,20.9,74.1,35.1,65.3,46.8C56.5,58.5,44.4,67.7,30.9,73.1C17.4,78.5,2.5,80.1,-12.8,78.3C-28.1,76.5,-43.8,71.3,-56.8,62.4C-69.8,53.5,-80.1,40.9,-84.7,26.4C-89.3,11.9,-88.2,-4.5,-82.8,-18.7C-77.4,-32.9,-67.7,-44.9,-55.6,-52.2C-43.5,-59.5,-29,-62.1,-15.5,-64.8C-2,-67.5,10.5,-70.3,22.4,-69.2C34.3,-68.1,28.4,-73.1,39.9,-65.6Z" 
-                  fill="#1AD603"/>
-          </svg>
-        </div>
+{/* ===================== WHERE WE SERVE ===================== */}
+<section className="relative bg-gradient-to-b from-white to-gray-50 py-24 lg:py-32 overflow-hidden">
+  
+  {/* Background Elements */}
+  <div className="absolute inset-0">
+    <div className="absolute top-0 left-0 w-64 h-64 bg-[#1110C4]/5 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#1AD603]/5 rounded-full blur-3xl"></div>
+  </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            
-            {/* Content - Desktop left, Mobile top */}
-            <div className="lg:col-span-7 order-2 lg:order-1 space-y-8">
-              <div className="inline-block">
-                <div className="px-8 py-4 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 rounded-full border border-[#1110C4]/20">
-                  <span className="text-sm font-bold text-[#1110C4] tracking-widest">OUR CULTURE</span>
-                </div>
-              </div>
-
-              <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Built on{' '}
-                <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
-                  Excellence & Integrity
-                </span>
-              </h2>
-
-              <p className="text-xl text-gray-600 leading-relaxed">
-                At DartsUnity, sustainable growth comes from transparency, accountability, 
-                and genuine partnership with our clients.
-              </p>
-
-              {/* Value cards */}
-              <div className="space-y-5 pt-6">
-                {[
-                  { icon: '🎯', title: 'Client-Centric Mindset', desc: 'Every strategy and decision prioritizes your success objectives' },
-                  { icon: '💡', title: 'Continuous Innovation', desc: 'Leveraging latest technologies and industry best practices' },
-                  { icon: '🛡️', title: 'Ethical Standards', desc: 'Non-negotiable commitment to compliance and data privacy' }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-6 items-start bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl hover:border-[#1110C4]/30 transition-all duration-300 group">
-                    <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform">{item.icon}</div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                      <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Header */}
+    <div className="text-center mb-16 lg:mb-20">
+    <div className="inline-block mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
+             <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
+                <span className="text-sm font-semibold text-[#1110C4]">Global Reach</span>
               </div>
             </div>
+      
+      <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+        Where We{' '}
+        <span className="bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] bg-clip-text text-transparent">
+          Serve
+        </span>
+      </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto text-base lg:text-lg">
+        DartsUnity delivers services across key global markets, supporting clients with region-specific research and outreach strategies.
+      </p>
+    </div>
 
-            {/* Image - Desktop right, Mobile bottom */}
-            <div className="lg:col-span-5 order-1 lg:order-2">
-              <div className="relative">
-                {/* Main image */}
-                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white transform lg:translate-x-12 hover:translate-x-0 transition-transform duration-500">
-                  <img 
-                    src={cultureImage}
-                    alt="Company Culture"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
-                      e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-7xl mb-4">🏢</div><div class="text-gray-600 text-lg">Office culture</div></div>';
-                    }}
-                  />
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      {/* Left: World Map Image */}
+      <div className="relative">
+        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white relative group">
+          <img 
+            src={yourWorldMapImage}
+            alt="Global Coverage Map"
+            className="w-full h-full object-cover min-h-[400px] lg:min-h-[500px] group-hover:scale-105 transition-transform duration-700"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-blue-50', 'to-gray-100');
+              e.target.parentElement.innerHTML = `
+                <div class="text-center p-12">
+                  <div class="text-7xl mb-6">🌍</div>
+                  <div class="text-2xl font-bold text-gray-800 mb-2">Global Coverage</div>
+                  <div class="text-gray-600">World Map Illustration</div>
                 </div>
+              `;
+            }}
+          />
+          
+          {/* Overlay Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1110C4]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+        
+        {/* Decorative Elements */}
+        <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-[#1110C4]/20 rounded-full -z-10"></div>
+        <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-[#1AD603]/20 rounded-full -z-10"></div>
+      </div>
 
-                {/* Floating accent card */}
-                <div className="hidden lg:block absolute -bottom-8 -left-8 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-3xl p-8 shadow-2xl text-white max-w-xs">
-                  <div className="text-4xl font-bold mb-2">10+</div>
-                  <div className="text-white/90 text-sm uppercase tracking-wide">Years of Excellence</div>
+      {/* Right: Content */}
+      <div className="space-y-8">
+        
+        <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-lg border-2 border-gray-100 hover:border-[#1110C4]/30 transition-all duration-300">
+          <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+            Primary Markets
+          </h3>
+          
+          <div className="space-y-6">
+            {[
+              {
+                region: "North America",
+                description: "Comprehensive coverage across United States and Canada with specialized outreach strategies for diverse industries.",
+                stats: "Enterprise, Tech, Finance focus"
+              },
+              {
+                region: "Europe",
+                description: "Tailored approaches for EU and UK markets with GDPR-compliant data practices and localized engagement.",
+                stats: "GDPR-compliant execution"
+              },
+              {
+                region: "APAC",
+                description: "Strategic support across Asia-Pacific markets including Australia, Singapore, Japan, and emerging economies.",
+                stats: "Rapid growth markets"
+              }
+            ].map((market, index) => (
+              <div key={index} className="flex items-start gap-4 group">
+                <div className="flex-shrink-0 w-3 h-3 mt-3 rounded-full bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] group-hover:scale-125 transition-transform"></div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">{market.region}</h4>
+                  <p className="text-gray-600 mb-2">{market.description}</p>
+                  <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
+                    {market.stats}
+                  </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                {/* Decorative elements */}
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-[#1AD603] rounded-full opacity-20 blur-3xl"></div>
+        <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-10 shadow-lg border-2 border-gray-100">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-xl flex items-center justify-center">
+              <Globe className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Global Delivery Model</h4>
+              <p className="text-gray-700 leading-relaxed">
+                Our global delivery model ensures consistency, compliance, and relevance across industries and geographies. 
+                We maintain standardized quality benchmarks while adapting to regional nuances and market-specific requirements.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {['Consistent Quality', 'Regional Adaptation', 'Compliance Focus', 'Local Expertise'].map((tag, i) => (
+                  <span key={i} className="px-3 py-1 bg-white border border-gray-200 text-gray-700 text-sm rounded-full">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </section>
 
+     
+      </div>
+    </div>
+
+  </div>
+</section>
 
 {/* ===================== WHY CHOOSE US - Staggered Cards ===================== */}
 
@@ -951,10 +704,12 @@ const About = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center mb-20">
-            <div className="inline-block mb-6">
-              <div className="px-8 py-4 bg-white rounded-full shadow-xl border border-gray-200">
-                <span className="text-sm font-bold text-[#1110C4] tracking-widest">WHY DARTSUNITY</span>
+          <div className="inline-block mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
+             <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
+                <span className="text-sm font-semibold text-[#1110C4]">Why Darts Unity</span>
               </div>
+            
             </div>
             <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               The DartsUnity{' '}
@@ -972,7 +727,7 @@ const About = () => {
               { title: 'Dedicated Support', desc: 'Committed account teams focused on understanding and achieving your specific goals', shift: 'md:mt-0' },
               { title: 'Scalable Solutions', desc: 'Infrastructure that grows seamlessly from pilot programs to enterprise-wide campaigns', shift: 'md:mt-12' },
               { title: 'Compliance First', desc: 'Full adherence to GDPR, CAN-SPAM, and industry regulations protecting both parties', shift: 'md:mt-24' },
-              { title: 'Proven Results', desc: '10+ years delivering measurable outcomes with 94% client retention rate', shift: 'md:mt-12' }
+              { title: 'Proven Results', desc: 'Years delivering measurable outcomes with 84% client retention rate', shift: 'md:mt-12' }
             ].map((item, i) => (
               <div key={i} className={`${item.shift} group`}>
                 <div className="bg-white rounded-[2rem] p-10 border-2 border-gray-200 shadow-lg hover:shadow-2xl hover:border-[#1110C4]/40 transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
@@ -1004,7 +759,7 @@ const About = () => {
               { title: 'Dedicated Support', desc: 'Committed teams focused on your success' },
               { title: 'Scalable Solutions', desc: 'Infrastructure that grows with your needs' },
               { title: 'Compliance First', desc: 'Full regulatory adherence and protection' },
-              { title: 'Proven Results', desc: '10+ years with 94% client retention' }
+              { title: 'Proven Results', desc: 'Years with 84% client retention' }
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
                 <div className="text-5xl font-bold text-[#1110C4]/10 mb-3">{String(i + 1).padStart(2, '0')}</div>
@@ -1050,7 +805,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-5 justify-center pt-8">
             <button
               onClick={() => navigate("/contact")}
-              className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+              className="group px-12 py-6 bg-white text-[#1110C4] rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] hover:text-white transition-all duration-300 flex items-center justify-center gap-3"
             >
               Schedule a Consultation
               <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
@@ -1068,10 +823,10 @@ const About = () => {
             {/* Trust indicators */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-16 border-t border-white/20">
               {[
-                { value: '10+', label: 'Years Experience' },
+                { value: '10+', label: 'Industries Served' },
                 { value: '100M+', label: 'Business Emails' },
-                { value: '2.5M+', label: 'Leads Delivered' },
-                { value: '94%', label: 'Retention Rate' }
+                { value: '2.5M+', label: 'Interactions' },
+                { value: '84%', label: 'Retention Rate' }
               ].map((stat, i) => (
                 <div key={i} className="text-center group">
                   <div className="text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">{stat.value}</div>

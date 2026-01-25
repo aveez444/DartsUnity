@@ -127,14 +127,14 @@ const Contact = () => {
                     {
                       icon: Mail,
                       title: "Email",
-                      content: "contact@dartsunity.com",
-                      href: "mailto:contact@dartsunity.com"
+                      content: "info@dartsunity.com",
+                      href: "mailto:thedartsunity@gmail.com"
                     },
                    
                     {
-                      icon: MapPin,
-                      title: "Location",
-                      content: "Bhayandar, Maharashtra, IN"
+                      icon: Phone,
+                      title: "Phone",
+                      content: "9822658456"
                     },
                    
                   ].map((item, index) => (
@@ -406,7 +406,7 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
              
                 <a 
-                  href="mailto:contact@dartsunity.com" 
+                  href="mailto:thedartsunity@gmail.com" 
                   className="group inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-[#1110C4]/30 transition-all duration-300"
                 >
                   <Mail className="h-5 w-5 mr-3 group-hover:animate-bounce" />
@@ -436,4 +436,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact; 
