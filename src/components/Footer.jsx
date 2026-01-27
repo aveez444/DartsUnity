@@ -88,22 +88,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a href="/services" className="text-white/80 hover:text-white transition-colors">
-                  Lead Discovery
+                  Lead Qualification
                 </a>
               </li>
               <li>
                 <a href="/services" className="text-white/80 hover:text-white transition-colors">
-                  Email Outreach
+                 Account Based Marketing 
                 </a>
               </li>
               <li>
                 <a href="/services" className="text-white/80 hover:text-white transition-colors">
-                  Analytics & Insights
+                Email Marketing Campaigns
                 </a>
               </li>
               <li>
                 <a href="/services" className="text-white/80 hover:text-white transition-colors">
-                  Managed Services
+                Appointment Generation
                 </a>
               </li>
             </ul>

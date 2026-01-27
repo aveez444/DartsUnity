@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Target, Mail, Phone, TrendingUp, Users, FileText, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Info , Check, Target, Mail, Phone, TrendingUp, Users, FileText, Zap } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
 // Import images
@@ -273,10 +273,9 @@ const Services = () => {
     </div>
   </div>
 </section>
-
 {/* ===================== SERVICE 1: LEAD QUALIFICATION ===================== */}
 <section className="relative bg-gray-50 py-12 lg:py-20 overflow-hidden">
-        
+  
   {/* Wave Background */}
   <div className="absolute inset-0 pointer-events-none">
     <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full" preserveAspectRatio="none">
@@ -304,7 +303,7 @@ const Services = () => {
     {/* Lead Types */}
     <div className="space-y-6 lg:space-y-8">
       
-      {/* HQL */}
+      {/* HQL - Blue */}
       <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
         <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
           <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
@@ -320,7 +319,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* MQL */}
+      {/* MQL - Green */}
       <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
         <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
           <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
@@ -337,7 +336,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* SQL */}
+      {/* SQL - Blue */}
       <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
         <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
           <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
@@ -354,70 +353,37 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Touch Leads - Stacked on mobile, side-by-side on larger screens */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-        {/* Single Touch Leads */}
-        <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
-          <div className="flex flex-col items-start gap-4">
-            <div className="flex items-center gap-4">
-              <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-                <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">ST</span>
-              </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900">Single Touch Leads</h3>
-            </div>
+      {/* Single Touch Leads - Green */}
+      <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
+          <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
+            <span className="text-xl lg:text-2xl font-bold text-[#1AD603]">ST</span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">Single Touch Leads</h3>
             <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
               Contacts validated through one direct outreach attempt (email or LinkedIn), confirming accuracy 
-              and role relevance.
-            </p>
-          </div>
-        </div>
-
-        {/* Double Touch Leads */}
-        <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1AD603] shadow-lg hover:shadow-xl transition-shadow">
-          <div className="flex flex-col items-start gap-4">
-            <div className="flex items-center gap-4">
-              <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1AD603]/10 flex items-center justify-center">
-                <span className="text-xl lg:text-2xl font-bold text-[#1AD603]">DT</span>
-              </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900">Double Touch Leads</h3>
-            </div>
-            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-              Contacts validated through multiple outreach demonstrated by two touchpoints (email, LinkedIn, or 
-              follow-up), improving engagement confidence and lead reliability.
+              and role relevance. These leads have been verified for contact information and basic fit with 
+              your target criteria.
             </p>
           </div>
         </div>
       </div>
 
-      {/* BANT Section */}
+      {/* Double Touch Leads - Blue */}
       <div className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border-l-4 border-[#1110C4] shadow-lg hover:shadow-xl transition-shadow">
-        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6 mb-6 lg:mb-8">
+        <div className="flex flex-col sm:flex-row items-start gap-4 lg:gap-6">
           <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-            <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">BANT</span>
+            <span className="text-xl lg:text-2xl font-bold text-[#1110C4]">DT</span>
           </div>
           <div className="flex-1">
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">BANT Qualified Leads</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-3">Double Touch Leads</h3>
             <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-              BANT (Budget, Authority, Need, Timeline) qualified leads are evaluated to ensure sales readiness 
-              and business relevance. Each lead is assessed based on budget availability, decision-making authority, 
-              identified business need, and expected purchase timeline.
+              Contacts validated through multiple outreach demonstrated by two touchpoints (email, LinkedIn, or 
+              follow-up), improving engagement confidence and lead reliability. These leads show higher 
+              responsiveness and engagement potential.
             </p>
           </div>
-        </div>
-        
-        {/* BANT Grid - Stack on mobile, 2x2 on tablet, 4 columns on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            { title: 'Budget', desc: 'Budget availability and allocation' },
-            { title: 'Authority', desc: 'Decision-making power and influence' },
-            { title: 'Need', desc: 'Identified business requirements' },
-            { title: 'Timeline', desc: 'Expected purchase timeframe' }
-          ].map((item, i) => (
-            <div key={i} className="bg-gray-50 rounded-lg lg:rounded-xl p-4 hover:bg-gray-100 transition-colors">
-              <div className="font-bold text-gray-900 text-base lg:text-lg mb-1 lg:mb-2">{item.title}</div>
-              <div className="text-xs lg:text-sm text-gray-600">{item.desc}</div>
-            </div>
-          ))}
         </div>
       </div>
 
@@ -425,12 +391,194 @@ const Services = () => {
     
     {/* Mobile-Friendly CTA */}
     <div className="mt-10 lg:mt-12 text-center">
-      <button 
-        onClick={() => navigate("/contact")}
-        className="px-8 py-4 lg:px-10 lg:py-4 bg-gradient-to-r from-[#1110C4] to-[#0B0A8A] text-white rounded-full font-semibold text-sm lg:text-base hover:from-[#0B0A8A] hover:to-[#1110C4] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-      >
-        Get Qualified Leads Now
-      </button>
+    <button
+      onClick={() => navigate("/contact")}
+      className="px-10 py-4 bg-blue-800 text-white rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#1110C4] hover:to-[#1AD603] hover:text-white hover:scale-105 transition-all duration-300"
+    >
+     Get Qualified Leads
+    </button>
+    </div>
+
+  </div>
+</section>
+
+{/* ===================== BANT QUALIFICATION SECTION ===================== */}
+<section className="relative py-12 lg:py-16 bg-white overflow-hidden">
+  
+  {/* Subtle background accent */}
+  <div className="absolute top-0 right-0 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-br from-[#1110C4]/5 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-tr from-[#1AD603]/5 to-transparent rounded-full translate-y-32 -translate-x-32"></div>
+  
+  <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Header */}
+    <div className="mb-12 lg:mb-16">
+      <div className="flex flex-col items-center">
+        <div className="inline-flex items-center gap-3 mb-4">
+        
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
+            BANT Qualification Framework
+          </h2>
+        </div>
+        <p className="text-base lg:text-lg text-gray-600 max-w-2xl text-center">
+          Systematic lead assessment using Budget, Authority, Need, and Timeline criteria to ensure sales-ready prospects
+        </p>
+      </div>
+    </div>
+
+    {/* Main Content - Stack on mobile, side-by-side on desktop */}
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      
+      {/* Left: Explanation & Benefits */}
+      <div className="w-full lg:w-2/5">
+        <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-200">
+          <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
+            Structured Qualification Process
+          </h3>
+          <p className="text-gray-700 mb-6 leading-relaxed">
+            The BANT framework evaluates leads through four critical business dimensions, ensuring only qualified opportunities reach your sales team.
+          </p>
+          
+          <div className="space-y-4">
+            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1110C4]/10 flex items-center justify-center mt-0.5">
+                <div className="w-2 h-2 rounded-full bg-[#1110C4]"></div>
+              </div>
+              <p className="text-sm lg:text-base text-gray-700">
+                <span className="font-semibold">Focuses sales efforts</span> on leads with verified purchase potential
+              </p>
+            </div>
+            
+            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1AD603]/10 flex items-center justify-center mt-0.5">
+                <div className="w-2 h-2 rounded-full bg-[#1AD603]"></div>
+              </div>
+              <p className="text-sm lg:text-base text-gray-700">
+                <span className="font-semibold">Reduces wasted time</span> on unqualified prospects
+              </p>
+            </div>
+            
+            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1110C4]/10 flex items-center justify-center mt-0.5">
+                <div className="w-2 h-2 rounded-full bg-[#1110C4]"></div>
+              </div>
+              <p className="text-sm lg:text-base text-gray-700">
+                <span className="font-semibold">Increases conversion rates</span> with pre-vetted opportunities
+              </p>
+            </div>
+            
+            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1AD603]/10 flex items-center justify-center mt-0.5">
+                <div className="w-2 h-2 rounded-full bg-[#1AD603]"></div>
+              </div>
+              <p className="text-sm lg:text-base text-gray-700">
+                <span className="font-semibold">Provides clear context</span> for meaningful sales conversations
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <p className="text-sm text-gray-600 italic">
+              Each BANT-qualified lead includes detailed assessment documentation for all four criteria.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right: BANT Grid */}
+      <div className="w-full lg:w-3/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+          {[
+            {
+              title: 'Budget',
+              desc: 'Verified budget allocation and purchasing capacity for your solution',
+              criteria: [
+                'Budget availability confirmed',
+                'Purchase authority verified',
+                'Funding timeline established'
+              ],
+              accentColor: 'border-l-[#1110C4]',
+              bgColor: 'bg-[#1110C4]/5',
+              dotColor: 'bg-[#1110C4]'
+            },
+            {
+              title: 'Authority',
+              desc: 'Decision-making power and organizational influence validated',
+              criteria: [
+                'Decision maker identified',
+                'Approval process understood',
+                'Stakeholder influence mapped'
+              ],
+              accentColor: 'border-l-[#1AD603]',
+              bgColor: 'bg-[#1AD603]/5',
+              dotColor: 'bg-[#1AD603]'
+            },
+            {
+              title: 'Need',
+              desc: 'Clear business requirements and pain points identified',
+              criteria: [
+                'Business problem defined',
+                'Solution requirements clear',
+                'Impact on operations assessed'
+              ],
+              accentColor: 'border-l-[#1110C4]',
+              bgColor: 'bg-[#1110C4]/5',
+              dotColor: 'bg-[#1110C4]'
+            },
+            {
+              title: 'Timeline',
+              desc: 'Defined purchase timeframe and implementation schedule',
+              criteria: [
+                'Purchase deadline established',
+                'Implementation schedule planned',
+                'Urgency level assessed'
+              ],
+              accentColor: 'border-l-[#1AD603]',
+              bgColor: 'bg-[#1AD603]/5',
+              dotColor: 'bg-[#1AD603]'
+            }
+          ].map((item, index) => (
+            <div 
+              key={index}
+              className={`group bg-white rounded-xl p-5 lg:p-6 shadow-md hover:shadow-lg transition-all duration-300 border-l-4 ${item.accentColor} border-t border-r border-b border-gray-100 hover:border-gray-200`}
+            >
+              <div className="flex flex-col">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-lg ${item.bgColor} flex items-center justify-center`}>
+                    <div className={`w-3 h-3 rounded-full ${item.dotColor}`}></div>
+                  </div>
+                  <div>
+                    <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-1">{item.title}</h4>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  {item.criteria.map((criterion, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${item.dotColor}`}></div>
+                      <span className="text-xs lg:text-sm text-gray-700">{criterion}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Callout */}
+        <div className="mt-8 lg:mt-10 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 lg:p-6 border border-gray-200 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
+              <Info className="h-4 w-4 text-[#1110C4]" />
+            </div>
+            <p className="text-sm lg:text-base text-gray-700">
+              <span className="font-semibold">Note:</span> BANT qualification is applied to all SQL (Sales Qualified Leads) and HQL (High Quality Leads) to ensure maximum sales efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>

@@ -270,7 +270,7 @@ const Home = () => {
                   {[
                     { value: "100M+", label: "Business Emails", icon: "🌍" },
                     { value: "2.5M+", label: "Interactions", icon: "📈" },
-                    { value: "84%", label: "Client Retention", icon: "⭐" }
+                    { value: "84%", label: "Retention Rate", icon: "⭐" }
                   ].map((stat, index) => (
                     <div key={index} className="group relative">
                       <div className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-[#1AD603]/50 transition-all duration-300">
@@ -331,7 +331,7 @@ const Home = () => {
                 </div>
                 <div>
                   <div className="text-2xl md:text-3xl font-bold text-[#1AD603]">84%</div>
-                  <div className="text-xs md:text-sm text-white/70 mt-1">Client Retention</div>
+                  <div className="text-xs md:text-sm text-white/70 mt-1">Retention Rate</div>
                 </div>
               </div>
             </div>
@@ -596,7 +596,7 @@ const Home = () => {
           <div className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/90 to-[#0B0A8A] rounded-3xl p-8 shadow-2xl">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-white text-center">
               <div>
-                <div className="text-4xl font-bold mb-2">10+</div>
+                <div className="text-4xl font-bold mb-2">60+</div>
                 <div className="text-white/80 text-sm">Industries Served</div>
               </div>
               <div>
@@ -1351,7 +1351,7 @@ const Home = () => {
         <div className="flex items-center gap-2 md:gap-3">
           <span className="hidden md:inline text-gray-400">•</span>
           <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1AD603] transition-colors break-words text-right">
-            7855965423
+            9270918089
           </span>
         </div>
       </div>

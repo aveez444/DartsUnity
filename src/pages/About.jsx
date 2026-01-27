@@ -152,7 +152,7 @@ const About = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#1AD603] opacity-10 rounded-full blur-2xl"></div>
               <div className="relative">
                 <div className="text-5xl font-bold mb-2">84%</div>
-                <div className="text-white/80 text-sm uppercase tracking-wider">Client Retention</div>
+                <div className="text-white/80 text-sm uppercase tracking-wider">Retention Rate</div>
               </div>
             </div>
 
@@ -709,7 +709,7 @@ const About = () => {
           <div className="inline-block mb-4">
             <div className="inline-flex items-center gap-2 bg-[#1AD603]/10 px-4 py-2 rounded-full mb-6">
              <span className="w-2 h-2 bg-[#1AD603] rounded-full"></span>
-                <span className="text-sm font-semibold text-[#1110C4]">Why Darts Unity</span>
+                <span className="text-sm font-semibold text-[#1110C4]">Why DartsUnity</span>
               </div>
             
             </div>
@@ -729,7 +729,7 @@ const About = () => {
               { title: 'Dedicated Support', desc: 'Committed account teams focused on understanding and achieving your specific goals', shift: 'md:mt-0' },
               { title: 'Scalable Solutions', desc: 'Infrastructure that grows seamlessly from pilot programs to enterprise-wide campaigns', shift: 'md:mt-12' },
               { title: 'Compliance First', desc: 'Full adherence to GDPR, CAN-SPAM, and industry regulations protecting both parties', shift: 'md:mt-24' },
-              { title: 'Proven Results', desc: 'Years delivering measurable outcomes with 84% client retention rate', shift: 'md:mt-12' }
+              { title: 'Proven Results', desc: 'Years delivering measurable outcomes with 84% Retention Rate rate', shift: 'md:mt-12' }
             ].map((item, i) => (
               <div key={i} className={`${item.shift} group`}>
                 <div className="bg-white rounded-[2rem] p-10 border-2 border-gray-200 shadow-lg hover:shadow-2xl hover:border-[#1110C4]/40 transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
@@ -761,7 +761,7 @@ const About = () => {
               { title: 'Dedicated Support', desc: 'Committed teams focused on your success' },
               { title: 'Scalable Solutions', desc: 'Infrastructure that grows with your needs' },
               { title: 'Compliance First', desc: 'Full regulatory adherence and protection' },
-              { title: 'Proven Results', desc: 'Years with 84% client retention' }
+              { title: 'Proven Results', desc: 'Years with 84% Retention Rate' }
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
                 <div className="text-5xl font-bold text-[#1110C4]/10 mb-3">{String(i + 1).padStart(2, '0')}</div>
@@ -825,7 +825,7 @@ const About = () => {
             {/* Trust indicators */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-16 border-t border-white/20">
               {[
-                { value: '10+', label: 'Industries Served' },
+                { value: '60+', label: 'Industries Served' },
                 { value: '100M+', label: 'Business Emails' },
                 { value: '2.5M+', label: 'Interactions' },
                 { value: '84%', label: 'Retention Rate' }
