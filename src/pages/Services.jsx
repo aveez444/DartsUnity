@@ -273,6 +273,7 @@ const Services = () => {
     </div>
   </div>
 </section>
+
 {/* ===================== SERVICE 1: LEAD QUALIFICATION ===================== */}
 <section className="relative bg-gray-50 py-12 lg:py-20 overflow-hidden">
   
@@ -401,349 +402,300 @@ const Services = () => {
 
   </div>
 </section>
-
-{/* ===================== BANT QUALIFICATION SECTION ===================== */}
-<section className="relative py-12 lg:py-16 bg-white overflow-hidden">
-  
-  {/* Subtle background accent */}
-  <div className="absolute top-0 right-0 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-br from-[#1110C4]/5 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
-  <div className="absolute bottom-0 left-0 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-tr from-[#1AD603]/5 to-transparent rounded-full translate-y-32 -translate-x-32"></div>
-  
-  <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+{/* ===================== ENGAGEMENT & OUTREACH SERVICES ===================== */}
+<section className="relative bg-white py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    {/* Header */}
-    <div className="mb-12 lg:mb-16">
-      <div className="flex flex-col items-center">
-        <div className="inline-flex items-center gap-3 mb-4">
-        
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
-            BANT Qualification Framework
-          </h2>
-        </div>
-        <p className="text-base lg:text-lg text-gray-600 max-w-2xl text-center">
-          Systematic lead assessment using Budget, Authority, Need, and Timeline criteria to ensure sales-ready prospects
-        </p>
-      </div>
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Engagement & Outreach Services
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-[#1110C4] to-[#1AD603] mx-auto"></div>
     </div>
 
-    {/* Main Content - Stack on mobile, side-by-side on desktop */}
-    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+    <div className="space-y-16">
       
-      {/* Left: Explanation & Benefits */}
-      <div className="w-full lg:w-2/5">
-        <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-200">
-          <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
-            Structured Qualification Process
-          </h3>
-          <p className="text-gray-700 mb-6 leading-relaxed">
-            The BANT framework evaluates leads through four critical business dimensions, ensuring only qualified opportunities reach your sales team.
-          </p>
+      {/* ===================== BANT QUALIFICATION ===================== */}
+      <div className="bg-gradient-to-b from-gray-50 to-white rounded-3xl p-6 lg:p-8 border border-gray-200 shadow-sm">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           
-          <div className="space-y-4">
-            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1110C4]/10 flex items-center justify-center mt-0.5">
-                <div className="w-2 h-2 rounded-full bg-[#1110C4]"></div>
+          {/* Left: BANT Header & Description */}
+          <div className="lg:order-1 order-2">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
+                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-              <p className="text-sm lg:text-base text-gray-700">
-                <span className="font-semibold">Focuses sales efforts</span> on leads with verified purchase potential
-              </p>
+              <h3 className="text-2xl font-bold text-gray-900">BANT Qualification Framework</h3>
             </div>
-            
-            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1AD603]/10 flex items-center justify-center mt-0.5">
-                <div className="w-2 h-2 rounded-full bg-[#1AD603]"></div>
-              </div>
-              <p className="text-sm lg:text-base text-gray-700">
-                <span className="font-semibold">Reduces wasted time</span> on unqualified prospects
-              </p>
-            </div>
-            
-            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1110C4]/10 flex items-center justify-center mt-0.5">
-                <div className="w-2 h-2 rounded-full bg-[#1110C4]"></div>
-              </div>
-              <p className="text-sm lg:text-base text-gray-700">
-                <span className="font-semibold">Increases conversion rates</span> with pre-vetted opportunities
-              </p>
-            </div>
-            
-            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-100">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1AD603]/10 flex items-center justify-center mt-0.5">
-                <div className="w-2 h-2 rounded-full bg-[#1AD603]"></div>
-              </div>
-              <p className="text-sm lg:text-base text-gray-700">
-                <span className="font-semibold">Provides clear context</span> for meaningful sales conversations
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <p className="text-sm text-gray-600 italic">
-              Each BANT-qualified lead includes detailed assessment documentation for all four criteria.
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Systematic lead assessment using Budget, Authority, Need, and Timeline criteria to ensure sales-ready prospects. 
+              The BANT framework evaluates leads through four critical business dimensions, ensuring only qualified 
+              opportunities reach your sales team.
             </p>
+            
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              {[
+                { text: 'Focuses sales efforts on verified prospects', color: 'bg-[#1110C4]' },
+                { text: 'Reduces wasted time on unqualified leads', color: 'bg-[#1AD603]' },
+                { text: 'Increases conversion with pre-vetted opportunities', color: 'bg-[#1110C4]' },
+                { text: 'Provides clear context for sales conversations', color: 'bg-[#1AD603]' }
+              ].map((benefit, idx) => (
+                <div key={idx} className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
+                  <div className={`w-2 h-2 rounded-full ${benefit.color} mt-1.5 flex-shrink-0`}></div>
+                  <span className="text-sm text-gray-700">{benefit.text}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div className="pt-4 border-t border-gray-200">
+              <p className="text-sm text-gray-600 italic">
+                Each BANT-qualified lead includes detailed assessment documentation for all four criteria.
+              </p>
+            </div>
           </div>
+          
+          {/* Right: BANT Grid */}
+          <div className="lg:order-2 order-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+              {[
+                {
+                  title: 'Budget',
+                  desc: 'Verified budget allocation and purchasing capacity',
+                  criteria: [
+                    'Budget availability confirmed',
+                    'Purchase authority verified',
+                    'Funding timeline established'
+                  ],
+                  accentColor: 'border-l-[#1110C4]',
+                  dotColor: 'bg-[#1110C4]'
+                },
+                {
+                  title: 'Authority',
+                  desc: 'Decision-making power and influence validated',
+                  criteria: [
+                    'Decision maker identified',
+                    'Approval process understood',
+                    'Stakeholder influence mapped'
+                  ],
+                  accentColor: 'border-l-[#1AD603]',
+                  dotColor: 'bg-[#1AD603]'
+                },
+                {
+                  title: 'Need',
+                  desc: 'Clear business requirements and pain points',
+                  criteria: [
+                    'Business problem defined',
+                    'Solution requirements clear',
+                    'Impact on operations assessed'
+                  ],
+                  accentColor: 'border-l-[#1110C4]',
+                  dotColor: 'bg-[#1110C4]'
+                },
+                {
+                  title: 'Timeline',
+                  desc: 'Defined purchase and implementation schedule',
+                  criteria: [
+                    'Purchase deadline established',
+                    'Implementation schedule planned',
+                    'Urgency level assessed'
+                  ],
+                  accentColor: 'border-l-[#1AD603]',
+                  dotColor: 'bg-[#1AD603]'
+                }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className={`bg-white rounded-xl p-4 lg:p-5 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 ${item.accentColor} border border-gray-100`}
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className={`w-3 h-3 rounded-full ${item.dotColor} mt-1 flex-shrink-0`}></div>
+                    <div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h4>
+                      <p className="text-xs text-gray-600">{item.desc}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-1.5 ml-6">
+                    {item.criteria.map((criterion, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <div className={`w-1.5 h-1.5 rounded-full ${item.dotColor}`}></div>
+                        <span className="text-xs text-gray-700">{criterion}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Note Callout */}
+            <div className="mt-6 bg-gray-50 rounded-xl p-4 border border-gray-200">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1110C4]/10 flex items-center justify-center mt-0.5">
+                  <svg className="h-4 w-4 text-[#1110C4]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="text-sm text-gray-700">
+                  <span className="font-semibold">Note:</span> BANT qualification is applied to all SQL (Sales Qualified Leads) and HQL (High Quality Leads) to ensure maximum sales efficiency.
+                </p>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
 
-      {/* Right: BANT Grid */}
-      <div className="w-full lg:w-3/5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-          {[
-            {
-              title: 'Budget',
-              desc: 'Verified budget allocation and purchasing capacity for your solution',
-              criteria: [
-                'Budget availability confirmed',
-                'Purchase authority verified',
-                'Funding timeline established'
-              ],
-              accentColor: 'border-l-[#1110C4]',
-              bgColor: 'bg-[#1110C4]/5',
-              dotColor: 'bg-[#1110C4]'
-            },
-            {
-              title: 'Authority',
-              desc: 'Decision-making power and organizational influence validated',
-              criteria: [
-                'Decision maker identified',
-                'Approval process understood',
-                'Stakeholder influence mapped'
-              ],
-              accentColor: 'border-l-[#1AD603]',
-              bgColor: 'bg-[#1AD603]/5',
-              dotColor: 'bg-[#1AD603]'
-            },
-            {
-              title: 'Need',
-              desc: 'Clear business requirements and pain points identified',
-              criteria: [
-                'Business problem defined',
-                'Solution requirements clear',
-                'Impact on operations assessed'
-              ],
-              accentColor: 'border-l-[#1110C4]',
-              bgColor: 'bg-[#1110C4]/5',
-              dotColor: 'bg-[#1110C4]'
-            },
-            {
-              title: 'Timeline',
-              desc: 'Defined purchase timeframe and implementation schedule',
-              criteria: [
-                'Purchase deadline established',
-                'Implementation schedule planned',
-                'Urgency level assessed'
-              ],
-              accentColor: 'border-l-[#1AD603]',
-              bgColor: 'bg-[#1AD603]/5',
-              dotColor: 'bg-[#1AD603]'
-            }
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className={`group bg-white rounded-xl p-5 lg:p-6 shadow-md hover:shadow-lg transition-all duration-300 border-l-4 ${item.accentColor} border-t border-r border-b border-gray-100 hover:border-gray-200`}
-            >
-              <div className="flex flex-col">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-lg ${item.bgColor} flex items-center justify-center`}>
-                    <div className={`w-3 h-3 rounded-full ${item.dotColor}`}></div>
-                  </div>
-                  <div>
-                    <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-1">{item.title}</h4>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  {item.criteria.map((criterion, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${item.dotColor}`}></div>
-                      <span className="text-xs lg:text-sm text-gray-700">{criterion}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* ===================== TELEMARKETING ===================== */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Image Left */}
+        <div className="relative lg:order-1 order-2">
+          <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
+            <img 
+              src={servicesTelemarketingImage}  
+              alt="Telemarketing Services"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">📞</div><div class="text-gray-600">Telemarketing</div></div>';
+              }}
+            />
+          </div>
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#1110C4] rounded-full opacity-20 blur-3xl"></div>
         </div>
         
-        {/* Callout */}
-        <div className="mt-8 lg:mt-10 bg-gradient-to-r from-gray-50 to-white rounded-xl p-5 lg:p-6 border border-gray-200 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#1110C4]/10 flex items-center justify-center">
-              <Info className="h-4 w-4 text-[#1110C4]" />
+        {/* Content Right */}
+        <div className="lg:order-2 order-1">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
+              <Phone className="h-6 w-6 text-white" />
             </div>
-            <p className="text-sm lg:text-base text-gray-700">
-              <span className="font-semibold">Note:</span> BANT qualification is applied to all SQL (Sales Qualified Leads) and HQL (High Quality Leads) to ensure maximum sales efficiency.
-            </p>
+            <h3 className="text-2xl font-bold text-gray-900">Telemarketing</h3>
           </div>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            DartsUnity telemarketing services focus on engaging decision-makers through professional, 
+            targeted conversations. Using verified data and structured scripts, we help clients generate 
+            qualified opportunities and set meaningful appointments.
+          </p>
+          <ul className="space-y-3">
+            {[
+              'Professional, targeted conversations',
+              'Verified data and structured scripts',
+              'Real-time insights and immediate engagement',
+              'Complements other outreach channels'
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-[#1110C4] rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* ===================== ACCOUNT-BASED MARKETING ===================== */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Content Left */}
+        <div className="lg:order-1 order-2">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1AD603] to-[#2BEC06] flex items-center justify-center">
+              <Users className="h-6 w-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Account-Based Marketing (ABM)</h3>
+          </div>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            DartsUnity ABM strategy focuses on high-value accounts, ensuring marketing and sales efforts are 
+            precisely targeted. We start with in-depth account research and identify key decision-makers to 
+            create a focused engagement plan.
+          </p>
+          <ul className="space-y-3">
+            {[
+              'In-depth account research and decision-maker identification',
+              'Tailored content and messaging across multiple channels',
+              'Track engagement and optimize for measurable results',
+              'Focus on high-value accounts with maximum ROI potential'
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-[#1AD603] rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        {/* Image Right */}
+        <div className="relative lg:order-2 order-1">
+          <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
+            <img 
+              src={servicesABMImage} 
+              alt="Account-Based Marketing Services"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">🎯</div><div class="text-gray-600">Account-Based Marketing</div></div>';
+              }}
+            />
+          </div>
+          <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#1AD603] rounded-full opacity-20 blur-3xl"></div>
+        </div>
+      </div>
+
+      {/* ===================== APPOINTMENT GENERATION ===================== */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Image Left */}
+        <div className="relative lg:order-1 order-2">
+          <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
+            <img 
+              src={servicesAppointmentImage} 
+              alt="Appointment Generation Services"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
+                e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">📅</div><div class="text-gray-600">Appointment Generation</div></div>';
+              }}
+            />
+          </div>
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#1110C4] rounded-full opacity-20 blur-3xl"></div>
+        </div>
+        
+        {/* Content Right */}
+        <div className="lg:order-2 order-1">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
+              <CheckCircle2 className="h-6 w-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Appointment Generation</h3>
+          </div>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            We secure meetings with verified decision-makers through targeted research and personalized 
+            outreach. Every appointment is relevant and valuable, connecting your sales team with prospects 
+            who have genuine interest and buying potential.
+          </p>
+          <ul className="space-y-3">
+            {[
+              'Verified decision-maker meetings',
+              'Targeted research and personalized outreach',
+              'Qualified prospects with genuine interest',
+              'Calendar sync and meeting coordination'
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-[#1110C4] rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
     </div>
-
   </div>
 </section>
-
-{/* ===================== SERVICES 2-4: ENGAGEMENT SERVICES ===================== */}
-<section className="relative bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Engagement & Outreach Services
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#1110C4] to-[#1AD603] mx-auto"></div>
-          </div>
-
-          <div className="space-y-16">
-            
-            {/* Telemarketing - Image Left, Content Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Image Left */}
-              <div className="relative lg:order-1 order-2">
-                <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
-                  <img 
-                    src={servicesTelemarketingImage}  
-                    alt="Telemarketing Services"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
-                      e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">📞</div><div class="text-gray-600">Telemarketing</div></div>';
-                    }}
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#1110C4] rounded-full opacity-20 blur-3xl"></div>
-              </div>
-              
-              {/* Content Right */}
-              <div className="lg:order-2 order-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Telemarketing</h3>
-                </div>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  DartsUnity telemarketing services focus on engaging decision-makers through professional, 
-                  targeted conversations. Using verified data and structured scripts, we help clients generate 
-                  qualified opportunities and set meaningful appointments.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    'Professional, targeted conversations',
-                    'Verified data and structured scripts',
-                    'Real-time insights and immediate engagement',
-                    'Complements other outreach channels'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-[#1110C4] rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Account-Based Marketing (ABM) - Image Right, Content Left */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Content Left */}
-              <div className="lg:order-1 order-2">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1AD603] to-[#2BEC06] flex items-center justify-center">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Account-Based Marketing (ABM)</h3>
-                </div>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  DartsUnity ABM strategy focuses on high-value accounts, ensuring marketing and sales efforts are 
-                  precisely targeted. We start with in-depth account research and identify key decision-makers to 
-                  create a focused engagement plan.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    'In-depth account research and decision-maker identification',
-                    'Tailored content and messaging across multiple channels',
-                    'Track engagement and optimize for measurable results',
-                    'Focus on high-value accounts with maximum ROI potential'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-[#1AD603] rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              {/* Image Right */}
-              <div className="relative lg:order-2 order-1">
-                <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
-                  <img 
-                    src={servicesABMImage} 
-                    alt="Account-Based Marketing Services"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
-                      e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">🎯</div><div class="text-gray-600">Account-Based Marketing</div></div>';
-                    }}
-                  />
-                </div>
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#1AD603] rounded-full opacity-20 blur-3xl"></div>
-              </div>
-            </div>
-
-            {/* Appointment Generation - Image Left, Content Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Image Left */}
-              <div className="relative lg:order-1 order-2">
-                <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
-                  <img 
-                    src={servicesAppointmentImage} 
-                    alt="Appointment Generation Services"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1110C4]/10', 'to-[#1AD603]/10');
-                      e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">📅</div><div class="text-gray-600">Appointment Generation</div></div>';
-                    }}
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#1110C4] rounded-full opacity-20 blur-3xl"></div>
-              </div>
-              
-              {/* Content Right */}
-              <div className="lg:order-2 order-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
-                    <CheckCircle2 className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Appointment Generation</h3>
-                </div>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  We secure meetings with verified decision-makers through targeted research and personalized 
-                  outreach. Every appointment is relevant and valuable, connecting your sales team with prospects 
-                  who have genuine interest and buying potential.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    'Verified decision-maker meetings',
-                    'Targeted research and personalized outreach',
-                    'Qualified prospects with genuine interest',
-                    'Calendar sync and meeting coordination'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-[#1110C4] rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
 {/* ===================== SERVICES 5-7: MARKETING SERVICES ===================== */}
 <section className="relative bg-gray-50 py-20">

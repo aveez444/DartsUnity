@@ -134,7 +134,7 @@ const Contact = () => {
                     {
                       icon: Phone,
                       title: "Phone",
-                      content: "9822658456"
+                      content: "9270918089"
                     },
                    
                   ].map((item, index) => (
@@ -157,18 +157,6 @@ const Contact = () => {
                   ))}
                 </div>
 
-                {/* Quick Response Banner */}
-                <div className="mt-8 p-4 bg-gradient-to-r from-[#1110C4]/5 to-[#1AD603]/5 rounded-xl border border-[#1110C4]/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1AD603] to-[#2BEC06] flex items-center justify-center">
-                      <Send className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">Fast Response Guarantee</div>
-                      <div className="text-sm text-gray-600">We respond within 24 business hours</div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Services Highlight */}
@@ -363,10 +351,7 @@ const Contact = () => {
                           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
                             <Send className="h-5 w-5 text-white" />
                           </div>
-                          <div>
-                            <div className="font-semibold text-green-900">Message Sent Successfully!</div>
-                            <div className="text-sm text-green-700">We'll get back to you within 24 business hours.</div>
-                          </div>
+                        
                         </div>
                       </div>
                     )}
