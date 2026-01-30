@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send, Clock, Globe, MessageSquare, ArrowRight, Users, Target, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,12 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  // Replace these with your EmailJS credentials
+  const EMAILJS_SERVICE_ID = 'service_mpepj2w'; // Get from EmailJS dashboard
+  const EMAILJS_TEMPLATE_ID = 'template_41hy0ur'; // Create template in EmailJS
+  const EMAILJS_PUBLIC_KEY = 'rc7ylyjANuiDrrTwZ'; // Get from EmailJS dashboard
 
   const handleChange = (e) => {
     setFormData({
@@ -24,11 +31,39 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitStatus(null);
+    setSubmitMessage('');
+
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        from_company: formData.company,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+        to_email: 'thedartsunity@gmail.com', // Your receiving email
+        to_name: 'Darts Unity Team',
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString()
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      console.log('Email sent successfully:', response);
+
+      // Success state
       setSubmitStatus('success');
+      setSubmitMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -37,10 +72,22 @@ const Contact = () => {
         service: '',
         message: ''
       });
-      
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+
+      // Clear success message after 10 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+        setSubmitMessage('');
+      }, 10000);
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('Sorry, there was an error sending your message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -334,28 +381,58 @@ const Contact = () => {
                             </>
                           ) : (
                             <>
-                              Send Message
-                              <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                            </>
-                          )}
-                        </span>
-                        
-                        {/* Animated Border */}
-                        <span className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-white/30 transition-all duration-500"></span>
-                      </button>
-                    </div>
+                             Send Message
+                  <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </>
+              )}
+            </span>
+            
+            <span className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-white/30 transition-all duration-500"></span>
+          </button>
+        </div>
 
-                    {submitStatus === 'success' && (
-                      <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                            <Send className="h-5 w-5 text-white" />
-                          </div>
-                        
-                        </div>
-                      </div>
-                    )}
-                  </form>
+        {/* Enhanced Status Messages */}
+        {submitStatus && (
+          <div className={`mt-6 p-6 rounded-xl border ${submitStatus === 'success' ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200' : 'bg-gradient-to-r from-red-50 to-orange-50 border-red-200'}`}>
+            <div className="flex items-start gap-4">
+              <div className={`w-12 h-12 rounded-full ${submitStatus === 'success' ? 'bg-gradient-to-br from-green-500 to-emerald-500' : 'bg-gradient-to-br from-red-500 to-orange-500'} flex items-center justify-center flex-shrink-0`}>
+                {submitStatus === 'success' ? (
+                  <Send className="h-6 w-6 text-white" />
+                ) : (
+                  <div className="text-white font-bold">!</div>
+                )}
+              </div>
+              <div className="flex-1">
+                <h3 className={`font-bold ${submitStatus === 'success' ? 'text-green-800' : 'text-red-800'}`}>
+                  {submitStatus === 'success' ? 'Message Sent Successfully!' : 'Error Sending Message'}
+                </h3>
+                <p className={`mt-2 ${submitStatus === 'success' ? 'text-green-700' : 'text-red-700'}`}>
+                  {submitMessage}
+                </p>
+                {submitStatus === 'error' && (
+                  <p className="mt-3 text-sm text-gray-600">
+                    You can also email us directly at{' '}
+                    <a href="mailto:thedartsunity@gmail.com" className="text-[#1110C4] font-semibold hover:underline">
+                      thedartsunity@gmail.com
+                    </a>
+                  </p>
+                )}
+              </div>
+              <button
+                onClick={() => {
+                  setSubmitStatus(null);
+                  setSubmitMessage('');
+                }}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
+      </form>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2, Target, Star, Users, TrendingUp, Sparkles, Da
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import CaseStudyDownload from '../components/CaseStudyDownload'; // Adjust path as needed
+import emailjs from '@emailjs/browser'; // Import EmailJS
 
 // Import images - rename your files to match these names
 import heroBgImage from '../assets/officebg.jpg'; // Image 1 - Meeting room
@@ -9,9 +10,29 @@ import heroMainImage from '../assets/B2Bimg4.jpg'; // Image 2 or 3 - Dashboard/A
 import aboutImage from '../assets/B2Bimg2.jpg'; // Image 6 - Office interior
 import dataVisualization from '../assets/office4.jpg'; // Image 4 - Charts/Analytics
 
+// Replace these with your EmailJS credentials (same as Contact page)
+const EMAILJS_CONFIG = {
+  SERVICE_ID: 'service_mpepj2w', // Same as Contact page
+  TEMPLATE_ID: 'template_2jsbhkh', // Create new template for home page
+  PUBLIC_KEY: 'rc7ylyjANuiDrrTwZ' // Same as Contact page
+};
+
 const Home = () => {
   const navigate = useNavigate();
   const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
+  
+  // Form state for home page inquiry
+  const [homeFormData, setHomeFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    requirement: ''
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const IndustryCard = ({ icon, title, desc }) => (
     <div className="group flex flex-col items-center text-center">
@@ -32,6 +53,73 @@ const Home = () => {
   const handleCaseStudyClick = () => {
     setIsCaseStudyModalOpen(true);
   };
+
+  // Handle home page form submission
+  const handleHomeFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setSubmitMessage('');
+
+    try {
+      const templateParams = {
+        from_name: homeFormData.name,
+        from_company: homeFormData.company,
+        from_email: homeFormData.email,
+        phone: homeFormData.phone,
+        requirement: homeFormData.requirement,
+        to_email: 'thedartsunity@gmail.com',
+        to_name: 'Darts Unity Team',
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+        source: 'Home Page Inquiry'
+      };
+
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      console.log('Home page inquiry sent:', response);
+
+      // Success state
+      setSubmitStatus('success');
+      setSubmitMessage('Thank you! Your inquiry has been sent successfully. We\'ll get back to you soon.');
+
+      // Reset form
+      setHomeFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        requirement: ''
+      });
+
+      // Clear success message after 8 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+        setSubmitMessage('');
+      }, 8000);
+
+    } catch (error) {
+      console.error('Error sending inquiry:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('Sorry, there was an error sending your inquiry. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Handle form input changes
+  const handleHomeFormChange = (e) => {
+    setHomeFormData({
+      ...homeFormData,
+      [e.target.name]: e.target.value
+    });
+  };
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -1255,236 +1343,303 @@ const Home = () => {
 
 
 {/* ================= Contact / Send Inquiry (Modern Light Theme) ================= */}
-<section className="relative bg-[#F9FAFB] py-16 md:py-28 overflow-hidden">
 
-  {/* ===== Background Patterns ===== */}
-  <div className="absolute inset-0 pointer-events-none">
-    {/* Animated gradient background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F0F7FF] to-white"></div>
-    
-    {/* Animated floating orbs - smaller on mobile */}
-    <div className="absolute top-1/4 -left-10 md:-left-20 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-r from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[50px] md:blur-[100px] animate-pulse"></div>
-    <div className="absolute bottom-1/4 -right-10 md:-right-20 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-l from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[50px] md:blur-[100px] animate-pulse"></div>
-    
-    {/* Geometric pattern overlay */}
-    <div className="absolute inset-0 opacity-[0.03]"
-      style={{
-        backgroundImage: `radial-gradient(circle at 25px 25px, #1110C4 2px, transparent 0),
-                         radial-gradient(circle at 75px 75px, #1AD603 2px, transparent 0)`,
-        backgroundSize: '100px 100px',
-      }}
-    />
-  </div>
-
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    {/* ===== Section Header ===== */}
-    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 px-3 py-2 md:px-4 md:py-2.5 rounded-full mb-4 md:mb-6 border border-white/50 backdrop-blur-sm shadow-lg">
-        <div className="relative flex items-center">
-          <span className="absolute w-3 h-3 md:w-4 md:h-4 bg-[#1AD603] rounded-full animate-ping opacity-75"></span>
-          <span className="relative w-1.5 h-1.5 md:w-2 md:h-2 bg-[#1AD603] rounded-full"></span>
+      <section className="relative bg-[#F9FAFB] py-16 md:py-28 overflow-hidden">
+        {/* ===== Background Patterns ===== */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Animated gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F0F7FF] to-white"></div>
+          
+          {/* Animated floating orbs - smaller on mobile */}
+          <div className="absolute top-1/4 -left-10 md:-left-20 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-r from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[50px] md:blur-[100px] animate-pulse"></div>
+          <div className="absolute bottom-1/4 -right-10 md:-right-20 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-l from-[#1110C4]/[0.15] to-[#1AD603]/[0.15] rounded-full blur-[50px] md:blur-[100px] animate-pulse"></div>
+          
+          {/* Geometric pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 25px 25px, #1110C4 2px, transparent 0),
+                               radial-gradient(circle at 75px 75px, #1AD603 2px, transparent 0)`,
+              backgroundSize: '100px 100px',
+            }}
+          />
         </div>
-        <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
-          Get in Touch
-        </span>
-      </div>
 
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
-        Let's Discuss Your{" "}
-        <span className="relative">
-          <span className="bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-clip-text text-transparent bg-[length:200%] animate-gradient">
-            Growth Goals
-          </span>
-          <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-full"></span>
-        </span>
-      </h2>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* ===== Section Header ===== */}
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1110C4]/10 to-[#1AD603]/10 px-3 py-2 md:px-4 md:py-2.5 rounded-full mb-4 md:mb-6 border border-white/50 backdrop-blur-sm shadow-lg">
+              <div className="relative flex items-center">
+                <span className="absolute w-3 h-3 md:w-4 md:h-4 bg-[#1AD603] rounded-full animate-ping opacity-75"></span>
+                <span className="relative w-1.5 h-1.5 md:w-2 md:h-2 bg-[#1AD603] rounded-full"></span>
+              </div>
+              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-[#1110C4] to-[#1AD603] bg-clip-text text-transparent">
+                Get in Touch
+              </span>
+            </div>
 
-      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
-        Share your vision with us. We'll craft a bespoke strategy that aligns perfectly with your business objectives.
-      </p>
-    </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 px-4">
+              Let's Discuss Your{" "}
+              <span className="relative">
+                <span className="bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-clip-text text-transparent bg-[length:200%] animate-gradient">
+                  Growth Goals
+                </span>
+                <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-full"></span>
+              </span>
+            </h2>
 
-    {/* ===== Main Grid ===== */}
-    <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 md:gap-12">
-
-{/* ===== Left: Contact Details ===== */}
-<div className="lg:col-span-5 space-y-6 md:space-y-8 order-2 lg:order-1">
-  {/* Modern Info Card - Fixed layout for mobile */}
-  <div className="relative group">
-    {/* Glow effect behind card */}
-    <div className="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-[#1110C4]/30 to-[#1AD603]/30 rounded-2xl md:rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
-    
-    <div className="relative bg-white/80 backdrop-blur-sm border border-white/30 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
-      {/* Header Section */}
-      <div className="flex items-center gap-3 mb-6 md:mb-8">
-        <div className="p-2 md:p-2.5 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-lg md:rounded-xl">
-          <svg className="w-5 h-5 md:w-6 md:h-6 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-        </div>
-        <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-          Contact Information
-        </h3>
-      </div>
-
-      {/* Email Item - Fixed inline layout */}
-      <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item mb-4">
-        <div className="flex items-center gap-3">
-          <span className="text-base md:text-lg">✉️</span>
-          <span className="font-medium text-gray-700 text-sm md:text-base">Email</span>
-        </div>
-        <div className="flex items-center gap-2 md:gap-3">
-          <span className="hidden md:inline text-gray-400">•</span>
-          <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1110C4] transition-colors break-words text-right">
-           info@dartsunity.com
-          </span>
-        </div>
-      </div>
-
-      {/* Phone Item - Added below email */}
-      <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
-        <div className="flex items-center gap-3">
-          <span className="text-base md:text-lg">📱</span>
-          <span className="font-medium text-gray-700 text-sm md:text-base">Phone</span>
-        </div>
-        <div className="flex items-center gap-2 md:gap-3">
-          <span className="hidden md:inline text-gray-400">•</span>
-          <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1AD603] transition-colors break-words text-right">
-            9270918089
-          </span>
-        </div>
-      </div>
-
-
-            {/* Optional: Add more contact methods here if needed */}
-         
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+              Share your vision with us. We'll craft a bespoke strategy that aligns perfectly with your business objectives.
+            </p>
           </div>
-        </div>
 
-        {/* Trust Badges Grid - Responsive adjustments */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-          {[
-            { text: "Enterprise-focused", color: "from-[#1110C4]/10 to-[#1110C4]/5" },
-            { text: "Data & Compliance", color: "from-[#1AD603]/10 to-[#1AD603]/5" },
-            { text: "Dedicated Managers", color: "from-[#1110C4]/10 to-[#1AD603]/10" },
-            { text: "Transparent Reporting", color: "from-[#1AD603]/10 to-[#1110C4]/10" }
-          ].map((item, i) => (
-            <div key={i} className={`relative overflow-hidden group/badge`}>
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover/badge:opacity-100 transition-opacity duration-500`}></div>
-              <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl md:rounded-2xl p-4 md:p-5 text-center hover:border-transparent transition-all duration-300">
-                <div className="text-xs md:text-sm font-medium text-gray-800">{item.text}</div>
+          {/* ===== Main Grid ===== */}
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 md:gap-12">
+            {/* ===== Left: Contact Details ===== */}
+            <div className="lg:col-span-5 space-y-6 md:space-y-8 order-2 lg:order-1">
+              {/* Modern Info Card - Fixed layout for mobile */}
+              <div className="relative group">
+                {/* Glow effect behind card */}
+                <div className="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-[#1110C4]/30 to-[#1AD603]/30 rounded-2xl md:rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+                
+                <div className="relative bg-white/80 backdrop-blur-sm border border-white/30 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
+                  {/* Header Section */}
+                  <div className="flex items-center gap-3 mb-6 md:mb-8">
+                    <div className="p-2 md:p-2.5 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-lg md:rounded-xl">
+                      <svg className="w-5 h-5 md:w-6 md:h-6 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                      Contact Information
+                    </h3>
+                  </div>
+
+                  {/* Email Item - Fixed inline layout */}
+                  <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item mb-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-base md:text-lg">✉️</span>
+                      <span className="font-medium text-gray-700 text-sm md:text-base">Email</span>
+                    </div>
+                    <div className="flex items-center gap-2 md:gap-3">
+                      <span className="hidden md:inline text-gray-400">•</span>
+                      <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1110C4] transition-colors break-words text-right">
+                       info@dartsunity.com
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Phone Item - Added below email */}
+                  <div className="flex items-center justify-between p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-50/50 hover:from-gray-50/80 hover:to-white transition-all duration-300 group/item">
+                    <div className="flex items-center gap-3">
+                      <span className="text-base md:text-lg">📱</span>
+                      <span className="font-medium text-gray-700 text-sm md:text-base">Phone</span>
+                    </div>
+                    <div className="flex items-center gap-2 md:gap-3">
+                      <span className="hidden md:inline text-gray-400">•</span>
+                      <span className="font-semibold text-gray-900 text-sm md:text-base group-hover/item:text-[#1AD603] transition-colors break-words text-right">
+                        9270918089
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust Badges Grid - Responsive adjustments */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                {[
+                  { text: "Enterprise-focused", color: "from-[#1110C4]/10 to-[#1110C4]/5" },
+                  { text: "Data & Compliance", color: "from-[#1AD603]/10 to-[#1AD603]/5" },
+                  { text: "Dedicated Managers", color: "from-[#1110C4]/10 to-[#1AD603]/10" },
+                  { text: "Transparent Reporting", color: "from-[#1AD603]/10 to-[#1110C4]/10" }
+                ].map((item, i) => (
+                  <div key={i} className={`relative overflow-hidden group/badge`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover/badge:opacity-100 transition-opacity duration-500`}></div>
+                    <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl md:rounded-2xl p-4 md:p-5 text-center hover:border-transparent transition-all duration-300">
+                      <div className="text-xs md:text-sm font-medium text-gray-800">{item.text}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* ===== Right: Inquiry Form with Enhanced Glow ===== */}
-      <div className="lg:col-span-7 relative order-1 lg:order-2">
-        {/* Animated Glow Effects for Form - Adjusted for mobile */}
-        <div className="absolute -inset-2 md:-inset-4">
-          {/* Blue glow layer */}
-          <div className="absolute top-1/4 -left-4 md:-left-8 w-32 md:w-64 h-32 md:h-64 bg-gradient-to-r from-[#1110C4]/40 to-transparent rounded-full blur-[40px] md:blur-[80px] animate-float-slow"></div>
-          
-          {/* Green glow layer */}
-          <div className="absolute bottom-1/4 -right-4 md:-right-8 w-32 md:w-64 h-32 md:h-64 bg-gradient-to-l from-[#1AD603]/40 to-transparent rounded-full blur-[40px] md:blur-[80px] animate-float-slower"></div>
-          
-          {/* Combined glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 via-transparent to-[#1AD603]/20 rounded-3xl md:rounded-4xl blur-xl opacity-30"></div>
-        </div>
+            {/* ===== Right: Inquiry Form with Enhanced Glow ===== */}
+            <div className="lg:col-span-7 relative order-1 lg:order-2">
+              {/* Animated Glow Effects for Form - Adjusted for mobile */}
+              <div className="absolute -inset-2 md:-inset-4">
+                {/* Blue glow layer */}
+                <div className="absolute top-1/4 -left-4 md:-left-8 w-32 md:w-64 h-32 md:h-64 bg-gradient-to-r from-[#1110C4]/40 to-transparent rounded-full blur-[40px] md:blur-[80px] animate-float-slow"></div>
+                
+                {/* Green glow layer */}
+                <div className="absolute bottom-1/4 -right-4 md:-right-8 w-32 md:w-64 h-32 md:h-64 bg-gradient-to-l from-[#1AD603]/40 to-transparent rounded-full blur-[40px] md:blur-[80px] animate-float-slower"></div>
+                
+                {/* Combined glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1110C4]/20 via-transparent to-[#1AD603]/20 rounded-3xl md:rounded-4xl blur-xl opacity-30"></div>
+              </div>
 
-        {/* Form Container */}
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl md:rounded-4xl p-6 md:p-10 shadow-2xl border border-white/30">
-          {/* Form Header */}
-          <div className="flex items-start md:items-center justify-between mb-8 md:mb-10">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                Send an Inquiry
-              </h3>
-              <p className="text-sm md:text-base text-gray-500 mt-1 hidden md:block">
-                Fill out the form below
-              </p>
-            </div>
-            <div className="p-2.5 md:p-3 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-xl md:rounded-2xl">
-              <svg className="w-6 h-6 md:w-8 md:h-8 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-              </svg>
+              {/* Form Container */}
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl md:rounded-4xl p-6 md:p-10 shadow-2xl border border-white/30">
+                {/* Form Header */}
+                <div className="flex items-start md:items-center justify-between mb-8 md:mb-10">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                      Send an Inquiry
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-500 mt-1 hidden md:block">
+                      Fill out the form below
+                    </p>
+                  </div>
+                  <div className="p-2.5 md:p-3 bg-gradient-to-br from-[#1110C4]/10 to-[#1AD603]/10 rounded-xl md:rounded-2xl">
+                    <svg className="w-6 h-6 md:w-8 md:h-8 text-[#1110C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Form */}
+                <form onSubmit={handleHomeFormSubmit} className="space-y-4 md:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    {/* Full Name */}
+                    <div className="group/field">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={homeFormData.name}
+                        onChange={handleHomeFormChange}
+                     
+                        className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300 text-sm md:text-base"
+                      />
+                    </div>
+
+                    {/* Company Name */}
+                    <div className="group/field">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
+                        Company Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="company"
+                        required
+                        value={homeFormData.company}
+                        onChange={handleHomeFormChange}
+                       
+                        className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300 text-sm md:text-base"
+                      />
+                    </div>
+
+                    {/* Business Email */}
+                    <div className="group/field">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
+                        Business Email *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={homeFormData.email}
+                        onChange={handleHomeFormChange}
+                       
+                        className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300 text-sm md:text-base"
+                      />
+                    </div>
+
+                    {/* Phone Number */}
+                    <div className="group/field">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={homeFormData.phone}
+                        onChange={handleHomeFormChange}
+                       
+                        className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300 text-sm md:text-base"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
+                      Your Requirement *
+                    </label>
+                    <textarea
+                      name="requirement"
+                      required
+                      value={homeFormData.requirement}
+                      onChange={handleHomeFormChange}
+                      rows="4"
+                      placeholder="Tell us about your goals, target market, or challenges..."
+                      className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 resize-none outline-none hover:border-gray-300 text-sm md:text-base"
+                    ></textarea>
+                  </div>
+
+                  {/* Status Message */}
+                  {submitStatus && (
+                    <div className={`p-4 rounded-xl ${submitStatus === 'success' ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${submitStatus === 'success' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
+                          {submitStatus === 'success' ? '✓' : '!'}
+                        </div>
+                        <p className={`text-sm ${submitStatus === 'success' ? 'text-green-700' : 'text-red-700'}`}>
+                          {submitMessage}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Submit Button */}
+                  <div className="pt-4 md:pt-6">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="group relative w-full px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-[length:200%] text-white rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-gradient hover:bg-right disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Sending...
+                          </>
+                        ) : (
+                          'Send Inquiry →'
+                        )}
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-xl md:rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-
-          {/* Form */}
-          <form className="space-y-4 md:space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-              {[
-                { label: "Full Name",  type: "text" },
-                { label: "Company Name",  type: "text" },
-                { label: "Business Email",  type: "email" },
-                { label: "Phone Number", type: "tel" }
-              ].map((field, i) => (
-                <div key={i} className="group/field">
-                  <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
-                    {field.label}
-                  </label>
-                  <input
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 outline-none group-hover/field:border-gray-300 text-sm md:text-base"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Message Field */}
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1 md:mb-2">
-                Your Requirement
-              </label>
-              <textarea
-                rows="4"
-                placeholder="Tell us about your goals, target market, or challenges..."
-                className="w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-gray-200 bg-white/50 focus:border-[#1110C4]/50 focus:ring-4 focus:ring-[#1110C4]/20 focus:bg-white transition-all duration-300 resize-none outline-none hover:border-gray-300 text-sm md:text-base"
-              ></textarea>
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-4 md:pt-6">
-              <button
-                type="submit"
-                className="group relative w-full px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-[#1110C4] via-[#1AD603] to-[#1110C4] bg-[length:200%] text-white rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-gradient hover:bg-right"
-              >
-                <span className="relative z-10">Send Inquiry →</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1110C4] to-[#1AD603] rounded-xl md:rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-              </button>
-            </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </div>
 
-  {/* ===== Top Curve Divider ===== */}
-  <div className="absolute top-0 left-0 right-0">
-    <svg
-      viewBox="0 0 1440 120"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      className="w-full"
-    >
-      <path
-        d="M0,0 C360,120 1080,40 1440,120 L1440,0 L0,0 Z"
-        fill="url(#gradient)"
-      />
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#1110C4" stopOpacity="0.1" />
-          <stop offset="50%" stopColor="#1AD603" stopOpacity="0.1" />
-          <stop offset="100%" stopColor="#1110C4" stopOpacity="0.1" />
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-</section>
+   {/* ===== Top Curve Divider ===== */}
+   <div className="absolute top-0 left-0 right-0">
+          <svg
+            viewBox="0 0 1440 120"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            className="w-full"
+          >
+            <path
+              d="M0,0 C360,120 1080,40 1440,120 L1440,0 L0,0 Z"
+              fill="url(#gradient)"
+            />
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#1110C4" stopOpacity="0.1" />
+                <stop offset="50%" stopColor="#1AD603" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="#1110C4" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </section>
 
     </div>
   );
