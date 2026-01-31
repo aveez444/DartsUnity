@@ -16,6 +16,7 @@ const About = () => {
     <div className="min-h-screen bg-white">
 
   {/* ===================== OUR STORY - Bento Box Layout ===================== */}
+
   <section className="relative bg-gray-50 py-16 md:py-32 overflow-hidden">
   {/* Diagonal gradient wave layer */}
   <div className="absolute inset-0 pointer-events-none">
@@ -73,7 +74,8 @@ const About = () => {
   </div>
 
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12 md:mb-20">
+    {/* Added mt-16 for mobile only */}
+    <div className="text-center mb-12 md:mb-20 mt-16 md:mt-0">
       <div className="inline-block mb-4 md:mb-6">
         <div className="relative">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
