@@ -1,12 +1,93 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { X, Download, Mail, FileText, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
 
 const CaseStudyDownload = ({ isOpen, onClose, caseStudyTitle = "B2B Lead Generation Success Story" }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [isValidating, setIsValidating] = useState(false);
 
+
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_mpepj2w',
+    TEMPLATE_ID: 'template_2jsbhkh', // You'll need to create a new template for case studies
+    PUBLIC_KEY: 'rc7ylyjANuiDrrTwZ'
+  };
+
+
+  const validateEmail = async (email) => {
+    // Basic regex validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return { isValid: false, message: 'Please enter a valid email address' };
+    }
+  
+    // Check for disposable/temporary email domains
+    const disposableDomains = [
+      'tempmail.com', 'guerrillamail.com', 'mailinator.com', 
+      'throwawaymail.com', '10minutemail.com', 'yopmail.com',
+      'fakeinbox.com', 'trashmail.com', 'getairmail.com',
+      'temp-mail.org', 'sharklasers.com', 'grr.la',
+      'mailnesia.com', 'dispostable.com', 'maildrop.cc',
+      'tempail.com', 'mailcatch.com', 'tempemail.net'
+    ];
+    
+    const domain = email.split('@')[1].toLowerCase();
+    
+    if (disposableDomains.some(d => domain.includes(d))) {
+      return { 
+        isValid: false, 
+        message: 'Please use a permanent business email address' 
+      };
+    }
+  
+    // Check for obvious fake emails
+    const fakePatterns = [
+      /^test@/i,
+      /^demo@/i,
+      /^admin@/i,
+      /^user@/i,
+      /^email@/i,
+      /^contact@/i,
+      /^info@/i,
+      /^example@/i,
+      /^abcd@/i,
+      /^1234@/i,
+      /^aaaa@/i
+    ];
+  
+    if (fakePatterns.some(pattern => pattern.test(email))) {
+      return { 
+        isValid: false, 
+        message: 'Please use a valid business email address' 
+      };
+    }
+  
+    // Check for missing MX records (requires API call)
+    try {
+      setIsValidating(true);
+      // Using a simple MX record check via API
+      const response = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`);
+      const data = await response.json();
+      
+      if (data.Answer && data.Answer.length > 0) {
+        return { isValid: true, message: '' };
+      } else {
+        return { 
+          isValid: false, 
+          message: 'Email domain does not exist or cannot receive emails' 
+        };
+      }
+    } catch (error) {
+      // If API fails, proceed with basic validation
+      console.log('MX validation failed, proceeding with basic validation');
+      return { isValid: true, message: '' };
+    } finally {
+      setIsValidating(false);
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -14,21 +95,40 @@ const CaseStudyDownload = ({ isOpen, onClose, caseStudyTitle = "B2B Lead Generat
       setError('Please enter your email address');
       return;
     }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError('Please enter a valid email address');
+  
+    // Use enhanced validation
+    const validation = await validateEmail(email);
+    if (!validation.isValid) {
+      setError(validation.message);
       return;
     }
-
+  
     setError('');
     setIsSubmitting(true);
-
+  
     try {
+      // Send email via EmailJS first
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          to_email: 'thedartsunity@gmail.com',
+          to_name: 'Darts Unity Team',
+          from_email: email,
+          from_name: 'Case Study Visitor',
+          case_study_title: caseStudyTitle,
+          date: new Date().toLocaleDateString(),
+          time: new Date().toLocaleTimeString(),
+          source: 'Case Study Download'
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+  
       // Simulate API call with timeout
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // For demo purposes - create a dummy PDF download
-      const dummyPdfUrl = '/dummy-case-study.pdf'; // This should point to your actual PDF file
+      const dummyPdfUrl = '/dummy-case-study.pdf';
       
       // Create a temporary link element to trigger download
       const link = document.createElement('a');
@@ -47,6 +147,7 @@ const CaseStudyDownload = ({ isOpen, onClose, caseStudyTitle = "B2B Lead Generat
       }, 5000);
       
     } catch (err) {
+      console.error('Error:', err);
       setError('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -113,15 +214,35 @@ const CaseStudyDownload = ({ isOpen, onClose, caseStudyTitle = "B2B Lead Generat
                         type="email"
                         id="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="block w-full rounded-xl border border-gray-300 py-3 pl-10 pr-4 placeholder-gray-400 focus:border-[#1110C4] focus:ring-2 focus:ring-[#1110C4]/20 focus:outline-none transition-all"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          if (error) setError(''); // Clear error on type
+                        }}
+                        className={`block w-full rounded-xl border py-3 pl-10 pr-4 placeholder-gray-400 focus:outline-none transition-all ${
+                          error 
+                            ? 'border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-500/20' 
+                            : 'border-gray-300 focus:border-[#1110C4] focus:ring-2 focus:ring-[#1110C4]/20'
+                        }`}
                         placeholder="you@company.com"
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || isValidating}
                       />
+                      {isValidating && (
+                        <div className="absolute right-3 top-3">
+                          <div className="h-5 w-5 border-2 border-[#1110C4] border-t-transparent rounded-full animate-spin" />
+                        </div>
+                      )}
                     </div>
                     {error && (
-                      <p className="mt-2 text-sm text-red-600">{error}</p>
+                      <p className="mt-2 text-sm text-red-600 flex items-center">
+                        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                        {error}
+                      </p>
                     )}
+                    <p className="mt-2 text-xs text-gray-500">
+                      Business email required. No disposable/temporary emails.
+                    </p>
                   </div>
 
                   {/* Privacy Notice */}
