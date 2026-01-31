@@ -88,6 +88,7 @@ const CaseStudyDownload = ({ isOpen, onClose, caseStudyTitle = "B2B Lead Generat
       setIsValidating(false);
     }
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -128,16 +129,36 @@ const CaseStudyDownload = ({ isOpen, onClose, caseStudyTitle = "B2B Lead Generat
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // For demo purposes - create a dummy PDF download
-      const dummyPdfUrl = '/dummy-case-study.pdf';
-      
-      // Create a temporary link element to trigger download
-      const link = document.createElement('a');
-      link.href = dummyPdfUrl;
-      link.download = `DartsUnity_${caseStudyTitle.replace(/\s+/g, '_')}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
+
+      const pdfFileName = `DartsUnity_${caseStudyTitle.replace(/\s+/g, '_')}.pdf`;
+      const pdfUrl = '/case-studies/Case-Study-File.pdf'; // Path from public folder
+
+      try {
+        // Method 1: Direct download
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = pdfFileName;
+        
+        // Append to body
+        document.body.appendChild(link);
+        
+        // Trigger download
+        link.click();
+        
+        // Clean up
+        setTimeout(() => {
+          document.body.removeChild(link);
+        }, 100);
+        
+        console.log('PDF download initiated:', pdfFileName);
+        
+      } catch (downloadError) {
+        console.error('Download error:', downloadError);
+        
+        // Fallback: Open in new tab
+        window.open(pdfUrl, '_blank');
+      }
+            
       setIsSubmitted(true);
       
       // Reset after 5 seconds
