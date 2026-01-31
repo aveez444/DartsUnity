@@ -16,168 +16,177 @@ const About = () => {
     <div className="min-h-screen bg-white">
 
   {/* ===================== OUR STORY - Bento Box Layout ===================== */}
-
-<section className="relative bg-gray-50 py-32 overflow-hidden">
-
-    {/* Diagonal gradient wave layer */}
-    <div className="absolute inset-0 pointer-events-none">
-      <svg
-        viewBox="0 0 1440 800"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute -top-40 left-0 w-full rotate-[-4deg]"
-        preserveAspectRatio="none"
-      >
-        <defs>
+  <section className="relative bg-gray-50 py-16 md:py-32 overflow-hidden">
+  {/* Diagonal gradient wave layer */}
+  <div className="absolute inset-0 pointer-events-none">
+    <svg
+      viewBox="0 0 1440 800"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute -top-40 left-0 w-full rotate-[-4deg]"
+      preserveAspectRatio="none"
+    >
+      <defs>
         <linearGradient id="diagWave" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#1110C4" stopOpacity="0.14" />
           <stop offset="55%" stopColor="#1110C4" stopOpacity="0.05" />
           <stop offset="100%" stopColor="#1AD603" stopOpacity="0.10" />
         </linearGradient>
+      </defs>
+      <path
+        d="M0,300 C200,180 420,220 640,260 C900,320 1120,240 1440,180 L1440,0 L0,0 Z"
+        fill="url(#diagWave)"
+      />
+    </svg>
+  </div>
 
-        </defs>
+  {/* Soft diagonal wave */}
+  <div className="absolute inset-0 pointer-events-none">
+    <svg
+      viewBox="0 0 1440 600"
+      className="absolute bottom-0 left-0 w-full rotate-[3deg]"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,120 C240,200 480,80 720,140 C960,200 1200,100 1440,140 L1440,600 L0,600 Z"
+        fill="#1110C4"
+        opacity="0.04"
+      />
+    </svg>
+  </div>
 
-        <path
-          d="M0,300 C200,180 420,220 640,260 C900,320 1120,240 1440,180 L1440,0 L0,0 Z"
-          fill="url(#diagWave)"
-        />
-      </svg>
+  {/* Radial gradient background */}
+  <div className="absolute inset-0">
+    <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-gradient-radial from-[#1110C4]/5 to-transparent rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-[#1AD603]/5 to-transparent rounded-full blur-3xl"></div>
+  </div>
+
+  {/* Curved lines pattern */}
+  <div className="absolute inset-0 opacity-[0.03]">
+    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="curvedLines" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+          <path d="M0,50 Q25,25 50,50 T100,50" stroke="#1110C4" fill="none" strokeWidth="1" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#curvedLines)" />
+    </svg>
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12 md:mb-20">
+      <div className="inline-block mb-4 md:mb-6">
+        <div className="relative">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+            About{' '}
+            <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
+              Us
+            </span>
+          </h2>
+        </div>
+      </div>
     </div>
 
-
-        {/* Soft diagonal wave */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg
-            viewBox="0 0 1440 600"
-            className="absolute bottom-0 left-0 w-full rotate-[3deg]"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,120 C240,200 480,80 720,140 C960,200 1200,100 1440,140 L1440,600 L0,600 Z"
-              fill="#1110C4"
-              opacity="0.04"
-            />
-          </svg>
+    {/* Bento Grid Layout */}
+    <div className="grid lg:grid-cols-12 gap-4 md:gap-6">
+      {/* Large text card */}
+      <div className="lg:col-span-7 bg-white rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 lg:p-14 shadow-lg md:shadow-xl border border-gray-200 relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#1110C4]/5 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+        <div className="relative space-y-4 md:space-y-6">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+            DartsUnity is a B2B data and growth solutions company
+          </h3>
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+            We support organizations with structured, research-led sales and marketing execution.
+            Our services connect businesses with relevant decision-makers through account-based marketing,
+            lead generation, and email outreach.
+          </p>
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+            Every engagement is grounded in accurate data validation, industry-specific research, and clearly
+            defined ICPs—ensuring long-term value creation over short-term volume.
+          </p>
         </div>
+      </div>
 
-        {/* Radial gradient background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-gradient-radial from-[#1110C4]/5 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-[#1AD603]/5 to-transparent rounded-full blur-3xl"></div>
-        </div>
+      {/* Image card */}
+      <div className="lg:col-span-5 bg-gradient-to-br from-gray-100 to-white rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-lg md:shadow-xl border border-gray-200 relative group h-[300px] md:h-auto">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1110C4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <img
+          src={dataAnalyticsImage}
+          alt="Data Analytics"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
+            e.target.parentElement.innerHTML = '<div class="text-center p-8 md:p-12"><div class="text-5xl md:text-7xl mb-4">📊</div><div class="text-gray-600 text-base md:text-lg">Data analytics illustration</div></div>';
+          }}
+        />
+      </div>
 
-        {/* Curved lines pattern */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="curvedLines" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M0,50 Q25,25 50,50 T100,50" stroke="#1110C4" fill="none" strokeWidth="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#curvedLines)"/>
-          </svg>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-20">
-            <div className="inline-block mb-6">
-              <div className="relative">      
-              <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-             About{' '}
-              <span className="bg-gradient-to-r from-[#1110C4] via-[#1110C4]/85 to-[#0B0A8A] bg-clip-text text-transparent">
-               Us
-              </span>
-            </h2>
+      {/* Stats cards - Mobile optimized 2x2 grid */}
+      <div className="lg:col-span-12">
+        <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-12">
+          {/* 100M+ Card */}
+          <div className="col-span-1 lg:col-span-4 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-2xl md:rounded-[2.5rem] p-5 md:p-8 shadow-lg md:shadow-xl text-white relative overflow-hidden h-full">
+            <div className="absolute top-0 right-0 w-20 h-20 md:w-32 md:h-32 bg-white opacity-5 rounded-full blur-xl md:blur-2xl"></div>
+            <div className="relative">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-2">100M+</div>
+              <div className="text-white/80 text-xs md:text-sm uppercase tracking-wider leading-tight">
+                Business Emails
               </div>
-            
             </div>
-        
           </div>
 
-          {/* Bento Grid Layout */}
-          <div className="grid lg:grid-cols-12 gap-6">
-            
-            {/* Large text card */}
-            <div className="lg:col-span-7 bg-white rounded-[2.5rem] p-10 lg:p-14 shadow-xl border border-gray-200 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#1110C4]/5 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-              <div className="relative space-y-6">
-                <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-                  DartsUnity is a B2B data and growth solutions company
-                </h3>
-                <p className="text-xl text-gray-700 leading-relaxed">
-                  We support organizations with structured, research-led sales and marketing execution. 
-                  Our services connect businesses with relevant decision-makers through account-based marketing, 
-                  lead generation, and email outreach.
-                </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Every engagement is grounded in accurate data validation, industry-specific research, and clearly 
-                  defined ICPs—ensuring long-term value creation over short-term volume.
-                </p>
+          {/* 2.5M+ Card */}
+          <div className="col-span-1 lg:col-span-4 bg-white rounded-2xl md:rounded-[2.5rem] p-5 md:p-8 shadow-lg md:shadow-xl border-2 border-[#1110C4]/20 relative overflow-hidden group h-full">
+            <div className="absolute bottom-0 left-0 w-20 h-20 md:w-32 md:h-32 bg-[#1110C4] opacity-5 rounded-full blur-xl md:blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+            <div className="relative">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1110C4] mb-1 md:mb-2">2.5M+</div>
+              <div className="text-gray-600 text-xs md:text-sm uppercase tracking-wider leading-tight">
+                Interactions
               </div>
             </div>
+          </div>
 
-            {/* Image card */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-gray-100 to-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-200 relative group">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1110C4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <img 
-                src={dataAnalyticsImage}
-                alt="Data Analytics"
-                className="w-full h-full object-cover min-h-[400px] lg:min-h-full"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
-                  e.target.parentElement.innerHTML = '<div class="text-center p-12"><div class="text-7xl mb-4">📊</div><div class="text-gray-600 text-lg">Data analytics illustration</div></div>';
-                }}
-              />
-            </div>
-
-            {/* Stats cards row */}
-            <div className="lg:col-span-4 bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] rounded-[2.5rem] p-8 shadow-xl text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl"></div>
-              <div className="relative">
-                <div className="text-5xl font-bold mb-2">100M+</div>
-                <div className="text-white/80 text-sm uppercase tracking-wider">Business Emails</div>
+          {/* 84% Card - Full width on mobile, then fits into grid */}
+          <div className="col-span-2 lg:col-span-4 bg-gradient-to-br from-green-600 to-green-500 rounded-2xl md:rounded-[2.5rem] p-5 md:p-8 shadow-lg md:shadow-xl text-white relative overflow-hidden h-full">
+            <div className="absolute top-0 right-0 w-20 h-20 md:w-32 md:h-32 bg-[#1AD603] opacity-10 rounded-full blur-xl md:blur-2xl"></div>
+            <div className="relative">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-2">84%</div>
+              <div className="text-white/80 text-xs md:text-sm uppercase tracking-wider leading-tight">
+                Retention Rate
               </div>
             </div>
-
-            <div className="lg:col-span-4 bg-white rounded-[2.5rem] p-8 shadow-xl border-2 border-[#1110C4]/20 relative overflow-hidden group">
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#1110C4] opacity-5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative">
-                <div className="text-5xl font-bold text-[#1110C4] mb-2">2.5M+</div>
-                <div className="text-gray-600 text-sm uppercase tracking-wider">Interactions</div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 bg-gradient-to-br from-green-600 to-green-500 rounded-[2.5rem] p-8 shadow-xl text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#1AD603] opacity-10 rounded-full blur-2xl"></div>
-              <div className="relative">
-                <div className="text-5xl font-bold mb-2">84%</div>
-                <div className="text-white/80 text-sm uppercase tracking-wider">Retention Rate</div>
-              </div>
-            </div>
-
-            {/* Values cards */}
-            {[
-              { title: 'Data Integrity', desc: 'Multi-layer validation ensures accuracy', icon: '🎯' },
-              { title: 'Compliance First', desc: 'Transparency & regulatory adherence', icon: '🛡️' },
-              { title: 'Long-Term Value', desc: 'Sustainable growth over volume', icon: '📈' }
-            ].map((item, i) => (
-              <div key={i} className="lg:col-span-4 bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:border-[#1110C4]/30 transition-all duration-300">
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
+      </div>
 
-        {/* Wavy divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
-            <path d="M0,64 C240,90 480,40 720,64 C960,88 1200,38 1440,64 L1440,120 L0,120 Z" fill="white"/>
-          </svg>
+      {/* Values cards */}
+      {[
+        { title: 'Data Integrity', desc: 'Multi-layer validation ensures accuracy', icon: '🎯' },
+        { title: 'Compliance First', desc: 'Transparency & regulatory adherence', icon: '🛡️' },
+        { title: 'Long-Term Value', desc: 'Sustainable growth over volume', icon: '📈' }
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="lg:col-span-4 bg-white rounded-2xl md:rounded-[2.5rem] p-5 md:p-8 shadow-lg md:shadow-xl border border-gray-200 hover:shadow-2xl hover:border-[#1110C4]/30 transition-all duration-300"
+        >
+          <div className="text-4xl md:text-5xl mb-3 md:mb-4">{item.icon}</div>
+          <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
+          <p className="text-sm md:text-base text-gray-600">{item.desc}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+
+  {/* Wavy divider */}
+  <div className="absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+      <path d="M0,64 C240,90 480,40 720,64 C960,88 1200,38 1440,64 L1440,120 L0,120 Z" fill="white" />
+    </svg>
+  </div>
+</section>
+
+
 {/* ===================== MISSION & VISION ===================== */}
 <section className="relative bg-gradient-to-br from-blue-50 to-white py-24 lg:py-32 overflow-hidden">
   {/* Background path line */}

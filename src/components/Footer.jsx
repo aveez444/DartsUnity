@@ -28,7 +28,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-white/80 mb-6 leading-relaxed max-w-sm">
-              Data-driven B2B lead generation that accelerates your business growth. Trusted by worldwide enterprise clients.
+              Data-driven B2B lead generation that accelerates your business growth. Trusted by worldwide clients.
             </p>
             
             {/* Social Links - Updated with actual URLs */}

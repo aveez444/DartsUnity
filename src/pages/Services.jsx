@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import servicesTelemarketingImage from '../assets/ManagedService.jpg';
 import servicesABMImage from '../assets/AccountBasedMarket1.jpg';
 import servicesAppointmentImage from '../assets/AppointmentGeneration.jpg';
+import servicesBANTImage from '../assets/servicesBANTImage.jpg';
 
 const Services = () => {
   const navigate = useNavigate();
@@ -402,6 +403,8 @@ const Services = () => {
 
   </div>
 </section>
+
+
 {/* ===================== ENGAGEMENT & OUTREACH SERVICES ===================== */}
 <section className="relative bg-white py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -416,139 +419,56 @@ const Services = () => {
 
     <div className="space-y-16">
       
-      {/* ===================== BANT QUALIFICATION ===================== */}
-      <div className="bg-gradient-to-b from-gray-50 to-white rounded-3xl p-6 lg:p-8 border border-gray-200 shadow-sm">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          
-          {/* Left: BANT Header & Description */}
-          <div className="lg:order-1 order-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1110C4] to-[#0B0A8A] flex items-center justify-center">
-                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">BANT Qualification Framework</h3>
-            </div>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Systematic lead assessment using Budget, Authority, Need, and Timeline criteria to ensure sales-ready prospects. 
-              The BANT framework evaluates leads through four critical business dimensions, ensuring only qualified 
-              opportunities reach your sales team.
-            </p>
-            
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              {[
-                { text: 'Focuses sales efforts on verified prospects', color: 'bg-[#1110C4]' },
-                { text: 'Reduces wasted time on unqualified leads', color: 'bg-[#1AD603]' },
-                { text: 'Increases conversion with pre-vetted opportunities', color: 'bg-[#1110C4]' },
-                { text: 'Provides clear context for sales conversations', color: 'bg-[#1AD603]' }
-              ].map((benefit, idx) => (
-                <div key={idx} className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
-                  <div className={`w-2 h-2 rounded-full ${benefit.color} mt-1.5 flex-shrink-0`}></div>
-                  <span className="text-sm text-gray-700">{benefit.text}</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="pt-4 border-t border-gray-200">
-              <p className="text-sm text-gray-600 italic">
-                Each BANT-qualified lead includes detailed assessment documentation for all four criteria.
-              </p>
-            </div>
-          </div>
-          
-          {/* Right: BANT Grid */}
-          <div className="lg:order-2 order-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-              {[
-                {
-                  title: 'Budget',
-                  desc: 'Verified budget allocation and purchasing capacity',
-                  criteria: [
-                    'Budget availability confirmed',
-                    'Purchase authority verified',
-                    'Funding timeline established'
-                  ],
-                  accentColor: 'border-l-[#1110C4]',
-                  dotColor: 'bg-[#1110C4]'
-                },
-                {
-                  title: 'Authority',
-                  desc: 'Decision-making power and influence validated',
-                  criteria: [
-                    'Decision maker identified',
-                    'Approval process understood',
-                    'Stakeholder influence mapped'
-                  ],
-                  accentColor: 'border-l-[#1AD603]',
-                  dotColor: 'bg-[#1AD603]'
-                },
-                {
-                  title: 'Need',
-                  desc: 'Clear business requirements and pain points',
-                  criteria: [
-                    'Business problem defined',
-                    'Solution requirements clear',
-                    'Impact on operations assessed'
-                  ],
-                  accentColor: 'border-l-[#1110C4]',
-                  dotColor: 'bg-[#1110C4]'
-                },
-                {
-                  title: 'Timeline',
-                  desc: 'Defined purchase and implementation schedule',
-                  criteria: [
-                    'Purchase deadline established',
-                    'Implementation schedule planned',
-                    'Urgency level assessed'
-                  ],
-                  accentColor: 'border-l-[#1AD603]',
-                  dotColor: 'bg-[#1AD603]'
-                }
-              ].map((item, index) => (
-                <div 
-                  key={index}
-                  className={`bg-white rounded-xl p-4 lg:p-5 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 ${item.accentColor} border border-gray-100`}
-                >
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className={`w-3 h-3 rounded-full ${item.dotColor} mt-1 flex-shrink-0`}></div>
-                    <div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h4>
-                      <p className="text-xs text-gray-600">{item.desc}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-1.5 ml-6">
-                    {item.criteria.map((criterion, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <div className={`w-1.5 h-1.5 rounded-full ${item.dotColor}`}></div>
-                        <span className="text-xs text-gray-700">{criterion}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Note Callout */}
-            <div className="mt-6 bg-gray-50 rounded-xl p-4 border border-gray-200">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1110C4]/10 flex items-center justify-center mt-0.5">
-                  <svg className="h-4 w-4 text-[#1110C4]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <p className="text-sm text-gray-700">
-                  <span className="font-semibold">Note:</span> BANT qualification is applied to all SQL (Sales Qualified Leads) and HQL (High Quality Leads) to ensure maximum sales efficiency.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-        </div>
+  {/* ===================== BANT QUALIFICATION ===================== */}
+<div className="grid lg:grid-cols-2 gap-12 items-center">
+  {/* Content Left */}
+  <div className="lg:order-1 order-2">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1AD603] to-[#2BEC06] flex items-center justify-center">
+        <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
       </div>
-
+      <h3 className="text-2xl font-bold text-gray-900">BANT Qualification Framework</h3>
+    </div>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      Systematic lead assessment using Budget, Authority, Need, and Timeline criteria to ensure sales-ready prospects. 
+      The BANT framework evaluates leads through four critical business dimensions, ensuring only qualified 
+      opportunities reach your sales team.
+    </p>
+    <ul className="space-y-3">
+      {[
+        'Focuses sales efforts on verified prospects',
+        'Reduces wasted time on unqualified leads',
+        'Increases conversion with pre-vetted opportunities',
+        'Provides clear context for sales conversations'
+      ].map((item, i) => (
+        <li key={i} className="flex items-start gap-3">
+          <div className="w-2 h-2 bg-[#1AD603] rounded-full mt-2 flex-shrink-0"></div>
+          <span className="text-gray-700">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
+  {/* Image Right */}
+  <div className="relative lg:order-2 order-1">
+    <div className="aspect-square rounded-2xl overflow-hidden border-4 border-gray-100 shadow-xl">
+      <img 
+        src={servicesBANTImage}  
+        alt="BANT Qualification Framework"
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          e.target.style.display = 'none';
+          e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-[#1AD603]/10', 'to-[#2BEC06]/10');
+          e.target.parentElement.innerHTML = '<div class="text-center p-8"><div class="text-6xl mb-4">✅</div><div class="text-gray-600">BANT Qualification</div></div>';
+        }}
+      />
+    </div>
+    <div className="absolute -top-6 -right-6 w-32 h-32 bg-[#1AD603] rounded-full opacity-20 blur-3xl"></div>
+  </div>
+</div>
+ 
       {/* ===================== TELEMARKETING ===================== */}
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Image Left */}
